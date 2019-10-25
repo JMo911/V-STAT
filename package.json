@@ -33,6 +33,9 @@
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",
+    "react": "^16.11.0",
+    "react-bootstrap": "^1.0.0-beta.14",
+    "react-router-dom": "^5.1.2",
     "sequelize": "^4.41.2",
     "sequelize-cli": "^5.5.1",
     "universal-cookie": "^4.0.2"
