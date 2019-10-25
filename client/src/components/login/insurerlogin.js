@@ -8,18 +8,16 @@ import {
     Row
     } from "react-bootstrap";
 import './styles.css';
+import {BrowserRouter, Route, Link} from "react-router-dom";
+import InsurerSignup from "../signup/signup"
 
 export function InsurerLogin() {
 
-    // const [show, setShow] = useState(false);
-
-    // const handleClose = () => setShow(false);
-    // const handleShow = () => setShow(true);
-
         return (
+            <>
             <div className="user-login-area" id="insurance-login-area">
-            <Card.Body>
-                <Form>
+                <Card.Body>
+                    <Form>
                         <Col>
                             <Form.Control placeholder="Insurance Company"/>
                         </Col>
@@ -31,32 +29,22 @@ export function InsurerLogin() {
                                 Insurance Login
                             </Button>
                         </Col>
-                </Form>
+                    </Form>
 
-                {/* <Button variant="primary" onClick={handleShow}>
-                    Launch demo modal
-                </Button>
 
-                <Modal show={show} onHide={handleClose} animation={false}>
-                    <Modal.Header closeButton>
-                    <Modal.Title>Modal heading</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
-                    <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
-                        Close
-                    </Button>
-                    <Button variant="primary" onClick={handleClose}>
-                        Save Changes
-                    </Button>
-                    </Modal.Footer>
-                </Modal> */}
+                    <BrowserRouter>
+                        <Route exact path="/insurer-signup-page" component={InsurerSignup} />
+                        <Link to = "/insurer-signup-page">
+                            <Button id="insurer-signup-button">Create New User</Button> 
+                        </Link>
+                    </BrowserRouter>
 
 
 
 
-            </Card.Body>
+                </Card.Body>
             </div>
+            </>
         )
         }
 export default InsurerLogin;

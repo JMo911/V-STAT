@@ -10,10 +10,12 @@ import {
     Row
     } from "react-bootstrap";
 import './styles.css';
+import CustomerSignup from "../signup/customersignup";
+import {BrowserRouter, Route, Link} from "react-router-dom";
 
 
 
-class MechanicLogin extends Component {
+class CustomerLogin extends Component {
     render() {
         return (
             <div className="user-login-area" id="customer-login-area">
@@ -26,12 +28,20 @@ class MechanicLogin extends Component {
                             <Form.Control placeholder="Ticket #" />
                         </Col>
                         <Col>
-                            <Button id="mechanic-login-button">Customer Login</Button>
+                            <Button id="customer-login-button">Customer Login</Button>
                         </Col>
                 </Form>
+
+                <BrowserRouter>
+                    <Route exact path="/customer-signup-page" component={CustomerSignup} />
+                    <Link to = "/customer-signup-page">
+                        <Button id="customer-signup-button">Create New User</Button> 
+                    </Link>
+                </BrowserRouter>
+
             </Card.Body>
             </div>
         )
     }
 }
-export default MechanicLogin;
+export default CustomerLogin;

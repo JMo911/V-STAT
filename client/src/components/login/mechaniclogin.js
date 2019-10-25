@@ -10,6 +10,8 @@ import {
     Row
     } from "react-bootstrap";
 import './styles.css';
+import MechanicSignup from "../signup/mechanicsignup";
+import {BrowserRouter, Route, Link} from "react-router-dom";
 
 
 
@@ -29,6 +31,16 @@ class MechanicLogin extends Component {
                             <Button id="mechanic-login-button">Mechanic Login</Button>
                         </Col>
                 </Form>
+
+
+                <BrowserRouter>
+                    <Route exact path="/mechanic-signup-page" component={MechanicSignup} />
+                    <Link to = "/mechanic-signup-page">
+                        <Button id="mechanic-signup-button">Create New User</Button> 
+                    </Link>
+                </BrowserRouter>
+
+
             </Card.Body>
             </div>
         )

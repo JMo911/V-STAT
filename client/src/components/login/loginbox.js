@@ -12,7 +12,6 @@ import MechanicLogin from "../login/mechaniclogin"
 import CustomerLogin from "../login/customerlogin"
 
 
-
 class LoginBox extends Component {
     render() {
       return (
@@ -20,17 +19,23 @@ class LoginBox extends Component {
                 <BrowserRouter>
                         <div id="loginBox">
                             <Route exact path="/insurance-login" component={InsurerLogin} />
-                            <Route exact path="/mechanic-login" component={MechanicLogin} />
-                            <Route exact path="/customer-login" component={CustomerLogin} />
+
+
                             <Link to = "/insurance-login">
                                 <Button id="insuranceButton">Show Insurance Login</Button>
                             </Link> 
+
+                            <Route exact path="/mechanic-login" component={MechanicLogin} />
                             <Link to = "/mechanic-login">
                                 <Button id="mechanicLogin">Show Mechanic Login</Button> 
                             </Link>
+
+                            <Route exact path="/customer-login" component={CustomerLogin} />
                             <Link to = "/customer-login">
                                 <Button id="customerLogin">Show Customer Login</Button> 
-                            </Link>                    
+                            </Link>
+
+
                         </div>
                 </BrowserRouter>
         </Container>

@@ -7,6 +7,7 @@ import LoginPage from "./components/login/index";
 import LoginBox from "./components/login/loginbox";
 // import LoginForm from "./components/LoginForm";
 import SignupPage from "./components/signup/signup";
+import NewTicket from "./components/tickets/index";
 
 class App extends Component {
 
@@ -23,12 +24,13 @@ class App extends Component {
             <Row>
               <Col md={8}>
                 <div id="mainArea">
-                  <LoginPage />
-
-                    <Route exact path="/signup-page" component={SignupPage} />
-                    <Link to = "/signup-page">
-                        <Button id="new-user-button">Create New User</Button>
-                    </Link> 
+                  <Route exact path="/" component={LoginPage} />
+                  <Route exact path="/signup-page" component={SignupPage} />
+                  <Route exact path="/new-ticket" component={NewTicket} />
+                  
+                  <Link to = "/new-ticket">
+                      <Button id="ticket-button">Create New Ticket</Button>
+                  </Link> 
 
 
 
