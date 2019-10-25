@@ -1,11 +1,11 @@
 {
   "development": {
-    "username": "homestead",
-    "password": "secret",
-    "database": "authDemo",
+    "username": "root",
+    "password": "root",
+    "database": "project3auth",
     "host": "127.0.0.1",
     "dialect": "mysql",
-    "port": 33060,
+    "port": 3307,
     "freezeTableName": true,
     "operatorsAliases": false
   },
