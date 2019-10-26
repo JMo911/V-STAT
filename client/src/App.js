@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 // import logo from './logo.svg';
 import './App.css';
-import {BrowserRouter, Route, Link} from "react-router-dom";
+import {BrowserRouter, Route, Link, Switch} from "react-router-dom";
 import {Button, Container, Row, Col} from "react-bootstrap";
 import LoginPage from "./components/login/index";
 import LoginBox from "./components/login/loginbox";
@@ -29,58 +29,31 @@ class App extends Component {
     return (
         <Container>
           <BrowserRouter>
-            <Row>
+            {/* <Row>
               
-              <Col md={8}>
-                <div id="mainArea">
-                  <Route exact path="/" component={LoginPage} />
-                  
+              <Col md={8}> */}
+                  <Switch>
+                    <Route exact path="/" component={LoginPage} />
+                    
 
-                  
-                  <Route exact path="/login" component={LoginBox} />
-                  <Link to = "/login">
-                      <Button id="login-button">Login</Button>
-                  </Link> 
+                    
+                    <Route exact path="/login" component={LoginBox} />
 
 
-                  <Route exact path="/new-ticket" component={NewTicket} />
-                  <Link to = "/new-ticket">
-                      <Button id="ticket-button">Create New Ticket</Button>
-                  </Link> 
+
+                    <Route exact path="/new-ticket" component={NewTicket} />
+                    {/* <Link to = "/new-ticket">
+                        <Button id="ticket-button">Create New Ticket</Button>
+                    </Link>  */}
+
+                    
+                    <Route exact path="/mechanic-splash" component={MechanicSplash} />
 
 
-                  <Route exact path="/mechanic-splash" component={MechanicSplash} />
-                  <Link to = "/mechanic-splash">
-                      <Button id="mechanic-button">Show Mechanic Splash Screen</Button>
-                  </Link> 
+                  </Switch>
+              {/* </Col>
 
-
-                </div>
-              </Col>
-              <Col md={4}>
-                {/* <div id="loginBox">
-                  <Route exact path="/insurance-login" component={InsurerLogin} />
-
-
-                  <Link to = "/insurance-login">
-                      <Button id="insuranceButton">Show Insurance Login</Button>
-                  </Link> 
-
-                  <Route exact path="/mechanic-login" component={MechanicLogin} />
-                  <Link to = "/mechanic-login">
-                      <Button id="mechanicLogin">Show Mechanic Login</Button> 
-                  </Link>
-
-                  <Route exact path="/customer-login" component={CustomerLogin} />
-                  <Link to = "/customer-login">
-                      <Button id="customerLogin">Show Customer Login</Button> 
-                  </Link>
-
-
-                </div>               */}
-                {/* <LoginBox /> */}
-              </Col>
-            </Row>
+            </Row> */}
           </BrowserRouter>
         </Container>
     );

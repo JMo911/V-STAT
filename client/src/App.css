@@ -1,4 +1,4 @@
-#mainArea {
+#loginArea {
   color:green;
   width: 700px;
   position: absolute;
@@ -41,4 +41,20 @@
   margin-left:15px;
   left:20px;
   position:relative;
+}
+
+/* Fixing a bunch of height and margin shit. */
+#root {
+  height:100%;
+  width:100%;
+}
+.container {
+  height:100%;
+  margin:0;
+}
+.row {
+  height:100%;
+}
+.col {
+  height:100%;
 }

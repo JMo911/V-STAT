@@ -32,13 +32,13 @@ class MechanicLogin extends Component {
                         </Col>
                 </Form>
 
-
-                <BrowserRouter>
                     <Route exact path="/mechanic-signup-page" component={MechanicSignup} />
                     <Link to = "/mechanic-signup-page">
                         <Button id="mechanic-signup-button">Create New User</Button> 
                     </Link>
-                </BrowserRouter>
+                    <Link to = "/mechanic-splash">
+                        <Button id="mechanic-button">Show Mechanic Splash Screen</Button>
+                    </Link> 
 
 
             </Card.Body>

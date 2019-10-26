@@ -32,12 +32,17 @@ export function InsurerLogin() {
                     </Form>
 
 
-                    <BrowserRouter>
+
+
+                    {/* <BrowserRouter> */}
                         <Route exact path="/insurer-signup-page" component={InsurerSignup} />
                         <Link to = "/insurer-signup-page">
                             <Button id="insurer-signup-button">Create New User</Button> 
                         </Link>
-                    </BrowserRouter>
+                        <Link to = "/new-ticket">
+                            <Button id="ticket-button">Create New Ticket</Button>
+                        </Link> 
+                    {/* </BrowserRouter> */}
 
 
 

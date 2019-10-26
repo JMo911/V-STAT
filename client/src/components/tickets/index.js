@@ -15,6 +15,7 @@ import './styles.css';
 
 class NewTicket extends Component {
     render() {
+        console.log("Ticket View has been loaded!");
       return (
         <Container>
             {/* <Row> */}
@@ -42,7 +43,7 @@ class NewTicket extends Component {
 
                             <Form.Group controlId="formGridAddress1">
                                 <Form.Label>Vehicle Year</Form.Label>
-                                <Form.Control placeholder="1234 Main St" />
+                                <Form.Control placeholder="Vehicle Year" />
                             </Form.Group>
 
                             <Form.Group controlId="formGridAddress2">
