@@ -5,7 +5,10 @@ module.exports = function(sequelize, DataTypes) {
     const Mechanic = sequelize.define(
         'Mechanic',
         {
-            username: DataTypes.STRING,
+            username: { 
+                type: DataTypes.STRING, 
+                unique: true 
+            },
             password: DataTypes.STRING
         },
         {
