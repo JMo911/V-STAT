@@ -5,17 +5,14 @@ module.exports = function(sequelize, DataTypes) {
     const User = sequelize.define(
         'User',
         {
-            username: DataTypes.STRING,
-            password: DataTypes.STRING,
-            email: DataTypes.STRING,
-            first_name: DataTypes.STRING,
-            last_name: DataTypes.STRING,
+            lastName: DataTypes.STRING,
+            caseNumber: DataTypes.STRING
         },
         {
             hooks: {
                 beforeCreate: (user) => {
                     const salt = bcrypt.genSaltSync();
-                    user.password = bcrypt.hashSync(user.password, salt);
+                    user.caseNumber = bcrypt.hashSync(user.caseNumber, salt);
                 },
             }
         }
@@ -24,10 +21,10 @@ module.exports = function(sequelize, DataTypes) {
         // associations can be defined here
     };
 
-    User.prototype.validatePassword = function(password) {
+    User.prototype.validateCaseNumber = function(caseNumber) {
         return bcrypt.compareSync(
-            password,
-            this.password
+            caseNumber,
+            this.caseNumber
         );
     };
 

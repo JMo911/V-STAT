@@ -14,13 +14,10 @@ module.exports = {
       }], {});
     */
     var fields = {
-        username: 'JDoe',
-        password: 'password',
-        email: 'test@example.com',
-        first_name: 'John',
-        last_name: 'Doe',
-        createdAt: new Date(),
-        updatedAt: new Date()
+        lastName: "JDoe",
+        caseNumber: "1234"
+        // createdAt: new Date(),
+        // updatedAt: new Date()
     };
     return models.User.create(fields);
   },
