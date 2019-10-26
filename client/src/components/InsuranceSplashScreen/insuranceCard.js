@@ -3,7 +3,7 @@ import Card from 'react-bootstrap/Card'
 import {Button} from "react-bootstrap";
 import {Link} from 'react-router-dom';
 
-const MechanicCard = (props) => {
+const InsuranceCard = (props) => {
   return (
     <React.Fragment>
     <div className="cardDiv">
@@ -23,7 +23,7 @@ const MechanicCard = (props) => {
           </Card.Text>
 
         </Card.Body>
-        <Link to = "/insurance-ticket-view">
+        <Link to = "/MasterView">
           <Button variant="primary">View Ticket</Button>
         </Link>
       </Card>
@@ -32,4 +32,4 @@ const MechanicCard = (props) => {
   );
 };
 
-export default MechanicCard;
+export default InsuranceCard;

@@ -7,6 +7,7 @@ import {
     Tab,
     Tabs
     } from "react-bootstrap";
+    import {Link} from 'react-router-dom';
 import './styles.css';
 
 
@@ -28,6 +29,9 @@ export function CustomerLogin() {
                             <Col>
                                 <Button id="customer-login-button" class="signup-button">Customer Login</Button>
                             </Col>
+                            <Link to = "/MasterView">
+                                <Button variant="primary">View Ticket</Button>
+                            </Link>
                         </Form>
                     </Tab>
                     <Tab eventKey="Signup" title="Sign Up">
