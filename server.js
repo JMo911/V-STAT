@@ -9,6 +9,8 @@ import passport from 'passport';
 import LocalStrategy from './strategies/local';
 import JWTStrategy from './strategies/jwt';
 
+const routes = require('./routes');
+
 const PORT = process.env.PORT || 3001;
 const app = express();
 
@@ -33,6 +35,10 @@ passport.use(JWTStrategy);
 import authRoutes from './routes/auth';
 authRoutes(app);
 
+// import apiRoutes from './routes/api';
+// apiRoutes(app);
+app.use(routes);
+
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
@@ -40,10 +46,10 @@ if (process.env.NODE_ENV === "production") {
 
 // Send every request to the React app
 // Define any API routes before this runs
-app.get("*", function(req, res) {
+app.get("*", function (req, res) {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
-app.listen(PORT, function() {
+app.listen(PORT, function () {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
 });
