@@ -1,62 +1,57 @@
-import React, { Component } from "react";
+import React from "react";
 import {
     Button,
     Card,
     Col,
     Form,
-    Modal, 
-    Row
+    Tab,
+    Tabs
     } from "react-bootstrap";
 import './styles.css';
+import {Link} from "react-router-dom";
 
 export function InsurerLogin() {
 
-    // const [show, setShow] = useState(false);
-
-    // const handleClose = () => setShow(false);
-    // const handleShow = () => setShow(true);
-
-        return (
-            <div className="user-login-area" id="insurance-login-area">
+    return (
+        <div className="user-login-area" id="insurance-login-area">
             <Card.Body>
-                <Form>
+            <Tabs defaultActiveKey="Login" transition={false} id="noanim-tab-example">
+                <Tab eventKey="Login" title="Log In">
+                    <Form>
                         <Col>
-                            <Form.Control placeholder="Insurance Company"/>
+                            <Form.Control placeholder="Insurance Company" />
                         </Col>
                         <Col>
-                            <Form.Control placeholder="Insurance Employee ID #" />
+                            <Form.Control placeholder="Agent ID #" />
                         </Col>
                         <Col>
-                            <Button id="insurer-login-button">
-                                Insurance Login
-                            </Button>
+                            <Button id="insurer-login-button" class="signup-button">Insurer Login</Button>
                         </Col>
-                </Form>
-
-                {/* <Button variant="primary" onClick={handleShow}>
-                    Launch demo modal
-                </Button>
-
-                <Modal show={show} onHide={handleClose} animation={false}>
-                    <Modal.Header closeButton>
-                    <Modal.Title>Modal heading</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
-                    <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
-                        Close
-                    </Button>
-                    <Button variant="primary" onClick={handleClose}>
-                        Save Changes
-                    </Button>
-                    </Modal.Footer>
-                </Modal> */}
+                    </Form>
+                </Tab>
+                <Tab eventKey="Signup" title="Sign Up">
+                    <Form>
+                        <Col>
+                            <Form.Control placeholder="Enter Insurance Company" />
+                        </Col>
+                        <Col>
+                            <Form.Control placeholder="Enter Agent ID #" />
+                        </Col>
+                        <Col>
+                            <Button id="new-user-button">Create User</Button>
+                        </Col>
+                    </Form>
+                </Tab>
+            </Tabs>
+                <Link to = "/new-ticket">
+                    <Button id="ticket-button">Create New Ticket</Button>
+                </Link> 
 
 
 
 
             </Card.Body>
-            </div>
-        )
-        }
+        </div>
+    )
+}
 export default InsurerLogin;

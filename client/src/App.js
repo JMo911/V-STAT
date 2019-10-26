@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-// import logo from './logo.svg';
 import './App.css';
-import {BrowserRouter, Route, Link, Switch} from "react-router-dom";
-import {Button, Container, Row, Col} from "react-bootstrap";
+import {BrowserRouter, Route, Switch} from "react-router-dom";
+import {Container} from "react-bootstrap";
 import LoginPage from "./components/login/index";
 import LoginBox from "./components/login/loginbox";
-// import LoginForm from "./components/LoginForm";
-import SignupPage from "./components/signup/signup";
+import NewTicket from "./components/tickets/index";
+import MechanicSplash from "./components/mechanicsplash/mechanicSplash.js";
+
 import MasterView from "./components/MasterView/TicketView";
 import InsuranceSplash from "./components/InsuranceSplashScreen/index";
 
@@ -22,25 +22,20 @@ class App extends Component {
     return (
         <Container>
           <BrowserRouter>
-            <Row>
-              <Col md={8}>
-                <div id="mainArea">
-                  {/* <LoginPage /> */}
-                    <Switch>
+            {/* <Row>
+              
+              <Col md={8}> */}
+                  <Switch>
                     <Route exact path="/InsuranceSplash" component = {InsuranceSplash} />
                     <Route exact path="/MasterView" component = {MasterView} />
-                    <Route exact path="/signup-page" component={SignupPage} />
-                    </Switch>
+                    <Route exact path="/" component={LoginPage} />
+                    <Route exact path="/login" component={LoginBox} />
+                    <Route exact path="/new-ticket" component={NewTicket} />
+                    <Route exact path="/mechanic-splash" component={MechanicSplash} />
+                  </Switch>
+              {/* </Col>
 
-                    <Link to = "/signup-page">
-                        <Button id="new-user-button">Create New User</Button>
-                    </Link> 
-                </div>
-              </Col>
-              <Col md={3}>
-                <LoginBox />
-              </Col>
-            </Row>
+            </Row> */}
           </BrowserRouter>
         </Container>
     );

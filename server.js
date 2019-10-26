@@ -11,6 +11,7 @@ import JWTStrategy from './strategies/jwt';
 
 const PORT = process.env.PORT || 3001;
 const app = express();
+const routes = require('./routes');
 
 // Middlewares
 app.use(express.json());
@@ -32,6 +33,7 @@ passport.use(JWTStrategy);
 
 import authRoutes from './routes/auth';
 authRoutes(app);
+app.use(routes);
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {

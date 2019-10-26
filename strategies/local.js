@@ -3,18 +3,18 @@ import models from '../models';
 
 const localStrategy = new LocalStrategy(
     {
-        usernameField: 'username',
-        passwordField: 'password'
+        usernameField: 'lastName',
+        passwordField: 'caseNumber'
     },
-    function(username, password, cb) {
+    function(lastName, caseNumber, cb) {
         models.User.findOne({
             where: {
-                username: username
+                lastName: lastName
             }
         }).then(
             function(user) {
-                if (!user || !user.validatePassword(password)) {
-                    return cb(null, false, {message: 'Incorrect email or password.'});
+                if (!user || !user.validateCaseNumber(caseNumber)) {
+                    return cb(null, false, {message: 'Incorrect last name or case number.'});
                 }
                 return cb(null, user, {message: 'Logged In Successfully'});
             }
