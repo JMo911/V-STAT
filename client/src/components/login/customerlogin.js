@@ -1,21 +1,17 @@
-import React, { Component } from "react";
+import React from "react";
 import {
     Button,
     Card,
     Col,  
     Form,
-    Row,     
     Tab,
     Tabs
     } from "react-bootstrap";
 import './styles.css';
-import CustomerSignup from "../signup/customersignup";
-import {BrowserRouter, Route, Link} from "react-router-dom";
 
 
 
-class CustomerLogin extends Component {
-    render() {
+export function CustomerLogin() {
         return (
             <div className="user-login-area" id="customer-login-area">
             <Card.Body>
@@ -52,5 +48,5 @@ class CustomerLogin extends Component {
             </div>
         )
     }
-}
+
 export default CustomerLogin;

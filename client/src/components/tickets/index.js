@@ -1,13 +1,9 @@
 import React, { Component } from "react";
 import {
-    Accordion, 
     Button,
-    Card,
     Col,  
     Container,
     Form,
-    Control, 
-    Row
     } from "react-bootstrap";
 import './styles.css';
 
@@ -18,14 +14,9 @@ class NewTicket extends Component {
         console.log("Ticket View has been loaded!");
       return (
         <Container>
-            {/* <Row> */}
-                {/* <Col md={2}> */}
                     <div id="mainArea">
                         <p>Create New Ticket</p>
                     </div>
-                    
-                {/* </Col> */}
-                {/* <Col md={10}> */}
                     <div id="ticketInputArea">
                         
                         <Form>
