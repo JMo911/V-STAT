@@ -1,0 +1,225 @@
+h6 {
+    margin-bottom: 1.2rem;
+}
+
+.btn {
+    padding: 4px 10px;
+}
+
+.single-comment {
+    border-bottom: 1px solid #cecece;
+}
+
+.single-comment:last-child {
+    border-bottom: none;
+}
+
+@media only screen and (max-width: 1200px) {
+    .detail-values img {
+        width: 74% !important;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .detail-values img {
+        width: 100% !important;
+    }
+
+    p, h6 {
+        font-size: 15px;
+        margin-bottom: 1.1rem;
+    }
+
+    legend {
+        font-size: 19px;
+    }
+
+    .btn-info {
+        margin-left: 0 !important;
+        margin-top: 5px;
+        padding: 4px 8px;
+    }
+
+    .comment {
+        width: 120px !important;
+        height: 95px !important;
+    }
+
+    .single-comment img {
+        width: 150% !important;
+        margin-left: 3px !important;
+        margin-top: 20px !important;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .detail-values img {
+        width: 64% !important;
+    }
+
+    .comment-container {
+        margin-top: 30px !important;
+    }
+
+    .single-comment img {
+        width: 50% !important;
+        margin-left: 15px !important;
+        margin-top: -6px !important;
+    }
+
+    .single-comment .col-8 {
+        margin-left: -50px !important;
+    }
+
+    .single-comment p {
+        font-size: 18px;
+    }
+
+    .comment {
+        padding-top: 15px !important;
+        width: 100% !important;
+    }
+
+    /*legend {*/
+        /*font-size: 19px;*/
+    /*}*/
+
+    .btn-info {
+        margin-left: 5px !important;
+        margin-top: 0 !important;
+        padding: 4px 11px !important;
+    }
+
+    .col-md-5.col-sm-5.p-0 {
+        padding: 0 15px !important;
+    }
+
+    .completed-tasks {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .padding-zero {
+        padding: 0 !important;
+    }
+
+    /*.comment {*/
+        /*width: 120px !important;*/
+        /*height: 95px !important;*/
+    /*}*/
+
+    /*.single-comment img {*/
+        /*width: 150% !important;*/
+        /*margin-left: 3px !important;*/
+        /*margin-top: 20px !important;*/
+    /*}*/
+}
+
+@media only screen and (max-width: 570px) {
+    .btn-info {
+        margin-left: 5px !important;
+        margin-top: 0 !important;
+        padding: 4px 11px !important;
+    }
+
+}
+
+@media only screen and (max-width: 435px) {
+    .detail-values img {
+        width: 180px !important;
+    }
+
+    .btn-info {
+        margin-left: 0 !important;
+        margin-top: 5px !important;
+        padding: 4px 8px !important;
+    }
+    .ticket {
+        margin-top: 77px !important;
+    }
+
+    .col-md-5.col-sm-5.p-0 {
+        padding: 0 20px !important;
+    }
+
+    .actions {
+        margin-left: 60px !important;
+        margin-bottom: 10px;
+    }
+}
+
+@media only screen and (max-width: 402px) {
+    .actions {
+        margin-left: 50px !important;
+    }
+
+    .single-comment img {
+        margin-top: 10px !important;
+        margin-left: 5px !important;
+    }
+}
+
+@media only screen and (max-width: 380px) {
+    .actions {
+        margin-left: 40px !important;
+    }
+
+    .detail-values img {
+        width: 150px !important;
+    }
+
+    .ticket {
+        margin-top: 55px !important;
+    }
+}
+
+@media only screen and (max-width: 355px) {
+    .actions {
+        margin-left: 30px !important;
+    }
+
+    .detail-values img {
+        width: 140px !important;
+    }
+
+    .ticket {
+        margin-top: 45px !important;
+    }
+}
+
+@media only screen and (max-width: 330px) {
+    .actions {
+        margin-left: 20px !important;
+    }
+
+    .detail-values img {
+        width: 130px !important;
+    }
+
+    .ticket {
+        margin-top: 35px !important;
+    }
+}
+
+@media only screen and (max-width: 308px) {
+    .actions {
+        margin-left: 10px !important;
+    }
+
+    p, h6 {
+        font-size: 13px;
+    }
+
+    .single-comment img {
+        margin-top: 15px !important;
+        margin-left: 2px !important;
+    }
+
+    .detail-values img {
+        width: 120px !important;
+    }
+
+    .ticket {
+        margin-top: 33px !important;
+    }
+}
