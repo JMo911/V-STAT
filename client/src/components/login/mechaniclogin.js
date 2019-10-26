@@ -1,49 +1,56 @@
-import React, { Component } from "react";
+import React from "react";
 import {
-    // Accordion, 
     Button,
     Card,
-    Col,  
-    // Container,
+    Col, 
     Form,
-    // Control, 
-    Row
+    Tab,
+    Tabs
     } from "react-bootstrap";
 import './styles.css';
-import MechanicSignup from "../signup/mechanicsignup";
-import {BrowserRouter, Route, Link} from "react-router-dom";
+import {Link} from "react-router-dom";
 
 
-
-class MechanicLogin extends Component {
-    render() {
-        return (
-            <div className="user-login-area" id="mechanic-login-area">
-            <Card.Body>
-                <Form>
+export function MechanicLogin() {
+    return (
+        <div className="user-login-area" id="mechanic-login-area">
+        <Card.Body>
+            <Tabs defaultActiveKey="Login" transition={false} id="noanim-tab-example">
+                <Tab eventKey="Login" title="Log In">
+                    <Form>
                         <Col>
-                            <Form.Control placeholder="Automotive Body Shop" />
+                            <Form.Control placeholder="Automotive Body Shop Name" />
                         </Col>
                         <Col>
-                            <Form.Control placeholder="Automotive Body Shop Password" />
+                            <Form.Control placeholder="Body Shop Password" />
                         </Col>
                         <Col>
-                            <Button id="mechanic-login-button" className="signup-button">Mechanic Login</Button>
+                            <Button id="mechanic-login-button" class="signup-button">Mechanic Login</Button>
                         </Col>
-                </Form>
+                    </Form>
+                </Tab>
+                <Tab eventKey="Signup" title="Sign Up">
+                    <Form>
+                        <Col>
+                            <Form.Control placeholder="Enter Body Shop Name" />
+                        </Col>
+                        <Col>
+                            <Form.Control placeholder="Enter Body Shop Password" />
+                        </Col>
+                        <Col>
+                            <Button id="new-user-button">Create User</Button>
+                        </Col>
+                    </Form>
+                </Tab>
+            </Tabs>
 
-                    <Route exact path="/mechanic-signup-page" component={MechanicSignup} />
-                    <Link to = "/mechanic-signup-page">
-                        <Button id="mechanic-signup-button">Create New User</Button> 
-                    </Link>
-                    <Link to = "/mechanic-splash">
-                        <Button id="mechanic-button">Show Mechanic Splash Screen</Button>
-                    </Link> 
+                <Link to = "/mechanic-splash">
+                    <Button id="mechanic-button">Show Mechanic Splash Screen</Button>
+                </Link> 
 
 
-            </Card.Body>
-            </div>
-        )
-    }
+        </Card.Body>
+        </div>
+    )
 }
 export default MechanicLogin;

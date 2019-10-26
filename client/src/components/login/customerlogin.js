@@ -1,47 +1,52 @@
-import React, { Component } from "react";
+import React from "react";
 import {
-    // Accordion, 
     Button,
     Card,
     Col,  
-    // Container,
     Form,
-    // Control, 
-    Row
+    Tab,
+    Tabs
     } from "react-bootstrap";
 import './styles.css';
-import CustomerSignup from "../signup/customersignup";
-import {BrowserRouter, Route, Link} from "react-router-dom";
 
 
 
-class CustomerLogin extends Component {
-    render() {
+export function CustomerLogin() {
         return (
             <div className="user-login-area" id="customer-login-area">
             <Card.Body>
-                <Form>
-                        <Col>
-                            <Form.Control placeholder="Last Name" />
-                        </Col>
-                        <Col>
-                            <Form.Control placeholder="Ticket #" />
-                        </Col>
-                        <Col>
-                            <Button id="customer-login-button" class="signup-button">Customer Login</Button>
-                        </Col>
-                </Form>
 
-                <BrowserRouter>
-                    <Route exact path="/customer-signup-page" component={CustomerSignup} />
-                    <Link to = "/customer-signup-page">
-                        <Button id="customer-signup-button">Create New User</Button> 
-                    </Link>
-                </BrowserRouter>
-
+                <Tabs defaultActiveKey="Login" transition={false} id="noanim-tab-example">
+                    <Tab eventKey="Login" title="Log In">
+                        <Form>
+                            <Col>
+                                <Form.Control placeholder="Last Name" />
+                            </Col>
+                            <Col>
+                                <Form.Control placeholder="Ticket #" />
+                            </Col>
+                            <Col>
+                                <Button id="customer-login-button" class="signup-button">Customer Login</Button>
+                            </Col>
+                        </Form>
+                    </Tab>
+                    <Tab eventKey="Signup" title="Sign Up">
+                        <Form>
+                            <Col>
+                                <Form.Control placeholder="Enter Username" />
+                            </Col>
+                            <Col>
+                                <Form.Control placeholder="Enter Password" />
+                            </Col>
+                            <Col>
+                                <Button id="new-user-button">Create User</Button>
+                            </Col>
+                        </Form>
+                    </Tab>
+                </Tabs>
             </Card.Body>
             </div>
         )
     }
-}
+
 export default CustomerLogin;

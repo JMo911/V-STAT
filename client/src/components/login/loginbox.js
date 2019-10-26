@@ -1,12 +1,9 @@
 import React, { Component } from "react";
 import {
-    Button,
-    Col,  
     Container,
     Tab,
     Tabs
     } from "react-bootstrap";
-import {BrowserRouter, Route, Link} from "react-router-dom";
 import './styles.css';
 import InsurerLogin from "../login/insurerlogin"
 import MechanicLogin from "../login/mechaniclogin"

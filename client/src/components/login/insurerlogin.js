@@ -1,55 +1,57 @@
-import React, { Component } from "react";
+import React from "react";
 import {
     Button,
     Card,
     Col,
     Form,
-    Modal, 
-    Row
+    Tab,
+    Tabs
     } from "react-bootstrap";
 import './styles.css';
-import {BrowserRouter, Route, Link} from "react-router-dom";
-import InsurerSignup from "../signup/signup"
+import {Link} from "react-router-dom";
 
 export function InsurerLogin() {
 
-        return (
-            <>
-            <div className="user-login-area" id="insurance-login-area">
-                <Card.Body>
+    return (
+        <div className="user-login-area" id="insurance-login-area">
+            <Card.Body>
+            <Tabs defaultActiveKey="Login" transition={false} id="noanim-tab-example">
+                <Tab eventKey="Login" title="Log In">
                     <Form>
                         <Col>
-                            <Form.Control placeholder="Insurance Company"/>
+                            <Form.Control placeholder="Insurance Company" />
                         </Col>
                         <Col>
-                            <Form.Control placeholder="Insurance Employee ID #" />
+                            <Form.Control placeholder="Agent ID #" />
                         </Col>
                         <Col>
-                            <Button id="insurer-login-button" className="signup-button">
-                                Insurance Login
-                            </Button>
+                            <Button id="insurer-login-button" class="signup-button">Insurer Login</Button>
                         </Col>
                     </Form>
+                </Tab>
+                <Tab eventKey="Signup" title="Sign Up">
+                    <Form>
+                        <Col>
+                            <Form.Control placeholder="Enter Insurance Company" />
+                        </Col>
+                        <Col>
+                            <Form.Control placeholder="Enter Agent ID #" />
+                        </Col>
+                        <Col>
+                            <Button id="new-user-button">Create User</Button>
+                        </Col>
+                    </Form>
+                </Tab>
+            </Tabs>
+                <Link to = "/new-ticket">
+                    <Button id="ticket-button">Create New Ticket</Button>
+                </Link> 
 
 
 
 
-                    {/* <BrowserRouter> */}
-                        <Route exact path="/insurer-signup-page" component={InsurerSignup} />
-                        <Link to = "/insurer-signup-page">
-                            <Button id="insurer-signup-button">Create New User</Button> 
-                        </Link>
-                        <Link to = "/new-ticket">
-                            <Button id="ticket-button">Create New Ticket</Button>
-                        </Link> 
-                    {/* </BrowserRouter> */}
-
-
-
-
-                </Card.Body>
-            </div>
-            </>
-        )
-        }
+            </Card.Body>
+        </div>
+    )
+}
 export default InsurerLogin;
