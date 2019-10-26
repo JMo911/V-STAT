@@ -17,14 +17,14 @@ class NewTicket extends Component {
     render() {
       return (
         <Container>
-            <Row>
-                <Col md={2}>
+            {/* <Row> */}
+                {/* <Col md={2}> */}
                     <div id="mainArea">
                         <p>Create New Ticket</p>
                     </div>
                     
-                </Col>
-                <Col md={10}>
+                {/* </Col> */}
+                {/* <Col md={10}> */}
                     <div id="ticketInputArea">
                         
                         <Form>
@@ -79,8 +79,8 @@ class NewTicket extends Component {
                             </Button>
                         </Form>
                     </div>
-                </Col>
-            </Row>
+                {/* </Col> */}
+            {/* </Row> */}
         </Container>
       )
     }

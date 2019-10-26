@@ -25,7 +25,7 @@ export function InsurerLogin() {
                             <Form.Control placeholder="Insurance Employee ID #" />
                         </Col>
                         <Col>
-                            <Button id="insurer-login-button">
+                            <Button id="insurer-login-button" className="signup-button">
                                 Insurance Login
                             </Button>
                         </Col>

@@ -2,7 +2,7 @@
   color:green;
   width: 700px;
   position: absolute;
-  left: 15rem;
+  left: 10rem;
 }
 #loginBox {
   right: 10%;
@@ -28,4 +28,17 @@
 }
 .btn-primary {
   margin-left: 10px;
+}
+
+.new-user-area {
+  background-color: orange;
+  position: absolute;
+  left: 0px;
+  top: 150px;
+}
+
+.signup-button {
+  margin-left:15px;
+  left:20px;
+  position:relative;
 }

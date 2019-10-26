@@ -28,7 +28,7 @@ class MechanicLogin extends Component {
                             <Form.Control placeholder="Automotive Body Shop Password" />
                         </Col>
                         <Col>
-                            <Button id="mechanic-login-button">Mechanic Login</Button>
+                            <Button id="mechanic-login-button" className="signup-button">Mechanic Login</Button>
                         </Col>
                 </Form>
 

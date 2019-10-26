@@ -28,7 +28,7 @@ class CustomerLogin extends Component {
                             <Form.Control placeholder="Ticket #" />
                         </Col>
                         <Col>
-                            <Button id="customer-login-button">Customer Login</Button>
+                            <Button id="customer-login-button" class="signup-button">Customer Login</Button>
                         </Col>
                 </Form>
 
