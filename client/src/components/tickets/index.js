@@ -15,16 +15,17 @@ import './styles.css';
 
 class NewTicket extends Component {
     render() {
+        console.log("Ticket View has been loaded!");
       return (
         <Container>
-            <Row>
-                <Col md={2}>
+            {/* <Row> */}
+                {/* <Col md={2}> */}
                     <div id="mainArea">
                         <p>Create New Ticket</p>
                     </div>
                     
-                </Col>
-                <Col md={10}>
+                {/* </Col> */}
+                {/* <Col md={10}> */}
                     <div id="ticketInputArea">
                         
                         <Form>
@@ -42,7 +43,7 @@ class NewTicket extends Component {
 
                             <Form.Group controlId="formGridAddress1">
                                 <Form.Label>Vehicle Year</Form.Label>
-                                <Form.Control placeholder="1234 Main St" />
+                                <Form.Control placeholder="Vehicle Year" />
                             </Form.Group>
 
                             <Form.Group controlId="formGridAddress2">
@@ -79,8 +80,8 @@ class NewTicket extends Component {
                             </Button>
                         </Form>
                     </div>
-                </Col>
-            </Row>
+                {/* </Col> */}
+            {/* </Row> */}
         </Container>
       )
     }

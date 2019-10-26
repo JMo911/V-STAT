@@ -16,7 +16,7 @@
   #root {
     display: flex;
     flex-direction: column;
-    width: 400px;
+    width: 100%;
     color: white;
     font-family: 'PT Sans', Helvetica, sans-serif;
   }

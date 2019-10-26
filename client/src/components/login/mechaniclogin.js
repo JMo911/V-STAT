@@ -10,6 +10,8 @@ import {
     Row
     } from "react-bootstrap";
 import './styles.css';
+import MechanicSignup from "../signup/mechanicsignup";
+import {BrowserRouter, Route, Link} from "react-router-dom";
 
 
 
@@ -26,9 +28,19 @@ class MechanicLogin extends Component {
                             <Form.Control placeholder="Automotive Body Shop Password" />
                         </Col>
                         <Col>
-                            <Button id="mechanic-login-button">Mechanic Login</Button>
+                            <Button id="mechanic-login-button" className="signup-button">Mechanic Login</Button>
                         </Col>
                 </Form>
+
+                    <Route exact path="/mechanic-signup-page" component={MechanicSignup} />
+                    <Link to = "/mechanic-signup-page">
+                        <Button id="mechanic-signup-button">Create New User</Button> 
+                    </Link>
+                    <Link to = "/mechanic-splash">
+                        <Button id="mechanic-button">Show Mechanic Splash Screen</Button>
+                    </Link> 
+
+
             </Card.Body>
             </div>
         )
