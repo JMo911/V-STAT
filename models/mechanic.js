@@ -1,12 +1,33 @@
 'use strict';
-module.exports = (sequelize, DataTypes) => {
-  const Mechanic = sequelize.define('Mechanic', {
-    shop: DataTypes.STRING,
-    password: DataTypes.STRING
-  }, {});
-  Mechanic.associate = function(models) {
-    // associations can be defined here
-    Mechanic.hasMany(models.Ticket);
-  };
-  return Mechanic;
+var bcrypt = require('bcrypt');
+
+module.exports = function(sequelize, DataTypes) {
+    const Mechanic = sequelize.define(
+        'Mechanic',
+        {
+            username: DataTypes.STRING,
+            password: DataTypes.STRING
+        },
+        {
+            hooks: {
+                beforeCreate: (mechanic) => {
+                    const salt = bcrypt.genSaltSync();
+                    mechanic.password = bcrypt.hashSync(mechanic.password, salt);
+                },
+            }
+        }
+    );
+    Mechanic.associate = function(models) {
+        // associations can be defined here
+        Mechanic.hasOne(models.Ticket);
+    };
+
+    Mechanic.prototype.validatePassword = function(password) {
+        return bcrypt.compareSync(
+            password,
+            this.password
+        );
+    };
+
+    return Mechanic;
 };

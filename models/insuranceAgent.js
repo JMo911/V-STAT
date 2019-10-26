@@ -1,21 +1,33 @@
 'use strict';
-module.exports = (sequelize, DataTypes) => {
-  const insuranceAgent = sequelize.define('insuranceAgent', {
-    companyName: DataTypes.STRING,
-    employeeID: DataTypes.INTEGER
-  }, {});
-  insuranceAgent.associate = function(models) {
-    // associations can be defined here
-    insuranceAgent.hasMany(models.Ticket);
-  };
-  return insuranceAgent;
+var bcrypt = require('bcrypt');
+
+module.exports = function(sequelize, DataTypes) {
+    const insuranceAgent = sequelize.define(
+        'insuranceAgent',
+        {
+            username: DataTypes.STRING,
+            password: DataTypes.STRING
+        },
+        {
+            hooks: {
+                beforeCreate: (insuranceAgent) => {
+                    const salt = bcrypt.genSaltSync();
+                    insuranceAgent.password = bcrypt.hashSync(insuranceAgent.password, salt);
+                },
+            }
+        }
+    );
+    insuranceAgent.associate = function(models) {
+        // associations can be defined here
+        insuranceAgent.hasOne(models.Ticket);
+    };
+
+    insuranceAgent.prototype.validatePassword = function(password) {
+        return bcrypt.compareSync(
+            password,
+            this.password
+        );
+    };
+
+    return insuranceAgent;
 };
-
-
-// Post.hasMany(Comment, {
-//   foreignKey: 'commentableId',
-//   constraints: false,
-//   scope: {
-//     commentable: 'post'
-//   }
-// });
