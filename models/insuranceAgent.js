@@ -8,7 +8,6 @@ module.exports = (sequelize, DataTypes) => {
     // associations can be defined here
     insuranceAgent.hasMany(models.Ticket);
   };
-  insuranceAgent.sync();
   return insuranceAgent;
 };
 

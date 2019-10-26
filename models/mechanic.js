@@ -8,6 +8,5 @@ module.exports = (sequelize, DataTypes) => {
     // associations can be defined here
     Mechanic.hasMany(models.Ticket);
   };
-  Mechanic.sync();
   return Mechanic;
 };

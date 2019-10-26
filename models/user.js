@@ -19,6 +19,7 @@ module.exports = function(sequelize, DataTypes) {
     );
     User.associate = function(models) {
         // associations can be defined here
+        User.hasOne(models.Ticket);
     };
 
     User.prototype.validateCaseNumber = function(caseNumber) {
@@ -27,8 +28,6 @@ module.exports = function(sequelize, DataTypes) {
             this.caseNumber
         );
     };
-
-    User.sync();
 
     return User;
 };
