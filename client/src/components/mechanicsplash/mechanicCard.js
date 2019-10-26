@@ -4,22 +4,31 @@ import {Button} from "react-bootstrap";
 import {Link} from 'react-router-dom';
 
 const MechanicCard = (props) => {
+
+  // "caseNumber": {data.caseNumber},
+  // "estimatedCost": {data.estimatedCost},
+  // "approvalDate": {data.approvalDate},
+  // "vehicleMake": {data.vehicleMake},
+  // "vehicleModel": {data.vehicleModel},
+  // "vehicleYear": {data.vehicleYear},
+  // "vehicleMileage": {data.vehicleMileage}
   return (
     <React.Fragment>
     <div className="cardDiv">
       <Card style={{backgroundColor: "rgba(255,255,255,0.2"}}>
         {/* <Card.Img top width="100%" src={props.photo} alt="Card image cap" /> */}
         <Card.Body>
-          <Card.Title>{props.make} {props.model} {props.year}</Card.Title>
+          <Card.Title>{props.vehicleMake} {props.vehicleModel} {props.vehicleYear}</Card.Title>
           <br/>
           <Card.Text>
-              Customer: {props.name}
+              Case Number: {props.caseNumber}
               <br/>
-              Insurance Company: {props.insurer}
+              Estimated Cost: ${props.estimatedCost}
               <br/>
-              Insurance Agent: {props.insurerAgent}
+              Approval Date: {props.approvalDate}
               <br/>
-              <img src={props.photo} alt="stuff" />
+              Vehicle Mileage: {props.vehicleMileage}
+              {/* <img src={props.photo} alt="stuff" /> */}
           </Card.Text>
 
         </Card.Body>
