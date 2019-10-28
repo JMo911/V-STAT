@@ -38,6 +38,12 @@ class MechanicSplash extends Component {
                     vehicleModel={data.vehicleModel}
                     vehicleYear={data.vehicleYear}
                     vehicleMileage={data.vehicleMileage}
+                    customerNameFirst={data.customerNameFirst}
+                    customerNameLast={data.customerNameLast}
+                    mechanicNameFirst={data.mechanicNameFirst}
+                    mechanicNameLast={data.mechanicNameLast}
+                    insuranceNameFirst={data.insuranceNameFirst}
+                    insuranceNameLast={data.insuranceNameLast}
 
 
 

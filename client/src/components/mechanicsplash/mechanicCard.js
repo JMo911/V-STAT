@@ -28,6 +28,7 @@ const MechanicCard = (props) => {
               Approval Date: {props.approvalDate}
               <br/>
               Vehicle Mileage: {props.vehicleMileage}
+              <br/>
               {/* <img src={props.photo} alt="stuff" /> */}
           </Card.Text>
 
