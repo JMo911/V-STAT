@@ -7,5 +7,14 @@
         "insurer": "Geico",
         "insurerAgent": "Flo",
         "photo": "https://i.ytimg.com/vi/knrb8t99ThI/hqdefault.jpg"
+    },
+    {
+        "caseNumber": "testticket",
+        "estimatedCost": 12000,
+        "approvalDate": "1990-01-01",
+        "vehicleMake": "testticket",
+        "vehicleModel": "testticket",
+        "vehicleYear": 1980,
+        "vehicleMileage": 9001
     }
 ]

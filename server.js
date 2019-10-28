@@ -11,7 +11,7 @@ import JWTStrategy from './strategies/jwt';
 
 const PORT = process.env.PORT || 3001;
 const app = express();
-const routes = require('./routes');
+
 
 // Middlewares
 app.use(express.json());
@@ -23,6 +23,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
+const routes = require('./routes');
 
 passport.use(LocalStrategy);
 passport.use(JWTStrategy);

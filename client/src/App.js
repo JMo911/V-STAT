@@ -9,6 +9,7 @@ import MechanicSplash from "./components/mechanicsplash/mechanicSplash.js";
 
 import MasterView from "./components/MasterView/TicketView";
 import InsuranceSplash from "./components/InsuranceSplashScreen/index";
+import InsuranceTicketView from "./components/InsuranceSplashScreen/insuranceTicketView";
 
 class App extends Component {
 
@@ -26,9 +27,11 @@ class App extends Component {
               
               <Col md={8}> */}
                   <Switch>
+                  <Route exact path="/" component={LoginPage} />
                     <Route exact path="/InsuranceSplash" component = {InsuranceSplash} />
+                    <Route exact path="/insurance-ticket-view" component = {InsuranceTicketView} />
                     <Route exact path="/MasterView" component = {MasterView} />
-                    <Route exact path="/" component={LoginPage} />
+
                     <Route exact path="/login" component={LoginBox} />
                     <Route exact path="/new-ticket" component={NewTicket} />
                     <Route exact path="/mechanic-splash" component={MechanicSplash} />
