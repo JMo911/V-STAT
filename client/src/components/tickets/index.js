@@ -5,6 +5,7 @@ import {
     Container,
     Form,
     } from "react-bootstrap";
+import {Link} from 'react-router-dom';
 import './styles.css';
 
 
@@ -62,13 +63,12 @@ class NewTicket extends Component {
                                 </Form.Group>
                             </Form.Row>
 
-                            <Form.Group id="formGridCheckbox">
-                                <Form.Check type="checkbox" label="Check me out" />
-                            </Form.Group>
-
                             <Button variant="primary" type="submit">
                                 Submit
                             </Button>
+                            <Link to = "/MasterView">
+                                <Button variant="primary">View Ticket</Button>
+                            </Link>
                         </Form>
                     </div>
                 {/* </Col> */}

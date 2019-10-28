@@ -43,8 +43,9 @@ export function InsurerLogin() {
                     </Form>
                 </Tab>
             </Tabs>
-                <Link to = "/new-ticket">
-                    <Button id="ticket-button">Create New Ticket</Button>
+
+                <Link to = "/InsuranceSplash">
+                    <Button id="insurance-splash-button">Insurance Splash</Button>
                 </Link> 
 
 
