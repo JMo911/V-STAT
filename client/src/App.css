@@ -4,18 +4,25 @@
   position: absolute;
   left: 10rem;
 }
+.centered {
+  position:absolute;
+  left:30%;
+  top:30%;
+  margin-left:-50px;
+  margin-top:-50px;
+}
 #loginBox {
-  right: 10%;
-  position: absolute;
-  top: 5%;
-  width: 800px;
-  height: 250px;
+  width: 600px;
+  height: auto;
+}
+.tab-pane {
+  width:100%;
 }
 .user-login-area {
   position: inherit;
   top: 50px;
   width: 100%;
-  height: 150px;
+  height: auto;
 }
 #insurance-login-area {
   background-color: blue;
@@ -30,12 +37,12 @@
   margin-left: 10px;
 }
 
-.new-user-area {
+/* .new-user-area {
   background-color: orange;
   position: absolute;
   left: 0px;
   top: 150px;
-}
+} */
 
 .signup-button {
   margin-left:15px;

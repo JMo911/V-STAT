@@ -288,7 +288,7 @@ class MasterView extends Component {
                                             <div className="row">
                                                 <div className="col-md-3 col-4">
                                                     <div className="image" style={{marginTop: 15}}>
-                                                        <img src={require('../../frontend-assets/images/avatar3.png')} alt="image" className="rounded-circle w-100" style={{marginLeft: 5}}/>
+                                                        <img src={require('../../frontend-assets/images/avatar3.png')} alt="pic" className="rounded-circle w-100" style={{marginLeft: 5}}/>
                                                     </div>
                                                 </div>
                                                 <div className="col-md-9 col-8 p-0">
@@ -303,7 +303,7 @@ class MasterView extends Component {
                                             <div className="row">
                                                 <div className="col-md-3 col-4">
                                                     <div className="image" style={{marginTop: 15}}>
-                                                        <img src={require('../../frontend-assets/images/avatar3.png')} alt="image" className="rounded-circle w-100" style={{marginLeft: 5}}/>
+                                                        <img src={require('../../frontend-assets/images/avatar3.png')} alt="pic" className="rounded-circle w-100" style={{marginLeft: 5}}/>
                                                     </div>
                                                 </div>
                                                 <div className="col-md-9 col-8 p-0">
@@ -318,7 +318,7 @@ class MasterView extends Component {
                                             <div className="row">
                                                 <div className="col-md-3 col-4">
                                                     <div className="image" style={{marginTop: 15}}>
-                                                        <img src={require('../../frontend-assets/images/avatar3.png')} alt="image" className="rounded-circle w-100" style={{marginLeft: 5}}/>
+                                                        <img src={require('../../frontend-assets/images/avatar3.png')} alt="pic" className="rounded-circle w-100" style={{marginLeft: 5}}/>
                                                     </div>
                                                 </div>
                                                 <div className="col-md-9 col-8 p-0">
@@ -333,7 +333,7 @@ class MasterView extends Component {
                                             <div className="row">
                                                 <div className="col-md-3 col-4">
                                                     <div className="image" style={{marginTop: 15}}>
-                                                        <img src={require('../../frontend-assets/images/avatar3.png')} alt="image" className="rounded-circle w-100" style={{marginLeft: 5}}/>
+                                                        <img src={require('../../frontend-assets/images/avatar3.png')} alt="pic" className="rounded-circle w-100" style={{marginLeft: 5}}/>
                                                     </div>
                                                 </div>
                                                 <div className="col-md-9 col-8 p-0">
@@ -348,7 +348,7 @@ class MasterView extends Component {
                                             <div className="row">
                                                 <div className="col-md-3 col-4">
                                                     <div className="image" style={{marginTop: 15}}>
-                                                        <img src={require('../../frontend-assets/images/avatar3.png')} alt="image" className="rounded-circle w-100" style={{marginLeft: 5}}/>
+                                                        <img src={require('../../frontend-assets/images/avatar3.png')} alt="pic" className="rounded-circle w-100" style={{marginLeft: 5}}/>
                                                     </div>
                                                 </div>
                                                 <div className="col-md-9 col-8 p-0">

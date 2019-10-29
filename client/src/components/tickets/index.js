@@ -8,8 +8,8 @@ import {
 import {Link} from 'react-router-dom';
 import './styles.css';
 
-import { connect } from "react-redux";
-import { createTicket } from "../../actions";
+// import { connect } from "react-redux";
+// import { createTicket } from "../../actions";
 
 
 

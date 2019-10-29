@@ -1,13 +1,9 @@
 import React, { Component } from "react";
 import {
-    // Accordion, 
     Button,
     Card,
     Col,  
-    // Container,
-    Form,
-    // Control, 
-    Row
+    Form
     } from "react-bootstrap";
 import './styles.css';
 
@@ -21,7 +17,7 @@ class CustomerSignup extends Component {
             customerUsername: "",
             customerPassword: "",
             customerNameFirst: "",
-            customerNameLast: "",        
+            customerNameLast: ""
         };
     
         this.handleChange = this.handleChange.bind(this);
@@ -30,21 +26,21 @@ class CustomerSignup extends Component {
     
       handleChange(event) {
         let name = event.target.name;
-        let value = event.target.value;
         this.setState({[name]: event.target.value});
-        // this.setState({
-        //     [name]: value
-        //   });
       }
     
       handleSubmit(event) {
           console.log("Our state now contains...", this.state);
-        alert("Submitting...\n" +
-            "Username: " + this.state.customerUsername + "\n" +
-            "Password: " + this.state.customerPassword + "\n" + 
-            "First Name: " + this.state.customerNameFirst + "\n" +
-            "Last Name: " + this.state.customerNameLast);
-        // alert('A name was submitted: ' + this.state.value);
+        alert(
+            "Submitting...\n" +
+            "Username: " + this.state.customerUsername + 
+            "\n" +
+            "Password: " + this.state.customerPassword + 
+            "\n" + 
+            "First Name: " + this.state.customerNameFirst + 
+            "\n" +
+            "Last Name: " + this.state.customerNameLast
+        );
         event.preventDefault();
       }
 
@@ -57,35 +53,39 @@ class CustomerSignup extends Component {
                     <Form onSubmit={this.handleSubmit}>
                         <Col>
                             <Form.Control 
-                            id="customer-username-input"
-                            value={this.state.customerUsername} 
-                            onChange={this.handleChange}
-                            name="customerUsername"
-                            placeholder="Enter Username" />
+                                id="customer-username-input"
+                                value={this.state.customerUsername} 
+                                onChange={this.handleChange}
+                                name="customerUsername"
+                                placeholder="Enter Username" 
+                            />
                         </Col>
                         <Col>
                             <Form.Control 
-                            id="customer-password-input" 
-                            value={this.state.customerPassword} 
-                            onChange={this.handleChange}
-                            name="customerPassword"
-                            placeholder="Enter Password" />
+                                id="customer-password-input" 
+                                value={this.state.customerPassword} 
+                                onChange={this.handleChange}
+                                name="customerPassword"
+                                placeholder="Enter Password" 
+                            />
                         </Col>
                         <Col>
                             <Form.Control 
-                            id="customer-first-name-input" 
-                            value={this.state.customerNameFirst} 
-                            onChange={this.handleChange}
-                            name="customerNameFirst"
-                            placeholder="Enter First Name" />
+                                id="customer-first-name-input" 
+                                value={this.state.customerNameFirst} 
+                                onChange={this.handleChange}
+                                name="customerNameFirst"
+                                placeholder="Enter First Name" 
+                            />
                         </Col>
                         <Col>
                             <Form.Control 
-                            id="customer-last-name-input" 
-                            value={this.state.customerNameLast} 
-                            onChange={this.handleChange}
-                            name="customerNameLast"
-                            placeholder="Enter Last Name" />
+                                id="customer-last-name-input" 
+                                value={this.state.customerNameLast} 
+                                onChange={this.handleChange}
+                                name="customerNameLast"
+                                placeholder="Enter Last Name" 
+                            />
                         </Col>
                         <Col>
                             {/* <input type="submit" value="Submit" /> */}
