@@ -9,7 +9,9 @@ module.exports = function(sequelize, DataTypes) {
                 type: DataTypes.STRING, 
                 unique: true 
             },
-            password: DataTypes.STRING
+            password: DataTypes.STRING,
+            firstName: DataTypes.STRING,
+            lastName: DataTypes.STRING
         },
         {
             hooks: {
@@ -23,6 +25,7 @@ module.exports = function(sequelize, DataTypes) {
     User.associate = function(models) {
         // associations can be defined here
         User.hasOne(models.Ticket);
+        User.hasOne(models.UserType);
     };
 
     User.prototype.validatePassword = function(password) {
@@ -34,3 +37,4 @@ module.exports = function(sequelize, DataTypes) {
 
     return User;
 };
+

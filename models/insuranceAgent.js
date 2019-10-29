@@ -9,7 +9,10 @@ module.exports = function(sequelize, DataTypes) {
                 type: DataTypes.STRING, 
                 unique: true 
             },
-            password: DataTypes.STRING
+            password: DataTypes.STRING,
+            firstName: DataTypes.STRING,
+            lastName: DataTypes.STRING,
+            companyName: DataTypes.STRING
         },
         {
             hooks: {
