@@ -1,11 +1,38 @@
 import React, {Component} from 'react';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../frontend-assets/css/masterView.css';
+// import TicketCard from "./TicketCard.js";
 
 class MasterView extends Component {
     render() {
         return (
             <React.Fragment>
+
+
+                {/* {this.state.data.map(data => (
+                    <TicketCard 
+
+                    caseNumber={data.caseNumber}
+                    estimatedCost={data.estimatedCost}
+                    approvalDate={data.approvalDate}
+                    vehicleMake={data.vehicleMake}
+                    vehicleModel={data.vehicleModel}
+                    vehicleYear={data.vehicleYear}
+                    vehicleMileage={data.vehicleMileage}
+                    customerNameFirst={data.customerNameFirst}
+                    customerNameLast={data.customerNameLast}
+                    mechanicNameFirst={data.mechanicNameFirst}
+                    mechanicNameLast={data.mechanicNameLast}
+                    mechanicShopName={data.mechanicShopName}
+                    insuranceNameFirst={data.insuranceNameFirst}
+                    insuranceNameLast={data.insuranceNameLast}
+                    insuranceCompany={data.insuranceCompany}
+                    />
+                ))} */}
+
+
+
+
                 <section id="master-view" className="mt-5 mb-5">
                     <div className="container">
                         <div className="row" style={{boxShadow: '0 0 9px 2px #a0a0a0', padding: '30px 5px 5px 25px'}}>

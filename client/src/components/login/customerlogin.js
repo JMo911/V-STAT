@@ -9,6 +9,7 @@ import {
     } from "react-bootstrap";
     import {Link} from 'react-router-dom';
 import './styles.css';
+import CustomerSignup from "../signup/customersignup";
 
 
 
@@ -35,17 +36,10 @@ export function CustomerLogin() {
                         </Form>
                     </Tab>
                     <Tab eventKey="Signup" title="Sign Up">
-                        <Form>
-                            <Col>
-                                <Form.Control placeholder="Enter Username" />
-                            </Col>
-                            <Col>
-                                <Form.Control placeholder="Enter Password" />
-                            </Col>
-                            <Col>
-                                <Button id="new-user-button">Create User</Button>
-                            </Col>
-                        </Form>
+                        <CustomerSignup />
+                        <Link to = "/MasterView">
+                            <Button id="customer-passthru-button">Master View</Button>
+                        </Link> 
                     </Tab>
                 </Tabs>
             </Card.Body>

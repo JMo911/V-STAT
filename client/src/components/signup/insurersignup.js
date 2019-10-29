@@ -20,10 +20,19 @@ class InsurerSignup extends Component {
                 <Card.Body>
                     <Form>
                         <Col>
-                            <Form.Control placeholder="Enter Username" />
+                            <Form.Control id="insurance-username-input" placeholder="Enter Username" />
                         </Col>
                         <Col>
-                            <Form.Control placeholder="Enter Password" />
+                            <Form.Control id="insurance-password-input" placeholder="Enter Password" />
+                        </Col>
+                        <Col>
+                            <Form.Control id="insurance-first-name-input" placeholder="Enter First Name" />
+                        </Col>
+                        <Col>
+                            <Form.Control id="insurance-last-name-input" placeholder="Enter Last Name" />
+                        </Col>
+                        <Col>
+                            <Form.Control id="insurance-company-input" placeholder="Enter Insurance Company" />
                         </Col>
                         <Col>
                             <Button id="new-user-button">Create User</Button>

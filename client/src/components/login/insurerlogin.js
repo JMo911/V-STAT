@@ -9,6 +9,7 @@ import {
     } from "react-bootstrap";
 import './styles.css';
 import {Link} from "react-router-dom";
+import InsurerSignup from "../signup/insurersignup";
 
 export function InsurerLogin() {
 
@@ -30,17 +31,7 @@ export function InsurerLogin() {
                     </Form>
                 </Tab>
                 <Tab eventKey="Signup" title="Sign Up">
-                    <Form>
-                        <Col>
-                            <Form.Control placeholder="Enter Insurance Company" />
-                        </Col>
-                        <Col>
-                            <Form.Control placeholder="Enter Agent ID #" />
-                        </Col>
-                        <Col>
-                            <Button id="new-user-button">Create User</Button>
-                        </Col>
-                    </Form>
+                    <InsurerSignup />
                 </Tab>
             </Tabs>
 

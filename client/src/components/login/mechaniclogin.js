@@ -9,7 +9,7 @@ import {
     } from "react-bootstrap";
 import './styles.css';
 import {Link} from "react-router-dom";
-
+import MechanicSignup from "../signup/mechanicsignup";
 
 export function MechanicLogin() {
     return (
@@ -30,17 +30,7 @@ export function MechanicLogin() {
                     </Form>
                 </Tab>
                 <Tab eventKey="Signup" title="Sign Up">
-                    <Form>
-                        <Col>
-                            <Form.Control placeholder="Enter Body Shop Name" />
-                        </Col>
-                        <Col>
-                            <Form.Control placeholder="Enter Body Shop Password" />
-                        </Col>
-                        <Col>
-                            <Button id="new-user-button">Create User</Button>
-                        </Col>
-                    </Form>
+                    <MechanicSignup />
                 </Tab>
             </Tabs>
 
