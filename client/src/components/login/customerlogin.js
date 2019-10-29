@@ -2,6 +2,7 @@ import {React, Component} from "react";
 import {
     Button,
     Card,
+    Container,
     Col,  
     Form,
     Tab,
@@ -44,6 +45,7 @@ class CustomerLogin extends Component {
 
     render() {
         return (
+            <Container>
             <div id="customer-login">
                 <Card.Body>
                     <Tabs defaultActiveKey="Login" transition={false} id="noanim-tab-example">
@@ -78,6 +80,7 @@ class CustomerLogin extends Component {
                     </Tabs>
                 </Card.Body>
             </div>
+            </Container>
         )
     }
 }

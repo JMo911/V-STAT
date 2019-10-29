@@ -44,6 +44,10 @@
   top: 150px;
 } */
 
+#ticketInputArea {
+  color:black;
+}
+
 .signup-button {
   margin-left:15px;
   left:20px;
