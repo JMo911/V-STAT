@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   UserType.associate = function(models) {
     // associations can be defined here
-    UserType.belongsTo(models.User)
+    UserType.hasMany(models.User)
   };
   return UserType;
 };

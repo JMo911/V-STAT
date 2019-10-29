@@ -12,8 +12,6 @@ module.exports = (sequelize, DataTypes) => {
   });
   Ticket.associate = function(models) {
     // associations can be defined here
-    Ticket.belongsTo(models.Mechanic); 
-    Ticket.belongsTo(models.insuranceAgent);
     Ticket.belongsTo(models.User);
   };
 
