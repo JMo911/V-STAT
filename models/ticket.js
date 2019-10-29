@@ -8,12 +8,10 @@ module.exports = (sequelize, DataTypes) => {
     vehicleMake: DataTypes.STRING,
     vehicleModel: DataTypes.STRING,
     vehicleYear: DataTypes.INTEGER,
-    vehicleMilage: DataTypes.INTEGER
+    vehicleMileage: DataTypes.INTEGER
   });
   Ticket.associate = function(models) {
     // associations can be defined here
-    Ticket.belongsTo(models.Mechanic); 
-    Ticket.belongsTo(models.insuranceAgent);
     Ticket.belongsTo(models.User);
   };
 
