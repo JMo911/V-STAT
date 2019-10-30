@@ -12,7 +12,18 @@ module.exports = (sequelize, DataTypes) => {
   });
   Ticket.associate = function(models) {
     // associations can be defined here
-    Ticket.belongsTo(models.User);
+    Ticket.belongsToMany(models.User, {
+      through: {
+          model: 'UserTicket',
+          unique: false, 
+          timestamps: false
+          // scope: {
+          //     ticketable: 'user'
+          // }
+      },
+      foreignKey: 'userId',
+      constraints: false
+  });
   };
 
   return Ticket;

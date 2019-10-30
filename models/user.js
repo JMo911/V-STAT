@@ -24,8 +24,30 @@ module.exports = function(sequelize, DataTypes) {
     );
     User.associate = function(models) {
         // associations can be defined here
-        User.hasOne(models.Ticket);
-        User.belongsTo(models.UserType);
+        // Post.belongsToMany(Tag, {
+        //     through: {
+        //       model: ItemTag,
+        //       unique: false,
+        //       scope: {
+        //         taggable: 'post'
+        //       }
+        //     },
+        //     foreignKey: 'taggable_id',
+        //     constraints: false
+        //   });
+        User.belongsToMany(models.Ticket, {
+            through: {
+                model: 'UserTicket',
+                unique: false, 
+                timestamps: false
+                // scope: {
+                //     ticketable: 'user'
+                // }
+            },
+            foreignKey: 'ticketId',
+            constraints: false
+        });
+        // User.belongsTo(models.UserType);
     };
 
     User.prototype.validatePassword = function(password) {
