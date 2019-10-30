@@ -1,4 +1,4 @@
-import {React, Component} from "react";
+import React, {Component} from "react";
 import {
     Button,
     Card,
@@ -17,7 +17,7 @@ class MechanicLogin extends Component {
         super(props);
         this.state = {
             mechanicUsername: "",
-            mechanicePassword: ""
+            mechanicPassword: ""
         };
     
         this.handleChange = this.handleChange.bind(this);
