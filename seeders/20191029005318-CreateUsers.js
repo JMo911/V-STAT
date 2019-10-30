@@ -29,7 +29,7 @@ module.exports = {
       lastName: "2testlast",
       'createdAt': new Date(),
       'updatedAt': new Date(),
-      'UserTypeId': 1
+      'UserTypeId': 2
     },
     {
       username: 'Jill Doe',
@@ -38,7 +38,7 @@ module.exports = {
       lastName: "3testlast",
       'createdAt': new Date(),
       'updatedAt': new Date(),
-      'UserTypeId': 1
+      'UserTypeId': 3
     }
   ], {});
   },
