@@ -1,15 +1,16 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import {
     Button,
     Card,
-    Col,  
+    Col,
     Form,
     Tab,
     Tabs
-    } from "react-bootstrap";
-    import {Link} from 'react-router-dom';
+} from "react-bootstrap";
+import { Link } from 'react-router-dom';
 import './styles.css';
 import MechanicSignup from "../signup/mechanicsignup";
+const axios = require("axios");
 
 class MechanicLogin extends Component {
 
@@ -19,26 +20,31 @@ class MechanicLogin extends Component {
             mechanicUsername: "",
             mechanicPassword: ""
         };
-    
+
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-      }
-    
-      handleChange(event) {
+    }
+
+    handleChange(event) {
         let name = event.target.name;
-        this.setState({[name]: event.target.value});
-      }
-    
-      handleSubmit(event) {
-          console.log("Our state now contains...", this.state);
-        alert(
-            "Submitting...\n" +
-            "Username: " + this.state.mechanicUsername +
-            "\n" +
-            "Password: " + this.state.mechanicPassword
-        );
+        this.setState({ [name]: event.target.value });
+    }
+
+    handleSubmit(event) {
+        const mechaniceRequest = {
+            username: this.state.mechanicUsername,
+            password: this.state.mechanicPassword
+        }
+        console.log(mechaniceRequest);
+        axios.post('/api/auth', mechaniceRequest)
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
         event.preventDefault();
-      }
+    }
 
 
 
@@ -50,21 +56,21 @@ class MechanicLogin extends Component {
                         <Tab eventKey="Login" title="Log in">
                             <Form onSubmit={this.handleSubmit}>
                                 <Col>
-                                    <Form.Control 
+                                    <Form.Control
                                         id="mechanic-username-submit"
-                                        value={this.state.mechanicUsername} 
+                                        value={this.state.mechanicUsername}
                                         onChange={this.handleChange}
                                         name="mechanicUsername"
-                                        placeholder="Enter Username" 
+                                        placeholder="Enter Username"
                                     />
                                 </Col>
                                 <Col>
-                                    <Form.Control 
-                                        id="mechanic-password-submit" 
-                                        value={this.state.customerPassword} 
+                                    <Form.Control
+                                        id="mechanic-password-submit"
+                                        value={this.state.customerPassword}
                                         onChange={this.handleChange}
                                         name="mechanicPassword"
-                                        placeholder="Enter Password" 
+                                        placeholder="Enter Password"
                                     />
                                 </Col>
                                 <Col>
@@ -76,9 +82,9 @@ class MechanicLogin extends Component {
                             <MechanicSignup />
                         </Tab>
                     </Tabs>
-                    <Link to = "/mechanic-splash">
+                    <Link to="/mechanic-splash">
                         <Button id="mechanic-splash-button">Mechanic Splash</Button>
-                    </Link> 
+                    </Link>
                 </Card.Body>
             </div>
         )
