@@ -1,33 +1,64 @@
 'use strict';
 var bcrypt = require('bcrypt');
 
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
     const User = sequelize.define(
         'User',
         {
+            username: {
+                type: DataTypes.STRING,
+                unique: true
+            },
+            password: DataTypes.STRING,
+            firstName: DataTypes.STRING,
             lastName: DataTypes.STRING,
-            caseNumber: DataTypes.STRING
+            insuranceCompany: DataTypes.STRING,
+            mechanicShopName: DataTypes.STRING
         },
         {
             hooks: {
                 beforeCreate: (user) => {
                     const salt = bcrypt.genSaltSync();
-                    user.caseNumber = bcrypt.hashSync(user.caseNumber, salt);
+                    user.password = bcrypt.hashSync(user.password, salt);
                 },
             }
         }
     );
-    User.associate = function(models) {
+    User.associate = function (models) {
         // associations can be defined here
-        User.hasOne(models.Ticket);
+        // Post.belongsToMany(Tag, {
+        //     through: {
+        //       model: ItemTag,
+        //       unique: false,
+        //       scope: {
+        //         taggable: 'post'
+        //       }
+        //     },
+        //     foreignKey: 'taggable_id',
+        //     constraints: false
+        //   });
+        User.belongsToMany(models.Ticket, {
+            through: {
+                model: 'UserTicket',
+                unique: false,
+                timestamps: false
+                // scope: {
+                //     ticketable: 'user'
+                // }
+            },
+            foreignKey: 'ticketId',
+            constraints: false
+        });
+        // User.belongsTo(models.UserType);
     };
 
-    User.prototype.validateCaseNumber = function(caseNumber) {
+    User.prototype.validatePassword = function (password) {
         return bcrypt.compareSync(
-            caseNumber,
-            this.caseNumber
+            password,
+            this.password
         );
     };
 
     return User;
 };
+

@@ -3,17 +3,17 @@ import models from '../models';
 
 const localStrategy = new LocalStrategy(
     {
-        usernameField: 'lastName',
-        passwordField: 'caseNumber'
+        username: 'username',
+        password: 'password'
     },
-    function(lastName, caseNumber, cb) {
+    function(username, password, cb) {
         models.User.findOne({
             where: {
-                lastName: lastName
+                username: username
             }
         }).then(
             function(user) {
-                if (!user || !user.validateCaseNumber(caseNumber)) {
+                if (!user || !user.validatePassword(password)) {
                     return cb(null, false, {message: 'Incorrect last name or case number.'});
                 }
                 return cb(null, user, {message: 'Logged In Successfully'});

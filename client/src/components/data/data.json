@@ -1,11 +1,20 @@
 [
     {
-        "make": "Honda",
-        "model": "Fit",
-        "year": 2015,
-        "name": "Scott Finlay",
-        "insurer": "Geico",
-        "insurerAgent": "Flo",
-        "photo": "https://i.ytimg.com/vi/knrb8t99ThI/hqdefault.jpg"
+        "caseNumber": 1234567,
+        "estimatedCost": 12000,
+        "approvalDate": "1990-01-01",
+        "vehicleMake": "Wayne",
+        "vehicleModel": "Batmobile",
+        "vehicleYear": 1980,
+        "vehicleMileage": 9001,
+        "insuranceNameFirst": "Harley",
+        "insuranceNameLast": "Quinn",
+        "insuranceCompany": "Geico",
+        "customerNameFirst": "Bruce",
+        "customerNameLast": "Wayne",
+        "mechanicNameFirst": "Tim",
+        "mechanicNameLast": "Drake",
+        "mechanicShopName": "Batcave"
     }
 ]
+

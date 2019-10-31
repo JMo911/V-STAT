@@ -1,36 +1,20 @@
 import React, { Component } from "react";
-import MechanicCard from "./mechanicCard.js";
-import axios from "axios";
-// import data from "../data/data.json";
+import InsuranceCard from "./insuranceCard.js";
+
+import data from "../data/data.json";
 
 
-class MechanicSplash extends Component {
+class InsuranceTicketView extends Component {
     state = {
-      data:[]
+      data:data
     };
-
-    componentWillMount() {
-      console.log("Grabbing data...");
-      axios.get("api/tickets")
-      .then(response => {
-        console.log("Got a response!");
-
-        const data = response.data;
-        this.setState({ data:data })
-
-
-      }).catch(function(error) {
-        console.log(error);
-      })
-    }
   
     render() {
       return (
         <React.Fragment>
             <div id="cardarea">
                 {this.state.data.map(data => (
-                    <MechanicCard 
-
+                    <InsuranceCard 
                     caseNumber={data.caseNumber}
                     estimatedCost={data.estimatedCost}
                     approvalDate={data.approvalDate}
@@ -53,4 +37,4 @@ class MechanicSplash extends Component {
       )
     }
 }
-export default MechanicSplash;
+export default InsuranceTicketView;

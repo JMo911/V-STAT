@@ -13,7 +13,7 @@ import CustomerLogin from "../login/customerlogin"
 class LoginBox extends Component {
     render() {
       return (
-        <Container>
+        <Container className="centered" id="loginBox">
             <Tabs defaultActiveKey="CustomerLogin" transition={false} id="noanim-tab-example">
                 <Tab eventKey="InsurerLogin" title="InsurerLogin">
                     <InsurerLogin />
