@@ -1,3 +1,4 @@
+import Cookies from 'universal-cookie';
 import React, { Component } from "react";
 import {
     Button,
@@ -12,6 +13,8 @@ import './styles.css';
 import MechanicSignup from "../signup/mechanicsignup";
 const axios = require("axios");
 
+
+
 class MechanicLogin extends Component {
 
     constructor(props) {
@@ -24,6 +27,8 @@ class MechanicLogin extends Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
+
+    cookies = new Cookies();
 
     handleChange(event) {
         let name = event.target.name;
@@ -38,7 +43,8 @@ class MechanicLogin extends Component {
         console.log(mechaniceRequest);
         axios.post('/api/auth', mechaniceRequest)
             .then(function (response) {
-                console.log(response);
+                this.cookies.set('token', response.data.token);
+                // console.log(response);
             })
             .catch(function (error) {
                 console.log(error);

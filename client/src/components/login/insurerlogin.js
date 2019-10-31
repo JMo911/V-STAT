@@ -1,3 +1,4 @@
+import Cookies from 'universal-cookie';
 import React, { Component } from "react";
 import {
     Button,
@@ -25,6 +26,8 @@ class InsurerLogin extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    cookies = new Cookies();
+
     handleChange(event) {
         let name = event.target.name;
         this.setState({ [name]: event.target.value });
@@ -38,7 +41,8 @@ class InsurerLogin extends Component {
         console.log(insuranceAgentRequest);
         axios.post('/api/auth', insuranceAgentRequest)
             .then(function (response) {
-                console.log(response);
+                this.cookies.set('token', response.data.token);
+                // console.log(response);
             })
             .catch(function (error) {
                 console.log(error);

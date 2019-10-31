@@ -1,3 +1,4 @@
+import Cookies from 'universal-cookie';
 import React, { Component } from "react";
 import {
     Button,
@@ -13,6 +14,8 @@ import './styles.css';
 import CustomerSignup from "../signup/customersignup";
 const axios = require("axios");
 
+
+
 class CustomerLogin extends Component {
 
     constructor(props) {
@@ -26,6 +29,8 @@ class CustomerLogin extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    cookies = new Cookies();
+
     handleChange(event) {
         let name = event.target.name;
         this.setState({ [name]: event.target.value });
@@ -38,7 +43,8 @@ class CustomerLogin extends Component {
         }
         axios.post('/api/auth', customerRequest)
             .then(function (response) {
-                console.log(response);
+                this.cookies.set('token', response.data.token);
+                // console.log(response);
             })
             .catch(function (error) {
                 console.log(error);

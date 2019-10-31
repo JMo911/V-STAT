@@ -10,7 +10,8 @@
     "react-dom": "^16.11.0",
     "react-redux": "^7.1.1",
     "react-scripts": "^2.1.1",
-    "redux": "^4.0.4"
+    "redux": "^4.0.4",
+    "universal-cookie": "^4.0.2"
   },
   "scripts": {
     "start": "react-scripts start",
