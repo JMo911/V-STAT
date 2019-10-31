@@ -4,6 +4,7 @@ import '../../frontend-assets/css/masterView.css';
 import TaskList from '../TaskList/taskList';
 import CompletedTask from '../CompletedTask/CompletedTask';
 import Comment from '../Comments/Comment'
+import TicketCard from '../MasterView/TicketCard';
 
 
 class MasterView extends Component {
@@ -50,6 +51,7 @@ class MasterView extends Component {
                     <div className="container">
                         <div className="row" style={{boxShadow: '0 0 9px 2px #a0a0a0', padding: '30px 5px 5px 25px'}}>
                             <div className="col-md-6">
+                            <TicketCard/>
                                 {/* details headings like model, maker etc */}
                                 <div className="details row">
                                     <div className="detail-headings col-md-5 col-sm-6 col-6 pr-0">

@@ -50,7 +50,7 @@ class TaskList extends Component {
     render() {
         return (
          <div>
-            <div className="row mb-5">
+            <div className="row mb-6">
                 <div className="col-md-12">
                     <form>
                         <div className="row">
@@ -64,10 +64,10 @@ class TaskList extends Component {
                     </form>
                 </div>
             </div>
-            <div className="col-md-7 padding-zero">
+            <div className="col-md-15 padding-zero">
             {/* tasks list container */}
                 <div className="task-list">
-                    <fieldset style={{boxShadow: '0 0 14px 2px #afafaf', borderRadius: 5, padding: '0 10px'}}>
+                    <fieldset style={{boxShadow: '0 0 14px 2px #afafaf', borderRadius: 5, padding: '10 10px'}}>
                         <legend style={{display: 'inline-block', backgroundColor: 'white', width: 'inherit',marginLeft: 10,padding: '0 10px'}}>Task List</legend>
                         {/* tasks start here */}
                         <div className="allTasks">
