@@ -8,34 +8,10 @@ import {
 import {Link} from 'react-router-dom';
 import './styles.css';
 
-// import { connect } from "react-redux";
-// import { createTicket } from "../../actions";
-
-
-
-// export function NewTicket() {
 class NewTicket extends Component {
-        // console.log("Ticket View has been loaded!");
         constructor(props) {
             super(props);
             this.state = {
-                // ticket: [
-                //     vehicleMake = "",
-                //     vehicleModel = "",
-                //     vehicleYear = "",
-                //     vehicleMileage = "",
-                //     estimatedCost = "",
-                //     caseNumber = "",
-                //     approvalDate = "",
-                //     customerNameFirst = "",
-                //     customerNameLast = "",
-                //     mechanicNameFirst = "",
-                //     mechanicNameLast = "",
-                //     mechanicShopName = "",
-                //     insuranceNameFirst = "",
-                //     insuranceNameLast = "",
-                //     insuranceCompany = ""
-                // ]
                 vehicleMake: "",
                 vehicleModel: "",
                 vehicleYear: "",

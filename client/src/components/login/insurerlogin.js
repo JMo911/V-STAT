@@ -68,7 +68,7 @@ class InsurerLogin extends Component {
                                     />
                                 </Col>
                                 <Col>
-                                    <Button id="insurance-login-button" type="submit">Create User</Button>
+                                    <Button id="insurance-login-button" type="submit">Login</Button>
                                 </Col>
                             </Form>
                         </Tab>

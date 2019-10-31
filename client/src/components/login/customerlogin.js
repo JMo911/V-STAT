@@ -8,7 +8,6 @@ import {
     Tab,
     Tabs
     } from "react-bootstrap";
-    // import {Link} from 'react-router-dom';
 import './styles.css';
 import CustomerSignup from "../signup/customersignup";
 
@@ -70,7 +69,7 @@ class CustomerLogin extends Component {
                                         />
                                     </Col>
                                     <Col>
-                                        <Button id="user-login-button" type="submit">Create User</Button>
+                                        <Button id="user-login-button" type="submit">Login</Button>
                                     </Col>
                                 </Form>
                             </Tab>

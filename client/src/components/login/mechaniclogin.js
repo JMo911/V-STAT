@@ -68,7 +68,7 @@ class MechanicLogin extends Component {
                                     />
                                 </Col>
                                 <Col>
-                                    <Button id="mechanic-login-button" type="submit">Create User</Button>
+                                    <Button id="mechanic-login-button" type="submit">Login</Button>
                                 </Col>
                             </Form>
                         </Tab>
