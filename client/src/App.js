@@ -10,7 +10,8 @@ import MechanicSplash from "./components/mechanicsplash/mechanicSplash.js";
 import MasterView from "./components/MasterView/TicketView";
 import InsuranceSplash from "./components/InsuranceSplashScreen/index";
 import TaskList from "./components/TaskList/taskList";
-import Comment from "./components/Comments/Comment"
+import Comment from "./components/Comments/Comment";
+
 // import Comments from "./components/Comments/Comment";
 
 class App extends Component {
