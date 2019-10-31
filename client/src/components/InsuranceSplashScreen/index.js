@@ -1,7 +1,6 @@
 import {Link} from 'react-router-dom';
 import React from 'react';
 import { Container, Row, Col,Card,Button } from 'react-bootstrap';
-import { withRouter } from 'react-router-dom';
 
 
 const InsuranceSplashScreen = (props) => {
@@ -17,10 +16,14 @@ const InsuranceSplashScreen = (props) => {
                                     Create or view mechanic insurance tickets.
                                 </Card.Text>
                                 <Row>
-                                    <Link to = "/MasterView">
+                                    <Link to = "/insurance-ticket-view">
                                     <Col><Button variant="primary">View Ticket</Button></Col>
                                     </Link>
-                                    <Col><Button variant="primary">Create Ticket</Button> </Col>
+                                    <Col>
+                                        <Link to = "/new-ticket">
+                                            <Button id="ticket-button">Create New Ticket</Button>
+                                        </Link> 
+                                    </Col>
                                 </Row>
                             </Card.Body>
                         </Card>
