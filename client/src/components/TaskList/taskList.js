@@ -3,18 +3,24 @@ import React, {Component} from 'react';
 import '../../frontend-assets/css/masterView.css';
 import TaskItem from './TaskItem'
 
-const data = {
-    task:""
-}
+// const data = {
+//     task:""
+// }
 
 class TaskList extends Component {
-    state = {
+    state = { 
+        tasks: [],
         task: "",
     }
 
 
-    onSubmit = () => {
+    onSubmit = (event) => {
+        event.preventDefault();
+        const tasks = this.state.tasks.slice()
+        tasks.push(this.state.task)
+        this.setState({tasks:tasks, task:""})
         alert("Task Added")
+        
     }
 
     handleInputChange = (event) => { 
@@ -28,10 +34,18 @@ class TaskList extends Component {
             var newTask = {
                 text: this.onSubmit.value,
                 key: Date.now()
+                
             };
         }
     }
 
+    completeTask = (event, task, i) => {
+        event.preventDefault();
+        const tasks = this.state.tasks.slice()
+        tasks.splice(i, 1)
+        this.setState({tasks:tasks})
+        this.props.handleCompletedTask(task)
+    }
 
     render() {
         return (
@@ -59,10 +73,11 @@ class TaskList extends Component {
                         <div className="allTasks">
                             {/* task */}
                             <ul>
-                            {/* <TaskItem description="Water plants"/>
-                            <TaskItem description="Learned redux"/> */}
-                            <TaskItem description={data.task}/>
+                                {this.state.tasks.map((task, i) => (
+                                    <TaskItem description={task} handleCompletedTask= {event=>this.completeTask(event, task, i)}/>
+                                ))}
                             </ul>
+                            
                         </div>
                     </fieldset>
                 </div>

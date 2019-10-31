@@ -5,7 +5,18 @@ import TaskList from '../TaskList/taskList';
 import Comment from '../Comments/Comment'
 import CompletedTask from '../CompletedTask/CompletedTask'
 
+
 class MasterView extends Component {
+
+        state = { 
+            completedTasks: [],
+        }
+        handleCompletedTask = (task) => { 
+            const tasks = this.state.completedTasks.slice()
+            tasks.push(task)
+            this.setState({completedTasks:tasks})
+    
+        }
     render() {
         return (
             <React.Fragment>
@@ -83,28 +94,22 @@ class MasterView extends Component {
                                     </div>
                                 </div> */}
                                 <div className="row">
-                            <TaskList/>
-                           
-
+                            <TaskList handleCompletedTask={this.handleCompletedTask}/>
                                  
                                     {/* completed tasks container */}
                                     <div className="col-md-5 padding-zero">
                                         <div className="completed-tasks">
-                                        <CompletedTask/>
-
-                                      
+                                        <CompletedTask tasks={this.state.completedTasks}/>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
-                            {/* comments section start here*/}
+                    {/* comments section start here*/}
                             <div className="col-md-3 padding-zero comment-container" style={{marginTop: 105}}>
                                 <div className="comments">
 
                                 <Comment/>
-                                
-
+                            
                                     {/* showing all comments here*/}
                                  
                                     {/* writing comment here*/}
