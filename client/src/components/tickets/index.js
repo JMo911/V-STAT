@@ -8,34 +8,10 @@ import {
 import {Link} from 'react-router-dom';
 import './styles.css';
 
-// import { connect } from "react-redux";
-// import { createTicket } from "../../actions";
-
-
-
-// export function NewTicket() {
 class NewTicket extends Component {
-        // console.log("Ticket View has been loaded!");
         constructor(props) {
             super(props);
             this.state = {
-                // ticket: [
-                //     vehicleMake = "",
-                //     vehicleModel = "",
-                //     vehicleYear = "",
-                //     vehicleMileage = "",
-                //     estimatedCost = "",
-                //     caseNumber = "",
-                //     approvalDate = "",
-                //     customerNameFirst = "",
-                //     customerNameLast = "",
-                //     mechanicNameFirst = "",
-                //     mechanicNameLast = "",
-                //     mechanicShopName = "",
-                //     insuranceNameFirst = "",
-                //     insuranceNameLast = "",
-                //     insuranceCompany = ""
-                // ]
                 vehicleMake: "",
                 vehicleModel: "",
                 vehicleYear: "",
@@ -265,24 +241,10 @@ class NewTicket extends Component {
                             <Link to = "/MasterView">
                                 <Button variant="primary">View Ticket</Button>
                             </Link>
-                                {/* <Button variant="primary" onClick={this.createTicket}>Make New Test Ticket</Button> */}
                         </Form>
                     </div>
         </Container>
       )
     }
 }
-
-// const mapStateToProps = (state) => {
-//     return {
-//       data:state.data
-//     }
-//   }
-  
-//   const mapDispatchToProps = {
-//     createTicket
-//   }
-  
-// export default connect(mapStateToProps, mapDispatchToProps)(NewTicket);
-
 export default NewTicket;

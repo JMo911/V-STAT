@@ -11,7 +11,6 @@ import MasterView from "./components/MasterView/TicketView";
 import InsuranceSplash from "./components/InsuranceSplashScreen/index";
 import InsuranceTicketView from "./components/InsuranceSplashScreen/insuranceTicketView";
 
-// import data from "./components/data/data.json";
 
 class App extends Component {
 
@@ -19,9 +18,6 @@ class App extends Component {
     return (
         <Container>
           <BrowserRouter>
-            {/* <Row>
-              
-              <Col md={8}> */}
                   <Switch>
                   <Route exact path="/" component={LoginPage} />
                     <Route exact path="/insurance-splash" component = {InsuranceSplash} />
@@ -32,9 +28,6 @@ class App extends Component {
                     <Route exact path="/new-ticket" component={NewTicket} />
                     <Route exact path="/mechanic-splash" component={MechanicSplash} />
                   </Switch>
-              {/* </Col>
-
-            </Row> */}
           </BrowserRouter>
         </Container>
     );

@@ -8,7 +8,6 @@ import {
     Tab,
     Tabs
     } from "react-bootstrap";
-    // import {Link} from 'react-router-dom';
 import './styles.css';
 import CustomerSignup from "../signup/customersignup";
 
@@ -35,7 +34,7 @@ class CustomerLogin extends Component {
         alert(
             "Submitting...\n" +
             "Username: " + this.state.customerUsername +
-            "\n" +
+            "\n" + 
             "Password: " + this.state.customerPassword
         );
         event.preventDefault();
