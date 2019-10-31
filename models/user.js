@@ -1,17 +1,19 @@
 'use strict';
 var bcrypt = require('bcrypt');
 
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
     const User = sequelize.define(
         'User',
         {
-            username: { 
-                type: DataTypes.STRING, 
-                unique: true 
+            username: {
+                type: DataTypes.STRING,
+                unique: true
             },
             password: DataTypes.STRING,
             firstName: DataTypes.STRING,
-            lastName: DataTypes.STRING
+            lastName: DataTypes.STRING,
+            insuranceCompany: DataTypes.STRING,
+            mechanicShopName: DataTypes.STRING
         },
         {
             hooks: {
@@ -22,7 +24,7 @@ module.exports = function(sequelize, DataTypes) {
             }
         }
     );
-    User.associate = function(models) {
+    User.associate = function (models) {
         // associations can be defined here
         // Post.belongsToMany(Tag, {
         //     through: {
@@ -38,7 +40,7 @@ module.exports = function(sequelize, DataTypes) {
         User.belongsToMany(models.Ticket, {
             through: {
                 model: 'UserTicket',
-                unique: false, 
+                unique: false,
                 timestamps: false
                 // scope: {
                 //     ticketable: 'user'
@@ -50,7 +52,7 @@ module.exports = function(sequelize, DataTypes) {
         // User.belongsTo(models.UserType);
     };
 
-    User.prototype.validatePassword = function(password) {
+    User.prototype.validatePassword = function (password) {
         return bcrypt.compareSync(
             password,
             this.password
