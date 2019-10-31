@@ -1,6 +1,6 @@
 import {Link} from 'react-router-dom';
 import React from 'react';
-import { Container, Row, Col,Card,Button,CardHeader,CardBody,CardTitle,CardText } from 'reactstrap';
+import { Container, Row, Col,Card,Button } from 'react-bootstrap';
 import { withRouter } from 'react-router-dom';
 
 
@@ -10,19 +10,19 @@ const InsuranceSplashScreen = (props) => {
                 <Row className="MainCard" alignItems="center" flexCol>
                     <Col xs="8" className="offset-2">
                         <Card>
-                            <CardHeader>Welcome</CardHeader>
-                            <CardBody>
-                                <CardTitle>Select an Option</CardTitle>
-                                <CardText>
+                            <Card.Header>Welcome</Card.Header>
+                            <Card.Body>
+                                <Card.Title>Select an Option</Card.Title>
+                                <Card.Text>
                                     Create or view mechanic insurance tickets.
-                                </CardText>
+                                </Card.Text>
                                 <Row>
                                     <Link to = "/MasterView">
                                     <Col><Button variant="primary">View Ticket</Button></Col>
                                     </Link>
                                     <Col><Button variant="primary">Create Ticket</Button> </Col>
                                 </Row>
-                            </CardBody>
+                            </Card.Body>
                         </Card>
                     </Col>
                 </Row>

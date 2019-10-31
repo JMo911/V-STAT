@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../frontend-assets/css/masterView.css';
+import TaskList from '../TaskList/taskList';
+import Comment from '../Comments/Comment'
+import CompletedTask from '../CompletedTask/CompletedTask'
 
 class MasterView extends Component {
     render() {
@@ -65,7 +68,7 @@ class MasterView extends Component {
                         <div className="row mt-5">
                             <div className="col-md-9">
                                 {/* input field to enter the new task*/}
-                                <div className="row mb-5">
+                                {/* <div className="row mb-5">
                                     <div className="col-md-12">
                                         <form>
                                             <div className="row">
@@ -78,267 +81,39 @@ class MasterView extends Component {
                                             </div>
                                         </form>
                                     </div>
-                                </div>
+                                </div> */}
                                 <div className="row">
-                                    <div className="col-md-7 padding-zero">
-                                        {/* tasks list container */}
-                                        <div className="task-list">
-                                            <fieldset style={{boxShadow: '0 0 14px 2px #afafaf', borderRadius: 5, padding: '0 10px'}}>
-                                                <legend style={{display: 'inline-block', backgroundColor: 'white', width: 'inherit',marginLeft: 10,padding: '0 10px'}}>Task List</legend>
-                                                {/* tasks start here */}
-                                                <div className="allTasks">
-                                                    {/* task 1*/}
-                                                    <div className="task">
-                                                        <div className="row">
-                                                            {/* task detail */}
-                                                            <div className="col-md-7 col-sm-7 col-7 pr-0">
-                                                                <div className="taskName">
-                                                                    <p style={{fontSize: 14}}>Lorem Ipsum is simply dummy text of the printing and</p>
-                                                                </div>
-                                                            </div>
-                                                            {/* actions container like yes, no */}
-                                                            <div className="col-md-5 col-sm-5 col-5 p-0">
-                                                                <div className="actions" style={{marginTop: 5}}>
-                                                                    {/* yes button */}
-                                                                    <button className="btn btn-success text-white" style={{padding: '4px 11px'}}>Y</button>
-                                                                    {/* no button */}
-                                                                    <button className="btn btn-danger text-white" style={{marginLeft: 5}}>N</button>
-                                                                    {/* contact button */}
-                                                                    <button className="btn btn-info" style={{marginLeft: 5}}>Contact</button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    {/* task 2*/}
-                                                    <div className="task">
-                                                        <div className="row">
-                                                            {/* task detail */}
-                                                            <div className="col-md-7 col-sm-7 col-7 pr-0">
-                                                                <div className="taskName">
-                                                                    <p style={{fontSize: 14}}>Lorem Ipsum is simply dummy text of the printing and</p>
-                                                                </div>
-                                                            </div>
-                                                            {/* actions container like yes, no */}
-                                                            <div className="col-md-5 col-sm-5 col-5 p-0">
-                                                                <div className="actions" style={{marginTop: 5}}>
-                                                                    {/* yes button */}
-                                                                    <button className="btn btn-success text-white" style={{padding: '4px 11px'}}>Y</button>
-                                                                    {/* no button */}
-                                                                    <button className="btn btn-danger text-white" style={{marginLeft: 5}}>N</button>
-                                                                    {/* contact button */}
-                                                                    <button className="btn btn-info" style={{marginLeft: 5}}>Contact</button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    {/* task 3*/}
-                                                    <div className="task">
-                                                        <div className="row">
-                                                            {/* task detail */}
-                                                            <div className="col-md-7 col-sm-7 col-7 pr-0">
-                                                                <div className="taskName">
-                                                                    <p style={{fontSize: 14}}>Lorem Ipsum is simply dummy text of the printing and</p>
-                                                                </div>
-                                                            </div>
-                                                            {/* actions container like yes, no */}
-                                                            <div className="col-md-5 col-sm-5 col-5 p-0">
-                                                                <div className="actions" style={{marginTop: 5}}>
-                                                                    {/* yes button */}
-                                                                    <button className="btn btn-success text-white" style={{padding: '4px 11px'}}>Y</button>
-                                                                    {/* no button */}
-                                                                    <button className="btn btn-danger text-white" style={{marginLeft: 5}}>N</button>
-                                                                    {/* contact button */}
-                                                                    <button className="btn btn-info" style={{marginLeft: 5}}>Contact</button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    {/* task 4*/}
-                                                    <div className="task">
-                                                        <div className="row">
-                                                            {/* task detail */}
-                                                            <div className="col-md-7 col-sm-7 col-7 pr-0">
-                                                                <div className="taskName">
-                                                                    <p style={{fontSize: 14}}>Lorem Ipsum is simply dummy text of the printing and</p>
-                                                                </div>
-                                                            </div>
-                                                            {/* actions container like yes, no */}
-                                                            <div className="col-md-5 col-sm-5 col-5 p-0">
-                                                                <div className="actions" style={{marginTop: 5}}>
-                                                                    {/* yes button */}
-                                                                    <button className="btn btn-success text-white" style={{padding: '4px 11px'}}>Y</button>
-                                                                    {/* no button */}
-                                                                    <button className="btn btn-danger text-white" style={{marginLeft: 5}}>N</button>
-                                                                    {/* contact button */}
-                                                                    <button className="btn btn-info" style={{marginLeft: 5}}>Contact</button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    {/* task 5*/}
-                                                    <div className="task">
-                                                        <div className="row">
-                                                            {/* task detail */}
-                                                            <div className="col-md-7 col-sm-7 col-7 pr-0">
-                                                                <div className="taskName">
-                                                                    <p style={{fontSize: 14}}>Lorem Ipsum is simply dummy text of the printing and</p>
-                                                                </div>
-                                                            </div>
-                                                            {/* actions container like yes, no */}
-                                                            <div className="col-md-5 col-sm-5 col-5 p-0">
-                                                                <div className="actions" style={{marginTop: 5}}>
-                                                                    {/* yes button */}
-                                                                    <button className="btn btn-success text-white" style={{padding: '4px 11px'}}>Y</button>
-                                                                    {/* no button */}
-                                                                    <button className="btn btn-danger text-white" style={{marginLeft: 5}}>N</button>
-                                                                    {/* contact button */}
-                                                                    <button className="btn btn-info" style={{marginLeft: 5}}>Contact</button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    {/* task 6*/}
-                                                    <div className="task">
-                                                        <div className="row">
-                                                            {/* task detail */}
-                                                            <div className="col-md-7 col-sm-7 col-7 pr-0">
-                                                                <div className="taskName">
-                                                                    <p style={{fontSize: 14}}>Lorem Ipsum is simply dummy text of the printing and</p>
-                                                                </div>
-                                                            </div>
-                                                            {/* actions container like yes, no */}
-                                                            <div className="col-md-5 col-sm-5 col-5 p-0">
-                                                                <div className="actions" style={{marginTop: 5}}>
-                                                                    {/* yes button */}
-                                                                    <button className="btn btn-success text-white" style={{padding: '4px 11px'}}>Y</button>
-                                                                    {/* no button */}
-                                                                    <button className="btn btn-danger text-white" style={{marginLeft: 5}}>N</button>
-                                                                    {/* contact button */}
-                                                                    <button className="btn btn-info" style={{marginLeft: 5}}>Contact</button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </fieldset>
-                                        </div>
-                                    </div>
+                            <TaskList/>
+                           
+
+                                 
                                     {/* completed tasks container */}
                                     <div className="col-md-5 padding-zero">
                                         <div className="completed-tasks">
-                                            <fieldset style={{boxShadow: '0 0 14px 2px #afafaf', borderRadius: 5, padding: '0 10px'}}>
-                                                <legend style={{display: 'inline-block', backgroundColor: 'white', width: 'inherit',marginLeft: 10,padding: '0 10px'}}>Completed Tasks</legend>
-                                                <div className="allTasks">
-                                                    <div className="task">
-                                                        <div className="row">
-                                                            <div className="col-md-12">
-                                                                {/* completed tasks will appear here*/}
-                                                                <ol className="taskName pl-4" style={{lineHeight: 1.7}}>
-                                                                    <li style={{fontSize: 15}}>Lorem Ipsum is simply dummy text of simply dummy text of simply dummy text of</li>
-                                                                    <li style={{fontSize: 15}}>Lorem Ipsum is simply dummy text of simply dummy text of</li>
-                                                                    <li style={{fontSize: 15}}>Lorem Ipsum is simply dummy text of</li>
-                                                                    <li style={{fontSize: 15}}>Lorem Ipsum is simply dummy text of</li>
-                                                                    <li style={{fontSize: 15}}>Lorem Ipsum is simply dummy text of simply dummy text of simply dummy text of simply dummy text of</li>
-                                                                    <li style={{fontSize: 15}}>Lorem Ipsum is simply dummy text of</li>
-                                                                    <li style={{fontSize: 15}}>Lorem Ipsum is simply dummy text of simply dummy text of</li>
-                                                                </ol>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </fieldset>
+                                        <CompletedTask/>
+
+                                      
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
                             {/* comments section start here*/}
                             <div className="col-md-3 padding-zero comment-container" style={{marginTop: 105}}>
                                 <div className="comments">
+
+                                <Comment/>
+                                
+
                                     {/* showing all comments here*/}
-                                    <div className="show-comments" style={{overflowX: 'hidden', height: 230, overflowY: 'scroll', border: '1px solid gray'}}>
-                                        {/* single comment 1*/}
-                                        <div className="single-comment">
-                                            <div className="row">
-                                                <div className="col-md-3 col-4">
-                                                    <div className="image" style={{marginTop: 15}}>
-                                                        <img src={require('../../frontend-assets/images/avatar3.png')} alt="image" className="rounded-circle w-100" style={{marginLeft: 5}}/>
-                                                    </div>
-                                                </div>
-                                                <div className="col-md-9 col-8 p-0">
-                                                    <div className="comment" style={{width: 190, height: 75}}>
-                                                        <p>Lorem Ipsum is simply dummy text of the printing and of</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        {/* single comment 2*/}
-                                        <div className="single-comment">
-                                            <div className="row">
-                                                <div className="col-md-3 col-4">
-                                                    <div className="image" style={{marginTop: 15}}>
-                                                        <img src={require('../../frontend-assets/images/avatar3.png')} alt="image" className="rounded-circle w-100" style={{marginLeft: 5}}/>
-                                                    </div>
-                                                </div>
-                                                <div className="col-md-9 col-8 p-0">
-                                                    <div className="comment" style={{width: 190, height: 75}}>
-                                                        <p>Lorem Ipsum is simply dummy text of the printing and of</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        {/* single comment 3*/}
-                                        <div className="single-comment">
-                                            <div className="row">
-                                                <div className="col-md-3 col-4">
-                                                    <div className="image" style={{marginTop: 15}}>
-                                                        <img src={require('../../frontend-assets/images/avatar3.png')} alt="image" className="rounded-circle w-100" style={{marginLeft: 5}}/>
-                                                    </div>
-                                                </div>
-                                                <div className="col-md-9 col-8 p-0">
-                                                    <div className="comment" style={{width: 190, height: 75}}>
-                                                        <p>Lorem Ipsum is simply dummy text of the printing and</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        {/* single comment 4*/}
-                                        <div className="single-comment">
-                                            <div className="row">
-                                                <div className="col-md-3 col-4">
-                                                    <div className="image" style={{marginTop: 15}}>
-                                                        <img src={require('../../frontend-assets/images/avatar3.png')} alt="image" className="rounded-circle w-100" style={{marginLeft: 5}}/>
-                                                    </div>
-                                                </div>
-                                                <div className="col-md-9 col-8 p-0">
-                                                    <div className="comment" style={{width: 190, height: 75}}>
-                                                        <p>Lorem Ipsum is simply dummy text of the printing and</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        {/* single comment 5*/}
-                                        <div className="single-comment">
-                                            <div className="row">
-                                                <div className="col-md-3 col-4">
-                                                    <div className="image" style={{marginTop: 15}}>
-                                                        <img src={require('../../frontend-assets/images/avatar3.png')} alt="image" className="rounded-circle w-100" style={{marginLeft: 5}}/>
-                                                    </div>
-                                                </div>
-                                                <div className="col-md-9 col-8 p-0">
-                                                    <div className="comment" style={{width: 190, height: 75}}>
-                                                        <p>Lorem Ipsum is simply dummy text of the printing and</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                 
                                     {/* writing comment here*/}
-                                    <div className="write-comments mt-2">
+                                    {/* <div className="write-comments mt-2">
                                         <form>
                                             <textarea name="comment" id="comment" cols="30" rows="4" placeholder="Enter New Comment Here" className="form-control"></textarea>
                                             <button type="submit" className="btn btn-primary float-right mt-2">Submit</button>
                                         </form>
-                                    </div>
+                                    </div> */}
                                 </div>
                             </div>
                         </div>
