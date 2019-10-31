@@ -46,6 +46,8 @@ class InsurerSignup extends Component {
             password: this.state.insurancePassword,
             firstName: this.state.insuranceNameFirst,
             lastName: this.state.insuranceNameLast,
+            insuranceCompany: this.state.insuranceCompany,
+            mechanicShopName: null,
             UserTypeId: 3
         }
         console.log(insuranceAgent);
