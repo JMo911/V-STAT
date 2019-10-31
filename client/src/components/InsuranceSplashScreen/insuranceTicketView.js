@@ -15,13 +15,21 @@ class InsuranceTicketView extends Component {
             <div id="cardarea">
                 {this.state.data.map(data => (
                     <InsuranceCard 
-                    make={data.make}
-                    model={data.model}
-                    year={data.year}
-                    name={data.name}
-                    insurer={data.insurer}
-                    insurerAgent={data.insurerAgent}
-                    photo={data.photo}
+                    caseNumber={data.caseNumber}
+                    estimatedCost={data.estimatedCost}
+                    approvalDate={data.approvalDate}
+                    vehicleMake={data.vehicleMake}
+                    vehicleModel={data.vehicleModel}
+                    vehicleYear={data.vehicleYear}
+                    vehicleMileage={data.vehicleMileage}
+                    customerNameFirst={data.customerNameFirst}
+                    customerNameLast={data.customerNameLast}
+                    mechanicNameFirst={data.mechanicNameFirst}
+                    mechanicNameLast={data.mechanicNameLast}
+                    mechanicShopName={data.mechanicShopName}
+                    insuranceNameFirst={data.insuranceNameFirst}
+                    insuranceNameLast={data.insuranceNameLast}
+                    insuranceCompany={data.insuranceCompany}
                     />
                 ))}
             </div>

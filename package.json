@@ -36,6 +36,7 @@
     "react": "^16.11.0",
     "react-bootstrap": "^1.0.0-beta.14",
     "react-dom": "^16.11.0",
+    "react-redux": "^7.1.1",
     "react-router-dom": "^5.1.2",
     "reactstrap": "^8.1.1",
     "sequelize": "^4.41.2",

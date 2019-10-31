@@ -1,56 +1,87 @@
-import React from "react";
+import React, {Component} from "react";
 import {
     Button,
     Card,
+    Container,
     Col,  
     Form,
     Tab,
     Tabs
     } from "react-bootstrap";
-    import {Link} from 'react-router-dom';
+    // import {Link} from 'react-router-dom';
 import './styles.css';
+import CustomerSignup from "../signup/customersignup";
+
+class CustomerLogin extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            customerUsername: "",
+            customerPassword: ""
+        };
+    
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+      }
+    
+      handleChange(event) {
+        let name = event.target.name;
+        this.setState({[name]: event.target.value});
+      }
+    
+      handleSubmit(event) {
+          console.log("Our state now contains...", this.state);
+        alert(
+            "Submitting...\n" +
+            "Username: " + this.state.customerUsername +
+            "\n" +
+            "Password: " + this.state.customerPassword
+        );
+        event.preventDefault();
+      }
 
 
 
-export function CustomerLogin() {
+    render() {
         return (
-            <div className="user-login-area" id="customer-login-area">
-            <Card.Body>
-
-                <Tabs defaultActiveKey="Login" transition={false} id="noanim-tab-example">
-                    <Tab eventKey="Login" title="Log In">
-                        <Form>
-                            <Col>
-                                <Form.Control placeholder="Last Name" />
-                            </Col>
-                            <Col>
-                                <Form.Control placeholder="Ticket #" />
-                            </Col>
-                            <Col>
-                                <Button id="customer-login-button" class="signup-button">Customer Login</Button>
-                            </Col>
-                            <Link to = "/MasterView">
-                                <Button variant="primary">View Ticket</Button>
-                            </Link>
-                        </Form>
-                    </Tab>
-                    <Tab eventKey="Signup" title="Sign Up">
-                        <Form>
-                            <Col>
-                                <Form.Control placeholder="Enter Username" />
-                            </Col>
-                            <Col>
-                                <Form.Control placeholder="Enter Password" />
-                            </Col>
-                            <Col>
-                                <Button id="new-user-button">Create User</Button>
-                            </Col>
-                        </Form>
-                    </Tab>
-                </Tabs>
-            </Card.Body>
-            </div>
+            <Container>
+                <div id="customer-login">
+                    <Card.Body>
+                        <Tabs defaultActiveKey="Login" transition={false} id="noanim-tab-example">
+                            <Tab eventKey="Login" title="Log in">
+                                <Form onSubmit={this.handleSubmit}>
+                                    <Col>
+                                        <Form.Control 
+                                            id="customer-username-submit"
+                                            value={this.state.customerUsername} 
+                                            onChange={this.handleChange}
+                                            name="customerUsername"
+                                            placeholder="Enter Username" 
+                                        />
+                                    </Col>
+                                    <Col>
+                                        <Form.Control 
+                                            id="customer-password-submit" 
+                                            value={this.state.customerPassword} 
+                                            onChange={this.handleChange}
+                                            name="customerPassword"
+                                            placeholder="Enter Password" 
+                                        />
+                                    </Col>
+                                    <Col>
+                                        <Button id="user-login-button" type="submit">Create User</Button>
+                                    </Col>
+                                </Form>
+                            </Tab>
+                            <Tab eventKey="Signup" title="Sign Up">
+                                <CustomerSignup />
+                            </Tab>
+                        </Tabs>
+                    </Card.Body>
+                </div>
+            </Container>
         )
     }
-
+}
 export default CustomerLogin;

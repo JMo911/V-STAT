@@ -10,16 +10,28 @@ const InsuranceCard = (props) => {
       <Card style={{backgroundColor: "rgba(255,255,255,0.2"}}>
         {/* <Card.Img top width="100%" src={props.photo} alt="Card image cap" /> */}
         <Card.Body>
-          <Card.Title>{props.make} {props.model} {props.year}</Card.Title>
+        <Card.Title>{props.vehicleMake} {props.vehicleModel} {props.vehicleYear}</Card.Title>
           <br/>
           <Card.Text>
-              Customer: {props.name}
+              Customer: {props.customerNameFirst} {props.customerNameLast}
               <br/>
-              Insurance Company: {props.insurer}
+              Case Number: {props.caseNumber}
               <br/>
-              Insurance Agent: {props.insurerAgent}
+              Estimated Cost: ${props.estimatedCost}
               <br/>
-              <img src={props.photo} alt="stuff" />
+              Approval Date: {props.approvalDate}
+              <br/>
+              Vehicle Mileage: {props.vehicleMileage}
+              <br/>
+              Insurance Company: {props.insuranceCompany}
+              <br/>
+              Insurance Agent: {props.insuranceNameFirst} {props.insuranceNameLast}
+              <br/>
+              Mechanic Shop: {props.mechanicShopName}
+              <br/>
+              Mechanic: {props.mechanicNameFirst} {props.mechanicNameLast}
+
+              {/* <img src={props.photo} alt="stuff" /> */}
           </Card.Text>
 
         </Card.Body>

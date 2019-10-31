@@ -1,32 +1,95 @@
 import React, { Component } from "react";
 import {
-    // Accordion, 
     Button,
     Card,
     Col,  
-    // Container,
-    Form,
-    // Control, 
-    Row
+    Form
     } from "react-bootstrap";
 import './styles.css';
 
 
 
 class CustomerSignup extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            customerUsername: "",
+            customerPassword: "",
+            customerNameFirst: "",
+            customerNameLast: ""
+        };
+    
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+      }
+    
+      handleChange(event) {
+        let name = event.target.name;
+        this.setState({[name]: event.target.value});
+      }
+    
+      handleSubmit(event) {
+          console.log("Our state now contains...", this.state);
+        alert(
+            "Submitting...\n" +
+            "Username: " + this.state.customerUsername + 
+            "\n" +
+            "Password: " + this.state.customerPassword + 
+            "\n" + 
+            "First Name: " + this.state.customerNameFirst + 
+            "\n" +
+            "Last Name: " + this.state.customerNameLast
+        );
+        event.preventDefault();
+      }
+
+
+
     render() {
         return (
             <div className="new-user-area">
                 <Card.Body>
-                    <Form>
+                    <Form onSubmit={this.handleSubmit}>
                         <Col>
-                            <Form.Control placeholder="Enter Username" />
+                            <Form.Control 
+                                id="customer-username-input"
+                                value={this.state.customerUsername} 
+                                onChange={this.handleChange}
+                                name="customerUsername"
+                                placeholder="Enter Username" 
+                            />
                         </Col>
                         <Col>
-                            <Form.Control placeholder="Enter Password" />
+                            <Form.Control 
+                                id="customer-password-input" 
+                                value={this.state.customerPassword} 
+                                onChange={this.handleChange}
+                                name="customerPassword"
+                                placeholder="Enter Password" 
+                            />
                         </Col>
                         <Col>
-                            <Button id="new-user-button">Create User</Button>
+                            <Form.Control 
+                                id="customer-first-name-input" 
+                                value={this.state.customerNameFirst} 
+                                onChange={this.handleChange}
+                                name="customerNameFirst"
+                                placeholder="Enter First Name" 
+                            />
+                        </Col>
+                        <Col>
+                            <Form.Control 
+                                id="customer-last-name-input" 
+                                value={this.state.customerNameLast} 
+                                onChange={this.handleChange}
+                                name="customerNameLast"
+                                placeholder="Enter Last Name" 
+                            />
+                        </Col>
+                        <Col>
+                            {/* <input type="submit" value="Submit" /> */}
+                            <Button id="new-user-button" type="submit">Create User</Button>
                         </Col>
                     </Form>
                 </Card.Body>

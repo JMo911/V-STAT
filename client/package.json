@@ -8,7 +8,9 @@
     "react": "^16.11.0",
     "react-bootstrap": "^1.0.0-beta.14",
     "react-dom": "^16.11.0",
-    "react-scripts": "^2.1.1"
+    "react-redux": "^7.1.1",
+    "react-scripts": "^2.1.1",
+    "redux": "^4.0.4"
   },
   "scripts": {
     "start": "react-scripts start",

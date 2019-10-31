@@ -1,56 +1,88 @@
-import React from "react";
+import React, {Component} from "react";
 import {
     Button,
     Card,
-    Col, 
+    Col,  
     Form,
     Tab,
     Tabs
     } from "react-bootstrap";
+    import {Link} from 'react-router-dom';
 import './styles.css';
-import {Link} from "react-router-dom";
+import MechanicSignup from "../signup/mechanicsignup";
+
+class MechanicLogin extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            mechanicUsername: "",
+            mechanicPassword: ""
+        };
+    
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+      }
+    
+      handleChange(event) {
+        let name = event.target.name;
+        this.setState({[name]: event.target.value});
+      }
+    
+      handleSubmit(event) {
+          console.log("Our state now contains...", this.state);
+        alert(
+            "Submitting...\n" +
+            "Username: " + this.state.mechanicUsername +
+            "\n" +
+            "Password: " + this.state.mechanicPassword
+        );
+        event.preventDefault();
+      }
 
 
-export function MechanicLogin() {
-    return (
-        <div className="user-login-area" id="mechanic-login-area">
-        <Card.Body>
-            <Tabs defaultActiveKey="Login" transition={false} id="noanim-tab-example">
-                <Tab eventKey="Login" title="Log In">
-                    <Form>
-                        <Col>
-                            <Form.Control placeholder="Automotive Body Shop Name" />
-                        </Col>
-                        <Col>
-                            <Form.Control placeholder="Body Shop Password" />
-                        </Col>
-                        <Col>
-                            <Button id="mechanic-login-button" class="signup-button">Mechanic Login</Button>
-                        </Col>
-                    </Form>
-                </Tab>
-                <Tab eventKey="Signup" title="Sign Up">
-                    <Form>
-                        <Col>
-                            <Form.Control placeholder="Enter Body Shop Name" />
-                        </Col>
-                        <Col>
-                            <Form.Control placeholder="Enter Body Shop Password" />
-                        </Col>
-                        <Col>
-                            <Button id="new-user-button">Create User</Button>
-                        </Col>
-                    </Form>
-                </Tab>
-            </Tabs>
 
-                <Link to = "/mechanic-splash">
-                    <Button id="mechanic-button">Show Mechanic Splash Screen</Button>
-                </Link> 
-
-
-        </Card.Body>
-        </div>
-    )
+    render() {
+        return (
+            <div id="mechanic-login">
+                <Card.Body>
+                    <Tabs defaultActiveKey="Login" transition={false} id="noanim-tab-example">
+                        <Tab eventKey="Login" title="Log in">
+                            <Form onSubmit={this.handleSubmit}>
+                                <Col>
+                                    <Form.Control 
+                                        id="mechanic-username-submit"
+                                        value={this.state.mechanicUsername} 
+                                        onChange={this.handleChange}
+                                        name="mechanicUsername"
+                                        placeholder="Enter Username" 
+                                    />
+                                </Col>
+                                <Col>
+                                    <Form.Control 
+                                        id="mechanic-password-submit" 
+                                        value={this.state.customerPassword} 
+                                        onChange={this.handleChange}
+                                        name="mechanicPassword"
+                                        placeholder="Enter Password" 
+                                    />
+                                </Col>
+                                <Col>
+                                    <Button id="mechanic-login-button" type="submit">Create User</Button>
+                                </Col>
+                            </Form>
+                        </Tab>
+                        <Tab eventKey="Signup" title="Sign Up">
+                            <MechanicSignup />
+                        </Tab>
+                    </Tabs>
+                    <Link to = "/mechanic-splash">
+                        <Button id="mechanic-splash-button">Mechanic Splash</Button>
+                    </Link> 
+                </Card.Body>
+            </div>
+        )
+    }
 }
 export default MechanicLogin;
+

@@ -13,6 +13,9 @@ h6 {
 .single-comment:last-child {
     border-bottom: none;
 }
+#master-view {
+    color:black;
+}
 
 @media only screen and (max-width: 1200px) {
     .detail-values img {

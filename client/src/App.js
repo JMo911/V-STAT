@@ -11,13 +11,9 @@ import MasterView from "./components/MasterView/TicketView";
 import InsuranceSplash from "./components/InsuranceSplashScreen/index";
 import InsuranceTicketView from "./components/InsuranceSplashScreen/insuranceTicketView";
 
-class App extends Component {
+// import data from "./components/data/data.json";
 
-  
-  state = {
-    username: "",
-    userpassword: ""
-  };
+class App extends Component {
 
   render() {
     return (
@@ -28,7 +24,7 @@ class App extends Component {
               <Col md={8}> */}
                   <Switch>
                   <Route exact path="/" component={LoginPage} />
-                    <Route exact path="/InsuranceSplash" component = {InsuranceSplash} />
+                    <Route exact path="/insurance-splash" component = {InsuranceSplash} />
                     <Route exact path="/insurance-ticket-view" component = {InsuranceTicketView} />
                     <Route exact path="/MasterView" component = {MasterView} />
 

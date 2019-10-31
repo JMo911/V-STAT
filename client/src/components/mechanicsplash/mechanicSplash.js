@@ -42,18 +42,10 @@ class MechanicSplash extends Component {
                     customerNameLast={data.customerNameLast}
                     mechanicNameFirst={data.mechanicNameFirst}
                     mechanicNameLast={data.mechanicNameLast}
+                    mechanicShopName={data.mechanicShopName}
                     insuranceNameFirst={data.insuranceNameFirst}
                     insuranceNameLast={data.insuranceNameLast}
-
-
-
-                    // make={data.make}
-                    // model={data.model}
-                    // year={data.year}
-                    // name={data.name}
-                    // insurer={data.insurer}
-                    // insurerAgent={data.insurerAgent}
-                    // photo={data.photo}
+                    insuranceCompany={data.insuranceCompany}
                     />
                 ))}
             </div>
