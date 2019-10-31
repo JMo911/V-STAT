@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../frontend-assets/css/masterView.css';
+import TaskList from '../TaskList/taskList';
+import CompletedTask from '../CompletedTask/CompletedTask';
+import Comment from '../Comments/Comment'
 
 
 class MasterView extends Component {
