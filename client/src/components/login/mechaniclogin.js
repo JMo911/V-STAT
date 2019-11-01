@@ -36,21 +36,20 @@ class MechanicLogin extends Component {
     }
 
     handleSubmit(event) {
-        const mechaniceRequest = {
+        const mechanicRequest = {
             username: this.state.mechanicUsername,
             password: this.state.mechanicPassword
         }
-        console.log(mechaniceRequest);
-        axios.post('/api/auth', mechaniceRequest)
+        axios.post('/api/auth', mechanicRequest)
             .then(function (response) {
                 this.cookies.set('token', response.data.token);
                 // console.log(response);
             })
             .catch(function (error) {
                 console.log(error);
-            });
-        event.preventDefault();
+            }); event.preventDefault();
     }
+
 
 
 
