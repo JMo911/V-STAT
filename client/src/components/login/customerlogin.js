@@ -14,8 +14,6 @@ import './styles.css';
 import CustomerSignup from "../signup/customersignup";
 const axios = require("axios");
 
-
-
 class CustomerLogin extends Component {
 
     constructor(props) {
@@ -50,8 +48,6 @@ class CustomerLogin extends Component {
                 console.log(error);
             }); event.preventDefault();
     }
-
-
 
     render() {
         return (
