@@ -22,83 +22,26 @@ class MasterView extends Component {
         return (
             <React.Fragment>
 
-
-                {/* {this.state.data.map(data => (
-                    <TicketCard 
-
-                    caseNumber={data.caseNumber}
-                    estimatedCost={data.estimatedCost}
-                    approvalDate={data.approvalDate}
-                    vehicleMake={data.vehicleMake}
-                    vehicleModel={data.vehicleModel}
-                    vehicleYear={data.vehicleYear}
-                    vehicleMileage={data.vehicleMileage}
-                    customerNameFirst={data.customerNameFirst}
-                    customerNameLast={data.customerNameLast}
-                    mechanicNameFirst={data.mechanicNameFirst}
-                    mechanicNameLast={data.mechanicNameLast}
-                    mechanicShopName={data.mechanicShopName}
-                    insuranceNameFirst={data.insuranceNameFirst}
-                    insuranceNameLast={data.insuranceNameLast}
-                    insuranceCompany={data.insuranceCompany}
-                    />
-                ))} */}
-
-
-
-
                 <section id="master-view" className="mt-5 mb-5">
                     <div className="container">
                         <div className="row" style={{boxShadow: '0 0 9px 2px #a0a0a0', padding: '30px 5px 5px 25px'}}>
                             <div className="col-md-6">
                             <TicketCard/>
                                 {/* details headings like model, maker etc */}
-                                <div className="details row">
-                                    <div className="detail-headings col-md-5 col-sm-6 col-6 pr-0">
-                                        <div className="make">
-                                            <h6 className="d-inline-block">Make: </h6>
-                                        </div>
-                                        <div className="model">
-                                            <h6 className="d-inline-block">Model: </h6>
-                                        </div>
-                                        <div className="year">
-                                            <h6 className="d-inline-block">Year: </h6>
-                                        </div>
-                                        <div className="mileage">
-                                            <h6 className="d-inline-block">Mileage: </h6>
-                                        </div>
-                                        <div className="costOfRepairs">
-                                            <h6 className="d-inline-block">Cost Of Repairs: </h6>
-                                        </div>
-                                        <div className="completionDate">
-                                            <h6 className="d-inline-block">Estimated Completion Date: </h6>
-                                        </div>
-                                    </div>
-                                    {/* details of the caar like toyota, 2018. The info shoetc*/}
-                                    <div className="detail-values col-md-6 col-sm-6 col-6 pl-0">
-                                        <p>Toyota</p>
-                                        <p>Camry</p>
-                                        <p>2019</p>
-                                    </div>
-                                </div>
+                              
                             </div>
                             <div className="col-md-6">
                                 <div className="row details">
                                     {/* details headings like contacts etc */}
                                     <div className="col-md-5 col-sm-6 col-6 pr-0">
                                         <div className="ticket" style={{marginTop: 60}}>
-                                            <h6 style={{marginBottom: 69}}>Your Ticket: </h6>
-                                            <h6>Insurer Contact: </h6>
-                                            <h6>Mechanic Contact: </h6>
-                                            <h6>Customer Contact: </h6>
+                                            <h6 style={{marginBottom: 69, }}> Review your ticket </h6>
+                                           
                                         </div>
                                     </div>
                                     {/* details headings like mobile numbers etc */}
-                                    <div className="col-md-6 col-sm-6 col-6 pl-0 detail-values">
-                                        <img src={require('../../frontend-assets/images/1.jpg')} alt="your ticket here" style={{width: '60%', marginBottom: 15}}/>
-                                        <p>555-444-6666</p>
-                                        <p>555-555-5555</p>
-                                        <p>555-333-4444</p>
+                                    <div className="col-md-12 col-sm-6 col-6 pl-0 detail-values">
+                                        <img src={require('../../frontend-assets/images/hondaFit.jpg')} alt="your ticket here" style={{width: '100%', marginBottom: 15}}/>
                                     </div>
                                 </div>
                             </div>

@@ -23,7 +23,9 @@ render() {
                             {this.props.tasks.map(task => (      
                                     // <TaskItem description={task}/>
                                     <div>
+                                        
                                         {task}
+                                        
                                     </div>
                                 ))}
                         </ul>

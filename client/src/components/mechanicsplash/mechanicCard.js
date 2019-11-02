@@ -38,6 +38,18 @@ const MechanicCard = (props) => {
               Mechanic Shop: {props.mechanicShopName}
               <br/>
               Mechanic: {props.mechanicNameFirst} {props.mechanicNameLast}
+
+              <div id="contact-area">
+                    Insurance Company: {props.insuranceCompany}
+                    <br/>
+                    Insurance Agent: {props.insuranceNameFirst} {props.insuranceNameLast}
+                    <br/>
+                    Mechanic Shop: {props.mechanicShopName}
+                    <br/>
+                    Mechanic: {props.mechanicNameFirst} {props.mechanicNameLast}
+                    <br/>
+                    Customer: {props.customerNameFirst} {props.customerNameLast}
+              </div>
           </Card.Text>
 
         </Card.Body>
