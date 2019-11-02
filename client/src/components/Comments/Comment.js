@@ -26,7 +26,7 @@ class Comments extends Component {
     handleSubmit(event) {
 
         const comment = {
-            comment: this.state.comment,
+            message: this.state.comment,
             UsertypeId: 1
         }
         axios.post('/api/comments', comment)
