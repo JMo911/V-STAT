@@ -12,32 +12,35 @@ module.exports = {
         isBetaMember: false
       }], {});
     */
-   return queryInterface.bulkInsert('Comments', [
-    {
-      message: 'test user 1',
-      'createdAt': new Date(),
-      'updatedAt': new Date(),
-      UserId: 1
-    },
-    {
-      message: 'test user 1 again',
-      'createdAt': new Date(),
-      'updatedAt': new Date(),
-      UserId: 1
-    },
-    {
-      message: 'test user 2',
-      'createdAt': new Date(),
-      'updatedAt': new Date(),
-      UserId: 2
-    },
-    {
-      message: 'test user 3',
-      'createdAt': new Date(),
-      'updatedAt': new Date(),
-      UserId: 3
-    }
-], {});
+    return queryInterface.bulkInsert('Comments', [
+      {
+        message: 'test user 1',
+        'createdAt': new Date(),
+        'updatedAt': new Date(),
+        UserId: 1,
+        TicketId: 2
+      },
+      {
+        message: 'test user 1 again',
+        'createdAt': new Date(),
+        'updatedAt': new Date(),
+        UserId: 1,
+        TicketId: 3
+      },
+      {
+        message: 'test user 2',
+        'createdAt': new Date(),
+        'updatedAt': new Date(),
+        UserId: 2,
+        TicketId: 1
+      },
+      {
+        message: 'test user 3',
+        'createdAt': new Date(),
+        'updatedAt': new Date(),
+        UserId: 3
+      }
+    ], {});
   },
 
   down: (queryInterface, Sequelize) => {
