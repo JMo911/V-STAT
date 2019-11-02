@@ -22,6 +22,7 @@ class MechanicSplash extends Component {
       // }).catch(function(error) {
       //   console.log(error);
       // })
+      // console.log(document.cookie.split(', '));
       let cookie = document.cookie;
       cookie = cookie.split(', ');
       var result = {};
@@ -30,11 +31,13 @@ class MechanicSplash extends Component {
           result[cur[0]] = cur[1];
       }
       let token = result.token;
+      let userCredentials = token.split('; ');
+      let finalToken = userCredentials[0];
       axios({
         method: "get",
         url: '/api/tickets',
         headers: {
-          Authorization: "Bearer " + token
+          Authorization: "Bearer " + finalToken
         }
       })
       .then(response => {
