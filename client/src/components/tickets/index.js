@@ -8,34 +8,10 @@ import {
 import {Link} from 'react-router-dom';
 import './styles.css';
 
-// import { connect } from "react-redux";
-// import { createTicket } from "../../actions";
-
-
-
-// export function NewTicket() {
 class NewTicket extends Component {
-        // console.log("Ticket View has been loaded!");
         constructor(props) {
             super(props);
             this.state = {
-                // ticket: [
-                //     vehicleMake = "",
-                //     vehicleModel = "",
-                //     vehicleYear = "",
-                //     vehicleMileage = "",
-                //     estimatedCost = "",
-                //     caseNumber = "",
-                //     approvalDate = "",
-                //     customerNameFirst = "",
-                //     customerNameLast = "",
-                //     mechanicNameFirst = "",
-                //     mechanicNameLast = "",
-                //     mechanicShopName = "",
-                //     insuranceNameFirst = "",
-                //     insuranceNameLast = "",
-                //     insuranceCompany = ""
-                // ]
                 vehicleMake: "",
                 vehicleModel: "",
                 vehicleYear: "",
@@ -43,6 +19,7 @@ class NewTicket extends Component {
                 estimatedCost: "",
                 caseNumber: "",
                 approvalDate: "",
+                estimatedCompletionDate: "",
                 customerNameFirst: "",
                 customerNameLast: "",
                 mechanicNameFirst: "",
@@ -81,15 +58,10 @@ class NewTicket extends Component {
                 "\n" + 
                 "Approved On: " + this.state.approvalDate + 
                 "\n" + 
-                "Customer: " + this.state.customerNameFirst + this.state.customerNameLast +  
+                "Customer Username: " + this.state.customerUsername + 
                 "\n" + 
-                "Mechanic: " + this.state.mechanicNameFirst + this.state.mechanicNameLast + 
-                "\n" + 
-                "Body Shop: " + this.state.mechanicShopName + 
-                "\n" + 
-                "Insurance Agent: " + this.state.insuranceNameFirst + this.state.insuranceNameLast +  
-                "\n" + 
-                "Insurance Company: " + this.state.insuranceCompany
+                "Mechanic: " + this.state.mechanicUsername
+
             );
             event.preventDefault();
           }
@@ -98,9 +70,6 @@ class NewTicket extends Component {
     render() {
       return (
         <Container>
-                    <div id="mainArea">
-                        <p>Create New Ticket</p>
-                    </div>
                     <div id="ticketInputArea">
                         
                         <Form onSubmit={this.handleSubmit}>
@@ -126,7 +95,9 @@ class NewTicket extends Component {
                                         name="vehicleModel"
                                     />
                                 </Form.Group>
-                            
+                            </Form.Row>
+
+                            <Form.Row>
 
                                 <Form.Group>
                                     <Form.Label>Vehicle Year</Form.Label>
@@ -176,46 +147,29 @@ class NewTicket extends Component {
                             </Form.Row>
                             <Form.Row>
                                 <Form.Group as={Col}>
-                                    <Form.Label>Customer First Name</Form.Label>
+                                    <Form.Label>Customer Username</Form.Label>
                                     <Form.Control 
                                         type="text"
-                                        placeholder="Customer First Name"
-                                        value={this.state.customerNameFirst}
+                                        placeholder="Customer Username"
+                                        value={this.state.customerUsername}
                                         onChange={this.handleChange}
-                                        name="customerNameFirst"
+                                        name="customerUsername"
                                     />
                                 </Form.Group>
+
                                 <Form.Group as={Col}>
-                                    <Form.Label>Customer Last Name</Form.Label>
+                                    <Form.Label>Mechanic Username</Form.Label>
                                     <Form.Control 
                                         type="text"
-                                        placeholder="Customer Last Name"
-                                        value={this.state.customerNameLast}
+                                        placeholder="Mechanic Username"
+                                        value={this.state.mechanicUsername}
                                         onChange={this.handleChange}
-                                        name="customerNameLast"
+                                        name="mechanicUsername"
                                     />
                                 </Form.Group>
-                                <Form.Group as={Col}>
-                                    <Form.Label>Mechanic First Name</Form.Label>
-                                    <Form.Control 
-                                        type="text"
-                                        placeholder="Mechanic First Name"
-                                        value={this.state.mechanicNameFirst}
-                                        onChange={this.handleChange}
-                                        name="mechanicNameFirst"
-                                    />
-                                </Form.Group>
-                                <Form.Group as={Col}>
-                                    <Form.Label>Mechanic Last Name</Form.Label>
-                                    <Form.Control 
-                                        type="text"
-                                        placeholder="Mechanic Last Name"
-                                        value={this.state.mechanicNameLast}
-                                        onChange={this.handleChange}
-                                        name="mechanicNameLast"
-                                    />
-                                </Form.Group>
-                                <Form.Group as={Col}>
+                                </Form.Row>
+                            <Form.Row>
+                                {/* <Form.Group as={Col}>
                                     <Form.Label>Body Shop</Form.Label>
                                     <Form.Control 
                                         type="text"
@@ -224,30 +178,10 @@ class NewTicket extends Component {
                                         onChange={this.handleChange}
                                         name="mechanicShopName"
                                     />
-                                </Form.Group>
+                                </Form.Group> */}
                                 </Form.Row>
-                                <Form.Row>
-                                <Form.Group as={Col}>
-                                    <Form.Label>Insurance Agent First Name</Form.Label>
-                                    <Form.Control 
-                                        type="text"
-                                        placeholder="Insurance Agent First Name"
-                                        value={this.state.insuranceNameFirst}
-                                        onChange={this.handleChange}
-                                        name="insuranceNameFirst"
-                                    />
-                                </Form.Group>
-                                <Form.Group as={Col}>
-                                    <Form.Label>Insurance Agent Last Name</Form.Label>
-                                    <Form.Control 
-                                        type="text"
-                                        placeholder="Insurance Agent Last Name"
-                                        value={this.state.insuranceNameLast}
-                                        onChange={this.handleChange}
-                                        name="insuranceNameLast"
-                                    />
-                                </Form.Group>
-                                <Form.Group as={Col}>
+                                {/* <Form.Row> */}
+                                {/* <Form.Group as={Col}>
                                     <Form.Label>Insurance Company</Form.Label>
                                     <Form.Control 
                                         type="text"
@@ -256,8 +190,8 @@ class NewTicket extends Component {
                                         onChange={this.handleChange}
                                         name="insuranceCompany"
                                     />
-                                </Form.Group>
-                                </Form.Row>
+                                </Form.Group> */}
+                                {/* </Form.Row> */}
 
                             <Button variant="primary" type="submit">
                                 Submit

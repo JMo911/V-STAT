@@ -1,8 +1,13 @@
 #loginArea {
-  color:green;
   width: 700px;
   position: absolute;
-  left: 10rem;
+  left: 33%;
+  color: #f4bc5d;
+  /* font-weight: bold; */
+  background-color: black;
+  font-family: 'Stoke', serif;
+  font-size: x-large;
+  /* font-family: 'McLaren', cursive; */
 }
 .centered {
   position:absolute;
@@ -14,6 +19,49 @@
 #loginBox {
   width: 600px;
   height: auto;
+  background-color:dimgray;
+}
+
+#login-button {
+  padding-left:100px;
+  padding-right:100px;
+  padding-top: 20px;
+  padding-bottom:20px;
+  left:35%;
+  position:relative;
+  font-size: xx-large;
+}
+
+.card-text {
+  color: #f4bc5d;
+}
+.card-title {
+  color: #f4bc5d;
+}
+
+.form-label {
+  color: #f4bc5d;
+}
+
+a {
+  color: deepskyblue;
+}
+
+.card {
+  width: 600px;
+  height: auto;
+  background-color:dimgray;
+  color: #f4bc5d;
+}
+
+#root {
+  background-color:black;
+}
+
+#logo {
+  border:5px solid black;
+  box-shadow: rgba(0, 0, 0, 0.15) 2px 2px 4px;
+
 }
 .tab-pane {
   width:100%;
@@ -35,6 +83,14 @@
 }
 .btn-primary {
   margin-left: 10px;
+  background-color:darkgray;
+  color:gold;
+  border:gold;
+}
+.btn-primary:hover {
+  background-color:gold;
+  color:darkgray;
+  border:darkgray;
 }
 
 /* .new-user-area {
@@ -44,8 +100,21 @@
   top: 150px;
 } */
 
+input.form-control {
+  width:250px;
+}
+
 #ticketInputArea {
-  color:black;
+  background-color:dimgray;
+  left:33%;
+  top:5rem;
+  position:relative;
+  color:#f4bc5d;
+  border:5px solid #f4bc5d;
+  border-radius: 10px;
+  margin:10px;
+  padding:30px;
+  font-size:large;
 }
 
 .signup-button {

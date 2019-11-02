@@ -8,8 +8,6 @@ import {
 import './styles.css';
 const axios = require("axios");
 
-
-
 class CustomerSignup extends Component {
 
     constructor(props) {

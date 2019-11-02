@@ -7,8 +7,7 @@ import {
     Form,
     Tab,
     Tabs
-} from "react-bootstrap";
-// import {Link} from 'react-router-dom';
+    } from "react-bootstrap";
 import './styles.css';
 import CustomerSignup from "../signup/customersignup";
 const axios = require("axios");
@@ -74,7 +73,7 @@ class CustomerLogin extends Component {
                                         />
                                     </Col>
                                     <Col>
-                                        <Button id="user-login-button" type="submit">Create User</Button>
+                                        <Button id="user-login-button" type="submit">Login</Button>
                                     </Col>
                                 </Form>
                             </Tab>
