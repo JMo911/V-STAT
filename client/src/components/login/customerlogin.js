@@ -7,9 +7,10 @@ import {
     Form,
     Tab,
     Tabs
-    } from "react-bootstrap";
+} from "react-bootstrap";
 import './styles.css';
 import CustomerSignup from "../signup/customersignup";
+import Cookie from 'universal-cookie';
 const axios = require("axios");
 
 class CustomerLogin extends Component {
@@ -38,6 +39,8 @@ class CustomerLogin extends Component {
         axios.post('/api/auth', customerRequest)
             .then(function (response) {
                 console.log(response);
+                const cookie = new Cookie();
+                cookie.set('token', response.data.token)
             })
             .catch(function (error) {
                 console.log(error);
