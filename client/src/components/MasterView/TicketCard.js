@@ -1,6 +1,5 @@
 import React from 'react';
-import Card, { CardBody } from 'react-bootstrap/Card'
-// import {Button} from "react-bootstrap";
+import Card from 'react-bootstrap/Card'
 
 const TicketCard = (props) => {
 
@@ -8,7 +7,6 @@ const TicketCard = (props) => {
     <React.Fragment>
     <div className="cardDiv">
       <Card style={{backgroundColor: "rgba(255,255,255,0.2"}}>
-        {/* <Card.Img top width="100%" src={props.photo} alt="Card image cap" /> */}
         <Card.Body>
           <Card.Title>{props.vehicleMake} {props.vehicleModel} {props.vehicleYear}</Card.Title>
           <br/>
@@ -38,7 +36,7 @@ const TicketCard = (props) => {
         <Card.Body>
             <Card.Text>
             <div className="col-md-6">
-                  <div className="row details">
+              <div className="row details">
                       {/* details headings like contacts etc */}
                       <div className="col-md-10 col-sm-6 col-6 pr-0">
                 <div id="contact-area">
@@ -53,8 +51,8 @@ const TicketCard = (props) => {
                     Customer: {props.customerNameFirst} {props.customerNameLast}
                 </div>
                 </div>
-                            </div>
-                        </div>
+            </div>
+          </div>
           </Card.Text>
 
         </Card.Body>

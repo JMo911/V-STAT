@@ -1,9 +1,7 @@
 import React, {Component} from 'react';
-// import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../frontend-assets/css/masterView.css';
 
 class TaskItem extends Component {
-    
     render(){
         return(
 
@@ -27,6 +25,4 @@ class TaskItem extends Component {
         )
     }
 }
-
-
 export default TaskItem;

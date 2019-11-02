@@ -10,19 +10,6 @@ class MechanicSplash extends Component {
     };
 
     componentWillMount() {
-      // console.log("Grabbing data...");
-      // axios.get("api/tickets")
-      // .then(response => {
-      //   console.log("Got a response!");
-
-      //   const data = response.data;
-      //   this.setState({ data:data })
-
-
-      // }).catch(function(error) {
-      //   console.log(error);
-      // })
-      // console.log(document.cookie.split(', '));
       let cookie = document.cookie;
       cookie = cookie.split(', ');
       var result = {};
@@ -41,12 +28,8 @@ class MechanicSplash extends Component {
         }
       })
       .then(response => {
-        // console.log("Got a response!");
-
         const data = response.data;
         this.setState({ data:data })
-
-
       }).catch(function(error) {
         console.log(error);
       })
@@ -58,7 +41,6 @@ class MechanicSplash extends Component {
             <div id="cardarea">
                 {this.state.data.map(data => (
                     <MechanicCard 
-
                     caseNumber={data.caseNumber}
                     estimatedCost={data.estimatedCost}
                     approvalDate={data.approvalDate}

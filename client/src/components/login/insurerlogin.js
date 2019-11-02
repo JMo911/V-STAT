@@ -14,14 +14,12 @@ import Cookie from 'universal-cookie';
 const axios = require("axios");
 
 class InsurerLogin extends Component {
-
     constructor(props) {
         super(props);
         this.state = {
             insuranceUsername: "",
             insurancePassword: ""
         };
-
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -36,20 +34,17 @@ class InsurerLogin extends Component {
             username: this.state.insuranceUsername,
             password: this.state.insurancePassword
         }
-        console.log(insuranceAgentRequest);
         axios.post('/api/auth', insuranceAgentRequest)
             .then(function (response) {
-                console.log(response.data.token);
                 const cookie = new Cookie();
                 cookie.set('token', response.data.token)
             })
             .catch(function (error) {
                 console.log(error);
-            });
+            })
+        ;
         event.preventDefault();
     }
-
-
 
     render() {
         return (
@@ -94,4 +89,3 @@ class InsurerLogin extends Component {
     }
 }
 export default InsurerLogin;
-

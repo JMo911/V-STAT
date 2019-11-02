@@ -18,7 +18,6 @@ class CustomerSignup extends Component {
             customerNameFirst: "",
             customerNameLast: ""
         };
-
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -29,17 +28,6 @@ class CustomerSignup extends Component {
     }
 
     handleSubmit(event) {
-        //   console.log("Our state now contains...", this.state);
-        // alert(
-        //     "Submitting...\n" +
-        //     "Username: " + this.state.customerUsername + 
-        //     "\n" +
-        //     "Password: " + this.state.customerPassword + 
-        //     "\n" + 
-        //     "First Name: " + this.state.customerNameFirst + 
-        //     "\n" +
-        //     "Last Name: " + this.state.customerNameLast
-        // );
         const customer = {
             username: this.state.customerUsername,
             password: this.state.customerPassword,
@@ -55,7 +43,6 @@ class CustomerSignup extends Component {
                 console.log(error);
             }); event.preventDefault();
     }
-
 
     render() {
         return (
@@ -99,7 +86,6 @@ class CustomerSignup extends Component {
                             />
                         </Col>
                         <Col>
-                            {/* <input type="submit" value="Submit" /> */}
                             <Button id="new-user-button" type="submit">Create User</Button>
                         </Col>
                     </Form>

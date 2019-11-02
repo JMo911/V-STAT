@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
 import axios from 'axios';
 import Cookies from 'universal-cookie';
 
@@ -52,11 +51,7 @@ class LoginForm extends Component {
                     </form>
                 </div>
             </div>
-    )
-        ;
-    }
+    )};
 }
-
 LoginForm.propTypes = {};
-
 export default LoginForm;

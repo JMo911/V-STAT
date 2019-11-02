@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-// import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../frontend-assets/css/masterView.css';
 import TaskItem from './TaskItem'
 
@@ -29,11 +28,11 @@ class TaskList extends Component {
 
     addTask(event) {
         if (this.onSubmit.value !== "") {
-            var newTask = {
-                text: this.onSubmit.value,
-                key: Date.now()
+            // var newTask = {
+            //     text: this.onSubmit.value,
+            //     key: Date.now()
                 
-            };
+            // };
         }
     }
 
@@ -46,27 +45,7 @@ class TaskList extends Component {
     }
 
     render() {
-        return (
-
-        // <Form onSubmit = {this.handleInputChange}>
-        //         <Form.Group controlId= "formInput">
-
-        //         <Form.Label>Add to do Task</Form.Label>
-        //             <Form.Control
-        //               type="text" 
-        //               placeholder="Add your Task" 
-        //               value= {this.state.comment}
-        //               onChange={this.handleChange}
-        //               name="comment"/>/>
-
-        // </Form>
-
-            
-                
-              
-       
-
-            
+        return (     
          <div>
             <div className="row mb-6">
                 <div className="col-md-20">
