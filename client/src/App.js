@@ -11,6 +11,7 @@ import MasterView from "./components/MasterView/TicketView";
 import InsuranceSplash from "./components/InsuranceSplashScreen/index";
 import InsuranceTicketView from "./components/InsuranceSplashScreen/insuranceTicketView";
 
+
 class App extends Component {
 
   render() {

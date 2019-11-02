@@ -1,15 +1,16 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import {
     Button,
     Card,
-    Col,  
+    Col,
     Form,
     Tab,
     Tabs
-    } from "react-bootstrap";
-    import {Link} from 'react-router-dom';
+} from "react-bootstrap";
+import { Link } from 'react-router-dom';
 import './styles.css';
 import InsurerSignup from "../signup/insurersignup";
+const axios = require("axios");
 
 class InsurerLogin extends Component {
 
@@ -19,26 +20,31 @@ class InsurerLogin extends Component {
             insuranceUsername: "",
             insurancePassword: ""
         };
-    
+
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-      }
-    
-      handleChange(event) {
+    }
+
+    handleChange(event) {
         let name = event.target.name;
-        this.setState({[name]: event.target.value});
-      }
-    
-      handleSubmit(event) {
-          console.log("Our state now contains...", this.state);
-        alert(
-            "Submitting...\n" +
-            "Username: " + this.state.insuranceUsername +
-            "\n" +
-            "Password: " + this.state.insurancePassword
-        );
+        this.setState({ [name]: event.target.value });
+    }
+
+    handleSubmit(event) {
+        const insuranceAgentRequest = {
+            username: this.state.insuranceUsername,
+            password: this.state.insurancePassword
+        }
+        console.log(insuranceAgentRequest);
+        axios.post('/api/auth', insuranceAgentRequest)
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
         event.preventDefault();
-      }
+    }
 
 
 
@@ -50,21 +56,21 @@ class InsurerLogin extends Component {
                         <Tab eventKey="Login" title="Log in">
                             <Form onSubmit={this.handleSubmit}>
                                 <Col>
-                                    <Form.Control 
+                                    <Form.Control
                                         id="insurance-username-submit"
-                                        value={this.state.insuranceUsername} 
+                                        value={this.state.insuranceUsername}
                                         onChange={this.handleChange}
                                         name="insuranceUsername"
-                                        placeholder="Enter Username" 
+                                        placeholder="Enter Username"
                                     />
                                 </Col>
                                 <Col>
-                                    <Form.Control 
-                                        id="insurance-password-submit" 
-                                        value={this.state.customerPassword} 
+                                    <Form.Control
+                                        id="insurance-password-submit"
+                                        value={this.state.customerPassword}
                                         onChange={this.handleChange}
                                         name="insurancePassword"
-                                        placeholder="Enter Password" 
+                                        placeholder="Enter Password"
                                     />
                                 </Col>
                                 <Col>
@@ -76,9 +82,9 @@ class InsurerLogin extends Component {
                             <InsurerSignup />
                         </Tab>
                     </Tabs>
-                    <Link to = "/insurance-splash">
+                    <Link to="/insurance-splash">
                         <Button id="insurance-splash-button">Insurance Splash</Button>
-                    </Link> 
+                    </Link>
                 </Card.Body>
             </div>
         )

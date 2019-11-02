@@ -37,6 +37,7 @@ module.exports = function (sequelize, DataTypes) {
         //     foreignKey: 'taggable_id',
         //     constraints: false
         //   });
+        User.hasMany(models.Comment);
         User.belongsToMany(models.Ticket, {
             through: {
                 model: 'UserTicket',
