@@ -3,9 +3,7 @@ import React, {Component} from 'react';
 import '../../frontend-assets/css/masterView.css';
 import TaskItem from './TaskItem'
 
-// const data = {
-//     task:""
-// }
+
 
 class TaskList extends Component {
     state = { 
@@ -49,15 +47,35 @@ class TaskList extends Component {
 
     render() {
         return (
+
+        // <Form onSubmit = {this.handleInputChange}>
+        //         <Form.Group controlId= "formInput">
+
+        //         <Form.Label>Add to do Task</Form.Label>
+        //             <Form.Control
+        //               type="text" 
+        //               placeholder="Add your Task" 
+        //               value= {this.state.comment}
+        //               onChange={this.handleChange}
+        //               name="comment"/>/>
+
+        // </Form>
+
+            
+                
+              
+       
+
+            
          <div>
             <div className="row mb-6">
-                <div className="col-md-12">
+                <div className="col-md-20">
                     <form>
                         <div className="row">
-                            <div className="col-md-9 col-sm-9 col-9">
+                            <div className="col-md-10 col-sm-10 col-10">
                                 <input type="text" className="form-control" placeholder="Add Your Task Here" value={this.state.task} onChange={(event) => this.handleInputChange(event)}/>
                             </div>
-                            <div className="col-md-3 col-sm-3 col-3">
+                            <div className="col-md-10 col-sm-3 col-3">
                                 <button onClick = {this.onSubmit} className="btn btn-primary addNew">Add Task</button>
                             </div>
                         </div>
