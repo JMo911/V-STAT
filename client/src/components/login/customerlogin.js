@@ -40,7 +40,8 @@ class CustomerLogin extends Component {
             .then(function (response) {
                 console.log(response);
                 const cookie = new Cookie();
-                cookie.set('token', response.data.token)
+                cookie.set('token', response.data.token,)
+                cookie.set('userId', response.data.user.id)
             })
             .catch(function (error) {
                 console.log(error);
