@@ -6,6 +6,7 @@ import TaskItem from './TaskItem'
 // const data = {
 //     task:""
 // }
+import Comment from '../Comments/Comment'
 
 class TaskList extends Component {
     state = { 
@@ -49,26 +50,32 @@ class TaskList extends Component {
 
     render() {
         return (
-         <div>
-            <div className="row mb-6">
-                <div className="col-md-12">
+         <div className="row">
+                <div className="col-md-2">
                     <form>
                         <div className="row">
-                            <div className="col-md-9 col-sm-9 col-9">
-                                <input type="text" className="form-control" placeholder="Add Your Task Here" value={this.state.task} onChange={(event) => this.handleInputChange(event)}/>
+                            <div id="task-input-area" className="col-md-9 col-sm-9 col-9">
+                                <input 
+                                    type="text" 
+                                    className="form-control" 
+                                    placeholder="Add Your Task Here" 
+                                    value={this.state.task} 
+                                    onChange={(event) => this.handleInputChange(event)}
+                                    />
                             </div>
-                            <div className="col-md-3 col-sm-3 col-3">
+                            </div>
+                            <div className="row">
+                            <div id="task-input-submit" className="col-md-3 col-sm-3 col-3">
                                 <button onClick = {this.onSubmit} className="btn btn-primary addNew">Add Task</button>
                             </div>
                         </div>
                     </form>
                 </div>
-            </div>
-            <div className="col-md-15 padding-zero">
+            <div className="col-md-8 padding-zero">
             {/* tasks list container */}
                 <div className="task-list">
-                    <fieldset style={{boxShadow: '0 0 14px 2px #afafaf', borderRadius: 5, padding: '10 10px'}}>
-                        <legend style={{display: 'inline-block', backgroundColor: 'white', width: 'inherit',marginLeft: 10,padding: '0 10px'}}>Task List</legend>
+                    <fieldset>
+                        <legend id="task-list-header">Task List</legend>
                         {/* tasks start here */}
                         <div className="allTasks">
                             {/* task */}
@@ -81,7 +88,8 @@ class TaskList extends Component {
                         </div>
                     </fieldset>
                 </div>
-            </div>    
+            </div>
+            <Comment/>
         </div>           
                                    );
                                 }

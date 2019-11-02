@@ -2,9 +2,9 @@
   width: 700px;
   position: absolute;
   left: 33%;
-  color: #f4bc5d;
+  color: white;
   /* font-weight: bold; */
-  background-color: black;
+  background-color: steelblue;
   font-family: 'Stoke', serif;
   font-size: x-large;
   /* font-family: 'McLaren', cursive; */
@@ -19,7 +19,7 @@
 #loginBox {
   width: 600px;
   height: auto;
-  background-color:dimgray;
+  background-color:aliceblue;
 }
 
 #login-button {
@@ -33,34 +33,35 @@
 }
 
 .card-text {
-  color: #f4bc5d;
+  color: black;
 }
 .card-title {
-  color: #f4bc5d;
+  color: black;
 }
 
 .form-label {
-  color: #f4bc5d;
+  color: black;
 }
 
 a {
-  color: deepskyblue;
+  color: deepsteelblue;
 }
 
 .card {
   width: 600px;
   height: auto;
-  background-color:dimgray;
-  color: #f4bc5d;
+  background-color:aliceblue;
+  color: black;
 }
 
 #root {
-  background-color:black;
+  background-color:steelblue;
 }
 
 #logo {
-  border:5px solid black;
-  box-shadow: rgba(0, 0, 0, 0.15) 2px 2px 4px;
+  border-radius: 25px;
+  position: relative;
+    left: 25%;
 
 }
 .tab-pane {
@@ -83,15 +84,15 @@ a {
 }
 .btn-primary {
   margin-left: 10px;
-  background-color:gray;
+  background-color:steelblue;
   color:gold;
   border:gold;
   font-weight:bold;
 }
 .btn-primary:hover {
   background-color:gold;
-  color:black;
-  border:black;
+  color:steelblue;
+  border:steelblue;
   font-weight:bold;
 }
 
@@ -107,12 +108,12 @@ input.form-control {
 }
 
 #ticketInputArea {
-  background-color:dimgray;
+  background-color:aliceblue;
   left:33%;
   top:5rem;
   position:relative;
-  color:#f4bc5d;
-  border:5px solid #f4bc5d;
+  color:black;
+  border:5px solid white;
   border-radius: 10px;
   margin:10px;
   padding:30px;
@@ -142,7 +143,7 @@ input.form-control {
 }
 
 .card-body {
-  color:black;
+  color:steelblue;
 }
 
 /* Ticket View Stuff */
@@ -150,16 +151,39 @@ input.form-control {
 #ticket-view {
   position:relative;
   left:33%;
-  background-color:black;
-  color: #f4bc5d;
+  background-color:steelblue;
+  color: white;
 }
 
 #cardDiv {
   position:relative;
-  left:33%;
+  left:25%;
 }
 
 #contact-area {
   position:relative;
-  left:33%;
+  left:25%;
+}
+
+fieldset {
+  background-color: gold;
+  width: 50%;
+  color: black;
+  min-height: 10rem;
+  position:relative;
+  left:27%;
+}
+
+#task-list-header {
+  background-color:palegoldenrod;
+}
+
+#completed-tasks-header {
+  background-color:palegoldenrod;
+}
+#task-input-area {
+  border:5px solid green;
+}
+#task-input-submit {
+  border:5px solid red;
 }

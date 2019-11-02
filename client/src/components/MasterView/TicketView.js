@@ -5,7 +5,7 @@ import TaskList from '../TaskList/taskList';
 import CompletedTask from '../CompletedTask/CompletedTask';
 import Comment from '../Comments/Comment'
 import TicketCard from '../MasterView/TicketCard';
-import {Container} from "react-bootstrap";
+import {Container, Row, Col} from "react-bootstrap";
 
 
 class MasterView extends Component {
@@ -27,8 +27,9 @@ class MasterView extends Component {
                 <TaskList handleCompletedTask={this.handleCompletedTask}/>
 
                 <CompletedTask tasks={this.state.completedTasks}/>
-
-                <Comment/>
+                {/* <Comment/> */}
+              
+             
             </Container>
         );
     }
