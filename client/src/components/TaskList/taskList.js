@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../frontend-assets/css/masterView.css';
 import TaskItem from './TaskItem'
+import CompletedTask from '../CompletedTask/CompletedTask';
 
 // const data = {
 //     task:""
@@ -12,8 +13,14 @@ class TaskList extends Component {
     state = { 
         tasks: [],
         task: "",
+        completedTasks: []
     }
+    handleCompletedTask = (task) => { 
+        const tasks = this.state.completedTasks.slice()
+        tasks.push(task)
+        this.setState({completedTasks:tasks})
 
+    }
 
     onSubmit = (event) => {
         event.preventDefault();
@@ -54,7 +61,7 @@ class TaskList extends Component {
                 <div className="col-md-2">
                     <form>
                         <div className="row">
-                            <div id="task-input-area" className="col-md-9 col-sm-9 col-9">
+                            <div id="task-input-area" className="col-md-8">
                                 <input 
                                     type="text" 
                                     className="form-control" 
@@ -88,8 +95,11 @@ class TaskList extends Component {
                         </div>
                     </fieldset>
                 </div>
+                <CompletedTask tasks={this.state.completedTasks}/>
             </div>
+            <div className="col-md-2">
             <Comment/>
+            </div>
         </div>           
                                    );
                                 }

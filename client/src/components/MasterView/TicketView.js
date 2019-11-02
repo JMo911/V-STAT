@@ -26,7 +26,7 @@ class MasterView extends Component {
 
                 <TaskList handleCompletedTask={this.handleCompletedTask}/>
 
-                <CompletedTask tasks={this.state.completedTasks}/>
+                {/* <CompletedTask tasks={this.state.completedTasks}/> */}
                 {/* <Comment/> */}
               
              
