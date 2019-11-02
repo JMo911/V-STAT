@@ -1,13 +1,12 @@
 import React from 'react';
-import Card from 'react-bootstrap/Card'
+import Card, { CardBody } from 'react-bootstrap/Card'
 // import {Button} from "react-bootstrap";
 
 const TicketCard = (props) => {
 
   return (
     <React.Fragment>
-    <div className="cardDiv">
-      <Card style={{backgroundColor: "rgba(255,255,255,0.2"}}>
+      <Card id="cardDiv">
         {/* <Card.Img top width="100%" src={props.photo} alt="Card image cap" /> */}
         <Card.Body>
           <Card.Title>{props.vehicleMake} {props.vehicleModel} {props.vehicleYear}</Card.Title>
@@ -27,9 +26,16 @@ const TicketCard = (props) => {
 
                 <br/>
                 Case Number: {props.caseNumber}
+          </Card.Text>
+          </Card.Body>
+          </Card>
 
-            
-                <div id="contact-area">
+          <br/>
+
+      <Card id="contact-area">
+
+        <Card.Body>
+            <Card.Text>
                     Insurance Company: {props.insuranceCompany}
                     <br/>
                     Insurance Agent: {props.insuranceNameFirst} {props.insuranceNameLast}
@@ -39,12 +45,11 @@ const TicketCard = (props) => {
                     Mechanic: {props.mechanicNameFirst} {props.mechanicNameLast}
                     <br/>
                     Customer: {props.customerNameFirst} {props.customerNameLast}
-                </div>
           </Card.Text>
 
         </Card.Body>
+        
       </Card>
-    </div>
     </React.Fragment>
   );
 };

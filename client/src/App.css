@@ -83,14 +83,16 @@ a {
 }
 .btn-primary {
   margin-left: 10px;
-  background-color:darkgray;
+  background-color:gray;
   color:gold;
   border:gold;
+  font-weight:bold;
 }
 .btn-primary:hover {
   background-color:gold;
-  color:darkgray;
-  border:darkgray;
+  color:black;
+  border:black;
+  font-weight:bold;
 }
 
 /* .new-user-area {
@@ -141,4 +143,23 @@ input.form-control {
 
 .card-body {
   color:black;
+}
+
+/* Ticket View Stuff */
+
+#ticket-view {
+  position:relative;
+  left:33%;
+  background-color:black;
+  color: #f4bc5d;
+}
+
+#cardDiv {
+  position:relative;
+  left:33%;
+}
+
+#contact-area {
+  position:relative;
+  left:33%;
 }
