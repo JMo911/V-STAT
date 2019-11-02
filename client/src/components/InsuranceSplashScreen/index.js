@@ -5,7 +5,7 @@ import { Container, Row, Col,Card,Button } from 'react-bootstrap';
 
 const InsuranceSplashScreen = (props) => {
     return (
-            <Container flex fullHeight className="container text-center" style={{position: 'relative', top: 170}} flexCol justifyContent="center">
+            <Container>
                 <Row className="MainCard" alignItems="center" flexCol>
                     <Col xs="8" className="offset-2">
                         <Card>

@@ -5,11 +5,31 @@ import {
 import './styles.css';
 import {Link} from "react-router-dom";
 import {Button} from "react-bootstrap";
+import posed from 'react-pose';
+import ReactDOM from 'react-dom';
+
+const Box = posed.div({
+  hoverable: true,
+  pressable: true,
+  init: {
+    scale: 1,
+    boxShadow: '0px 0px 0px rgba(0,0,0,0)'
+  },
+  hover: {
+    scale: 1.2,
+    boxShadow: '0px 5px 10px rgba(0,0,0,0.2)'
+  },
+  press: {
+    scale: 1.1,
+    boxShadow: '0px 2px 5px rgba(0,0,0,0.1)'
+  }
+});
+
 
 
 class LoginPage extends Component {
 
-
+  
 
     render() {
       return (
@@ -22,8 +42,9 @@ class LoginPage extends Component {
           {/* <p>With V-STAT, get the STATus of your V-hicle, STAT!</p> */}
 
           <p>To begin, please select the Login button below.</p>
+          {/* <Box className="box" /> */}
             <Link to = "/login">
-              <Button id="login-button">Login</Button>
+              <Box id="login-button">Login</Box>
             </Link> 
 
             </div>

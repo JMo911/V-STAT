@@ -10,7 +10,7 @@
     align-items: flex-start;
     display: flex;
     background-image: linear-gradient(-180deg, #ffffff 0%, #f3f3f3 100%);
-    padding-top: 20px;
+    /* padding-top: 20px; */
   }
   
   #root {
@@ -40,7 +40,7 @@
     background: rgba(0, 0, 0, 0.8);
   }
   
-  .content-wrapper {
+  /* .content-wrapper {
     padding: 5px 8px 20px 8px;
   }
-  
+   */

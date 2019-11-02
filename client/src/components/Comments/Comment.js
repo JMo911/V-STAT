@@ -19,13 +19,24 @@ class Comments extends Component {
             comment: ""
         };
 
-        this.handleChange = this.handleChange.bind(this);
+        this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleChange(event) {
+    addComment(event) {
+        if (this.onSubmit.value !== "") {
+            var newComment = {
+                text: this.onSubmit.value,
+                key: Date.now()
+            }
+            console.log(newComment.data.config.data);
+        }
+    }
+
+    handleInputChange(event) {
         let name = event.target.name;
         this.setState({ [name]: event.target.value });
+        console.log(this.state.comment)
     }
 
     handleSubmit(event) {
@@ -76,7 +87,7 @@ class Comments extends Component {
                             type="text" 
                             placeholder="Place your comment" 
                             value= {this.state.comment}
-                            onChange={this.handleChange}
+                            onChange={this.handleInputChange}
                             name="comment"/>
 
                     </Form.Group>

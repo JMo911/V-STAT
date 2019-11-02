@@ -4,35 +4,27 @@ import '../../frontend-assets/css/masterView.css';
 import TaskItem from '../TaskList/TaskItem'
 
    
-class CompletedTask extends Component {
-
-
-render() {
+// class CompletedTask extends Component {
+export function CompletedTask(props) {
+    console.log(props.tasks);
     return (
-
-<div className="completed-tasks">
-    <fieldset id="task-area">
-        <legend id="completed-tasks-header">Completed Tasks</legend>
-                        {/* completed tasks will appear here*/}
-                        <ol className="taskName pl-4" style={{lineHeight: 1.0}}>
-                         <ul>
-                            {this.props.tasks.map(task => (      
-                                    // <TaskItem description={task}/>
-                                    <div>
-                                        {task}
-                                    </div>
-                                ))}
-                        </ul>
-
-                        
-                        {/* <li style={{fontSize: 15}}></li> */}
-
-                         
-                        </ol>
-    </fieldset>
-</div>
+        <div className="completed-tasks">
+            <fieldset id="task-area">
+                <legend id="completed-tasks-header">Completed Tasks</legend>
+                    {/* completed tasks will appear here*/}
+                    <ol className="taskName pl-4" style={{lineHeight: 1.0}}>
+                        <ul>
+                            {props.tasks.map((task, i) => (      
+                                // <TaskItem description={task}/>
+                                <div key={i}>
+                                    {task}
+                                </div>
+                            ))}
+                        </ul>                         
+                    </ol>
+            </fieldset>
+        </div>
     );
-    }
 }
 
 export default CompletedTask;

@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import '../../frontend-assets/css/masterView.css';
 import TaskItem from './TaskItem'
 import CompletedTask from '../CompletedTask/CompletedTask';
+import {Button, Col, Row} from "react-bootstrap";
 
 // const data = {
 //     task:""
@@ -15,19 +16,14 @@ class TaskList extends Component {
         task: "",
         completedTasks: []
     }
-    handleCompletedTask = (task) => { 
-        const tasks = this.state.completedTasks.slice()
-        tasks.push(task)
-        this.setState({completedTasks:tasks})
 
-    }
 
     onSubmit = (event) => {
         event.preventDefault();
         const tasks = this.state.tasks.slice()
         tasks.push(this.state.task)
         this.setState({tasks:tasks, task:""})
-        alert("Task Added")
+        // alert("Task Added")
         
     }
 
@@ -47,21 +43,45 @@ class TaskList extends Component {
         }
     }
 
+
+
+
+
+    // handleCompletedTask = (task) => { 
+    //     const tasks = this.state.completedTasks.slice()
+    //     tasks.push(task)
+    //     // this.setState({completedTasks:tasks})
+    //     this.setState(previousState => ({
+    //         completedTasks: previousState.completedTasks
+    //     }))
+    //     console.log("Our completed tasks are now...", this.state.completedTasks)
+    // }
+
     completeTask = (event, task, i) => {
         event.preventDefault();
         const tasks = this.state.tasks.slice()
+        const completedTasks = this.state.completedTasks.slice()
         tasks.splice(i, 1)
-        this.setState({tasks:tasks})
+
+        completedTasks.push(task)
+
+        this.setState({tasks:tasks, completedTasks:completedTasks})
         this.props.handleCompletedTask(task)
+        console.log("Task completed!");
     }
+
+
+
+
+
 
     render() {
         return (
-         <div className="row">
-                <div className="col-md-2">
+            <Row md={2}>
+                <Col md={2}>
                     <form>
-                        <div className="row">
-                            <div id="task-input-area" className="col-md-8">
+                        <Row>
+                            <Col md={8} id="task-input-area">
                                 <input 
                                     type="text" 
                                     className="form-control" 
@@ -69,41 +89,45 @@ class TaskList extends Component {
                                     value={this.state.task} 
                                     onChange={(event) => this.handleInputChange(event)}
                                     />
-                            </div>
-                            </div>
-                            <div className="row">
-                            <div id="task-input-submit" className="col-md-3 col-sm-3 col-3">
-                                <button onClick = {this.onSubmit} className="btn btn-primary addNew">Add Task</button>
-                            </div>
-                        </div>
+                            </Col>
+                            <Row>
+                                <div id="task-input-submit" className="col-md-3 col-sm-3 col-3">
+                                    <Button onClick = {this.onSubmit} className="btn btn-primary addNew" id="add-task-button">Add Task</Button>
+                                </div>
+                            </Row>
+                        </Row>
                     </form>
-                </div>
-            <div className="col-md-8 padding-zero">
-            {/* tasks list container */}
-                <div className="task-list">
-                    <fieldset>
-                        <legend id="task-list-header">Task List</legend>
-                        {/* tasks start here */}
-                        <div className="allTasks">
-                            {/* task */}
-                            <ul>
-                                {this.state.tasks.map((task, i) => (
-                                    <TaskItem description={task} handleCompletedTask= {event=>this.completeTask(event, task, i)}/>
-                                ))}
-                            </ul>
-                            
-                        </div>
-                    </fieldset>
-                </div>
-                <CompletedTask tasks={this.state.completedTasks}/>
-            </div>
-            <div className="col-md-2">
-            <Comment/>
-            </div>
-        </div>           
-                                   );
-                                }
-                            }
+                </Col>
+                <Col md={8}>
+                {/* tasks list container */}
+                    <div className="task-list">
+                        <fieldset>
+                            <legend id="task-list-header">Task List</legend>
+                            {/* tasks start here */}
+                            <div className="allTasks">
+                                {/* task */}
+                                <ul>
+                                    {this.state.tasks.map((task, i) => (
+                                        <TaskItem 
+                                        key={i}
+                                        description={task} 
+                                        handleCompletedTask = {event=>this.completeTask(event, task, i)}
+                                        />
+                                    ))}
+                                </ul>
+                                
+                            </div>
+                        </fieldset>
+                    </div>
+                    <CompletedTask tasks={this.state.completedTasks}/>
+                </Col>
+                <Col md={2}>
+                    <Comment/>
+                </Col>
+            </Row>         
+        );
+    }
+}
 
     export default TaskList;
                         
