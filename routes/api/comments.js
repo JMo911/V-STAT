@@ -11,7 +11,5 @@ router
     .route("/:id")
     .get(commentsController.findById)
     .put(commentsController.update)
-//dont think we'll need a delete option since none of the users will be deleting anything
-//   .delete(ticketsController.remove);
 
 module.exports = router;
