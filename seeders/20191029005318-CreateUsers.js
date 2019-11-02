@@ -1,6 +1,13 @@
 'use strict';
+var bcrypt = require('bcrypt');
+
+const hashPassword = (password) => {
+  const salt = bcrypt.genSaltSync();
+  return bcrypt.hashSync(password, salt);
+};
 
 module.exports = {
+  
   up: (queryInterface, Sequelize) => {
     /*
       Add altering commands here.
@@ -15,7 +22,7 @@ module.exports = {
    return queryInterface.bulkInsert('Users', [
     {
       username: 'John Doe',
-      password: "testpass",
+      password: hashPassword("testpass"),
       firstName: "testfirst",
       lastName: "testlast",
       'createdAt': new Date(),
@@ -24,7 +31,7 @@ module.exports = {
     },
     {
       username: 'Jane Doe',
-      password: "2testpass",
+      password: hashPassword("2testpass"),
       firstName: "2testfirst",
       lastName: "2testlast",
       'createdAt': new Date(),
@@ -33,7 +40,7 @@ module.exports = {
     },
     {
       username: 'Jill Doe',
-      password: "3testpass",
+      password: hashPassword("3testpass"),
       firstName: "3testfirst",
       lastName: "3testlast",
       'createdAt': new Date(),

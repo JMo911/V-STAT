@@ -22,7 +22,7 @@ export default function (app) {
                     }
                     var sanitizedUser = {
                         id: user.id,
-                        username: user.lastName
+                        username: user.username
                     };
 
                     // generate a signed son web token with the contents of user object and return it in the response
