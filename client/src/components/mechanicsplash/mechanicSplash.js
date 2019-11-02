@@ -10,10 +10,35 @@ class MechanicSplash extends Component {
     };
 
     componentWillMount() {
-      console.log("Grabbing data...");
-      axios.get("api/tickets")
+      // console.log("Grabbing data...");
+      // axios.get("api/tickets")
+      // .then(response => {
+      //   console.log("Got a response!");
+
+      //   const data = response.data;
+      //   this.setState({ data:data })
+
+
+      // }).catch(function(error) {
+      //   console.log(error);
+      // })
+      let cookie = document.cookie;
+      cookie = cookie.split(', ');
+      var result = {};
+      for (var i = 0; i < cookie.length; i++) {
+          var cur = cookie[i].split('=');
+          result[cur[0]] = cur[1];
+      }
+      let token = result.token;
+      axios({
+        method: "get",
+        url: '/api/tickets',
+        headers: {
+          Authorization: "Bearer " + token
+        }
+      })
       .then(response => {
-        console.log("Got a response!");
+        // console.log("Got a response!");
 
         const data = response.data;
         this.setState({ data:data })

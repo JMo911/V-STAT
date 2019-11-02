@@ -14,7 +14,7 @@ const localStrategy = new LocalStrategy(
         }).then(
             function(user) {
                 if (!user || !user.validatePassword(password)) {
-                    return cb(null, false, {message: 'Incorrect last name or case number.'});
+                    return cb(null, false, {message: 'Incorrect username or password.'});
                 }
                 return cb(null, user, {message: 'Logged In Successfully'});
             }
