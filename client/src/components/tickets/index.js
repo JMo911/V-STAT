@@ -7,6 +7,7 @@ import {
     } from "react-bootstrap";
 import {Link} from 'react-router-dom';
 import './styles.css';
+const axios = require('axios');
 
 class NewTicket extends Component {
         constructor(props) {
@@ -18,16 +19,18 @@ class NewTicket extends Component {
                 vehicleMileage: "",
                 estimatedCost: "",
                 caseNumber: "",
-                approvalDate: "",
-                estimatedCompletionDate: "",
-                customerNameFirst: "",
-                customerNameLast: "",
-                mechanicNameFirst: "",
-                mechanicNameLast: "",
-                mechanicShopName: "",
-                insuranceNameFirst: "",
-                insuranceNameLast: "",
-                insuranceCompany: ""
+                mechanicUsername: "",
+                customerUsername: ""
+                // approvalDate: "",
+                // estimatedCompletionDate: "",
+                // customerNameFirst: "",
+                // customerNameLast: "",
+                // mechanicNameFirst: "",
+                // mechanicNameLast: "",
+                // mechanicShopName: "",
+                // insuranceNameFirst: "",
+                // insuranceNameLast: "",
+                // insuranceCompany: ""
                 
             };
         
@@ -41,29 +44,54 @@ class NewTicket extends Component {
           }
         
           handleSubmit(event) {
-              console.log("Our state now contains...", this.state);
-            alert(
-                "Submitting...\n" +
-                "Vehicle Make: " + this.state.vehicleMake + 
-                "\n" + 
-                "Vehicle Model: " + this.state.vehicleModel + 
-                "\n" + 
-                "Vehicle Year: " + this.state.vehicleYear + 
-                "\n" + 
-                "Vehicle Mileage: " + this.state.vehicleMileage + 
-                "\n" + 
-                "Estimated Cost of Repairs: " + this.state.estimatedCost + 
-                "\n" + 
-                "Case Number: " + this.state.caseNumber + 
-                "\n" + 
-                "Approved On: " + this.state.approvalDate + 
-                "\n" + 
-                "Customer Username: " + this.state.customerUsername + 
-                "\n" + 
-                "Mechanic: " + this.state.mechanicUsername
+            const newTicket = {
+                vehicleMake: this.state.vehicleMake,
+                vehicleModel: this.state.vehicleModel,
+                vehicleYear: this.state.vehicleYear,
+                vehicleMileage: this.state.vehicleMileage,
+                estimatedCost: this.state.estimatedCost,
+                caseNumber: this.state.caseNumber,
+                // approvalDate: this.state.approvalDate,
+                // estimatedCompletionDate: this.state.estimatedCompletionDate,
+                // customerNameFirst: this.state.customerNameFirst,
+                // customerNameLast: this.state.customerNameLast,
+                // mechanicNameFirst: this.state.mechanicNameFirst,
+                // mechanicNameLast: this.state.mechanicNameLast,
+                // mechanicShopName: this.state.mechanicShopName,
+                // insuranceNameFirst: this.state.insuranceNameFirst,
+                // insuranceNameLast: this.state.insuranceNameLast,
+                // insuranceCompany: this.state.insuranceCompany
+            }
+            axios.post('/api/tickets', newTicket)
+                .then(function (response) {
+                    console.log(response)
+                })
+                .catch(function (error) {
+                    console.log(error);
+                }); event.preventDefault();
+            //   console.log("Our state now contains...", this.state);
+            // alert(
+            //     "Submitting...\n" +
+            //     "Vehicle Make: " + this.state.vehicleMake + 
+            //     "\n" + 
+            //     "Vehicle Model: " + this.state.vehicleModel + 
+            //     "\n" + 
+            //     "Vehicle Year: " + this.state.vehicleYear + 
+            //     "\n" + 
+            //     "Vehicle Mileage: " + this.state.vehicleMileage + 
+            //     "\n" + 
+            //     "Estimated Cost of Repairs: " + this.state.estimatedCost + 
+            //     "\n" + 
+            //     "Case Number: " + this.state.caseNumber + 
+            //     "\n" + 
+            //     "Approved On: " + this.state.approvalDate + 
+            //     "\n" + 
+            //     "Customer Username: " + this.state.customerUsername + 
+            //     "\n" + 
+            //     "Mechanic: " + this.state.mechanicUsername
 
-            );
-            event.preventDefault();
+            // );
+            // event.preventDefault();
           }
 
 
