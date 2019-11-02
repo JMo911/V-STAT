@@ -10,6 +10,7 @@ import {
 import { Link } from 'react-router-dom';
 import './styles.css';
 import InsurerSignup from "../signup/insurersignup";
+import Cookie from 'universal-cookie';
 const axios = require("axios");
 
 class InsurerLogin extends Component {
@@ -38,7 +39,9 @@ class InsurerLogin extends Component {
         console.log(insuranceAgentRequest);
         axios.post('/api/auth', insuranceAgentRequest)
             .then(function (response) {
-                console.log(response);
+                console.log(response.data.token);
+                const cookie = new Cookie();
+                cookie.set('token', response.data.token)
             })
             .catch(function (error) {
                 console.log(error);
