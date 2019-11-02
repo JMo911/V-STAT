@@ -3,7 +3,6 @@ import jwt from 'jsonwebtoken';
 // import models from '../models';
 export default function (app) {
      app.post('/api/auth', function(request, response) {
-         console.log(request.body);
         passport.authenticate(
             'local',
             {session: false},
