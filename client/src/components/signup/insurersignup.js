@@ -28,19 +28,10 @@ class InsurerSignup extends Component {
 
     handleChange(event) {
         let name = event.target.name;
-        // let value = event.target.value;
         this.setState({ [name]: event.target.value });
     }
 
     handleSubmit(event) {
-        //   console.log("Our state now contains...", this.state);
-        // alert("Submitting...\n" +
-        //     "Username: " + this.state.insuranceUsername + "\n" +
-        //     "Password: " + this.state.insurancePassword + "\n" + 
-        //     "First Name: " + this.state.insuranceNameFirst + "\n" +
-        //     "Last Name: " + this.state.insuranceNameLast + "\n" +
-        //     "Company: " + this.state.insuranceCompany);
-        // alert('A name was submitted: ' + this.state.value);
         const insuranceAgent = {
             username: this.state.insuranceUsername,
             password: this.state.insurancePassword,

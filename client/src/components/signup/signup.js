@@ -1,13 +1,9 @@
 import React, { Component } from "react";
 import {
-    // Accordion, 
     Button,
     Card,
     Col,  
-    // Container,
-    Form,
-    // Control, 
-    Row
+    Form
     } from "react-bootstrap";
 import './styles.css';
 

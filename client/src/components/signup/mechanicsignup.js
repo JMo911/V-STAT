@@ -11,7 +11,6 @@ const axios = require('axios');
 
 
 class InsurerSignup extends Component {
-
     constructor(props) {
         super(props);
         this.state = {
@@ -32,13 +31,6 @@ class InsurerSignup extends Component {
       }
     
       handleSubmit(event) {
-        //   console.log("Our state now contains...", this.state);
-        // alert("Submitting...\n" +
-        //     "Username: " + this.state.mechanicUsername + "\n" +
-        //     "Password: " + this.state.mechanicPassword + "\n" + 
-        //     "First Name: " + this.state.mechanicNameFirst + "\n" +
-        //     "Last Name: " + this.state.mechanicNameLast + "\n" +
-        //     "Shop Name: " + this.state.mechanicShopName);
         const mechanic = {
             username: this.state.mechanicUsername,
             password: this.state.mechanicPassword,
@@ -51,15 +43,12 @@ class InsurerSignup extends Component {
         console.log(mechanic);
         axios.post('/api/users', mechanic)
             .then(function (response) {
-                console.log(response);
             })
             .catch(function (error) {
                 console.log(error);
             });
         event.preventDefault();
       }
-
-
 
     render() {
         return (

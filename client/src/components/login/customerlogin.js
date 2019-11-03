@@ -14,14 +14,12 @@ import Cookie from 'universal-cookie';
 const axios = require("axios");
 
 class CustomerLogin extends Component {
-
     constructor(props) {
         super(props);
         this.state = {
             customerUsername: "",
             customerPassword: ""
         };
-
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -47,8 +45,6 @@ class CustomerLogin extends Component {
                 console.log(error);
             }); event.preventDefault();
     }
-
-
 
     render() {
         return (
