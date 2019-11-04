@@ -5,8 +5,8 @@ const TicketCard = (props) => {
 
   return (
     <React.Fragment>
-    <div className="cardDiv">
-      <Card style={{backgroundColor: "rgba(255,255,255,0.2"}}>
+      <Card id="master-view-ticket">
+        {/* <Card.Img top width="100%" src={props.photo} alt="Card image cap" /> */}
         <Card.Body>
           <Card.Title>{props.vehicleMake} {props.vehicleModel} {props.vehicleYear}</Card.Title>
           <br/>
@@ -31,15 +31,9 @@ const TicketCard = (props) => {
 
           <br/>
 
-      <Card>
-
+      <Card id="contact-area">
         <Card.Body>
             <Card.Text>
-            <div className="col-md-6">
-              <div className="row details">
-                      {/* details headings like contacts etc */}
-                      <div className="col-md-10 col-sm-6 col-6 pr-0">
-                <div id="contact-area">
                     Insurance Company: {props.insuranceCompany}
                     <br/>
                     Insurance Agent: {props.insuranceNameFirst} {props.insuranceNameLast}
@@ -49,16 +43,11 @@ const TicketCard = (props) => {
                     Mechanic: {props.mechanicNameFirst} {props.mechanicNameLast}
                     <br/>
                     Customer: {props.customerNameFirst} {props.customerNameLast}
-                </div>
-                </div>
-            </div>
-          </div>
           </Card.Text>
 
         </Card.Body>
         
       </Card>
-    </div>
     </React.Fragment>
   );
 };

@@ -2,9 +2,9 @@
   width: 700px;
   position: absolute;
   left: 33%;
-  color: #f4bc5d;
+  color: white;
   /* font-weight: bold; */
-  background-color: black;
+  background-color: steelblue;
   font-family: 'Stoke', serif;
   font-size: x-large;
   /* font-family: 'McLaren', cursive; */
@@ -19,7 +19,7 @@
 #loginBox {
   width: 600px;
   height: auto;
-  background-color:dimgray;
+  background-color:aliceblue;
 }
 
 #login-button {
@@ -27,40 +27,62 @@
   padding-right:100px;
   padding-top: 20px;
   padding-bottom:20px;
-  left:35%;
+  left: 33%;
+  right: 33%;
+  width: 40%;
   position:relative;
   font-size: xx-large;
+  background-color:orange;
+  border-radius:15px;
 }
 
 .card-text {
-  color: #f4bc5d;
+  color: black;
 }
 .card-title {
-  color: #f4bc5d;
+  color: black;
 }
 
 .form-label {
-  color: #f4bc5d;
+  color: black;
 }
 
 a {
-  color: deepskyblue;
+  color: deepsteelblue;
 }
+
+
+
+.box {
+  width: 150px;
+  height: 150px;
+  background: #fff;
+}
+
+
+
+
 
 .card {
   width: 600px;
   height: auto;
-  background-color:dimgray;
-  color: #f4bc5d;
+  background-color:aliceblue;
+  color: black;
+}
+
+body {
+  background-color:steelblue;
+  padding-top:0px;
 }
 
 #root {
-  background-color:black;
+  background-color:steelblue;
 }
 
 #logo {
-  border:5px solid black;
-  box-shadow: rgba(0, 0, 0, 0.15) 2px 2px 4px;
+  border-radius: 25px;
+  position: relative;
+  left: 25%;
 
 }
 .tab-pane {
@@ -83,14 +105,16 @@ a {
 }
 .btn-primary {
   margin-left: 10px;
-  background-color:darkgray;
+  background-color:steelblue;
   color:gold;
   border:gold;
+  font-weight:bold;
 }
 .btn-primary:hover {
   background-color:gold;
-  color:darkgray;
-  border:darkgray;
+  color:steelblue;
+  border:steelblue;
+  font-weight:bold;
 }
 
 /* .new-user-area {
@@ -105,12 +129,12 @@ input.form-control {
 }
 
 #ticketInputArea {
-  background-color:dimgray;
+  background-color:aliceblue;
   left:33%;
   top:5rem;
   position:relative;
-  color:#f4bc5d;
-  border:5px solid #f4bc5d;
+  color:black;
+  border:5px solid white;
   border-radius: 10px;
   margin:10px;
   padding:30px;
@@ -133,12 +157,99 @@ input.form-control {
   margin:0;
 }
 .row {
-  height:100%;
+  height:10%;
 }
 .col {
   height:100%;
 }
 
 .card-body {
+  color:steelblue;
+}
+
+/* Ticket View Stuff */
+
+#ticket-view {
+  position:relative;
+  left:33%;
+  background-color:steelblue;
+  color: white;
+}
+#master-view-ticket {
+  position:relative;
+  left:25%;
+  /* margin-top:10rem; */
+}
+
+#cardDiv {
+  position: relative;
+  left: 55%;
+  right: 45%;
+  /* top: 5rem; */
+  margin-top: 5rem;
+  /* border: 5px solid red; */
+  width: 55%;
+}
+
+#contact-area {
+  position:relative;
+  left:25%;
+}
+
+fieldset {
+  background-color: gold;
+  width: 100%;
+  color: black;
+  min-height: 10rem;
+  position: relative;
+  left: 10%;
+  max-width: 625px;
+  margin-bottom: 3rem;
+}
+#task-text {
+  font-size:14px;
+}
+
+.actions {
+  margin-top:5px;
+}
+
+#task-list-header {
+  background-color:palegoldenrod;
+}
+
+#completed-tasks-header {
+  background-color:palegoldenrod;
+}
+#task-input-area {
+  width:120px;
+}
+#task-input-submit {
+  width:120px;
+}
+.task-list {
+  margin-top:3rem;
+}
+
+#comment-box {
   color:black;
+  width:500px;
+
+}
+#comment-box img {
+  height:auto;
+  width:50px;
+}
+#add-task-button {
+  padding-left:25px;
+  padding-right:25px;
+}
+
+.list-overflow-container {
+  max-height: 545px;
+  border: 1px #DDDDDD solid;
+  border-radius: 4px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height:300px;
 }

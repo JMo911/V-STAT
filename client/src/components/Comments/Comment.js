@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import '../../frontend-assets/css/masterView.css';
 import axios from 'axios';
-import {Button, Form} from 'react-bootstrap';
+import {Button, Container, Form} from 'react-bootstrap';
+import {List, ListItem} from "./commentList.js";
 
 
 
@@ -9,17 +10,31 @@ class Comments extends Component {
 
     constructor(props) {
         super(props);
+        console.log(data);
         this.state = {
+            comments:data[0].comments,
+
             comment: ""
         };
 
-        this.handleChange = this.handleChange.bind(this);
+        this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleChange(event) {
+    addComment(event) {
+        if (this.onSubmit.value !== "") {
+            var newComment = {
+                text: this.onSubmit.value,
+                key: Date.now()
+            }
+            console.log(newComment.data.config.data);
+        }
+    }
+
+    handleInputChange(event) {
         let name = event.target.name;
         this.setState({ [name]: event.target.value });
+        console.log(this.state.comment)
     }
 
     handleSubmit(event) {
@@ -39,21 +54,47 @@ class Comments extends Component {
 
     render() {
         return (
-    <Form onSubmit = {this.handleSubmit}>
-        <Form.Group controlId="formBasicPassword">
-            <Form.Label>Comments</Form.Label>
-                <Form.Control 
-                type="text" 
-                placeholder="Place your comment" 
-                value= {this.state.comment}
-                onChange={this.handleChange}
-                name="comment"/>
-        </Form.Group>
-        <Button variant="primary" type="submit">
-            Submit
-        </Button>
-    </Form>
-    );
+            <Container>
+                {/* ================================================= */}
+                <div id="comment-box">
+                    {this.state.comments.length ? (
+                    <List>
+                        {this.state.comments.map(comment => (
+                        <ListItem key={comment.commentId}>
+                                <img className="comment-avatar" src={comment.profilePic} alt="stuff" />
+                                {comment.author} : {comment.commentText}
+                                {/* <DeleteBtn
+                                    deleteBook = { () => this.deleteBook(book._id)} 
+                                /> */}
+                        </ListItem>
+                    
+                    ))}
+                    </List>
+                    ) : (
+                    <h3>No Comments to Display</h3>
+                    )}
+                {/* ================================================= */}
+                </div>
+
+                <Form onSubmit = {this.handleSubmit}>
+                    <Form.Group controlId="formBasicPassword">
+                        
+                        <Form.Label>Comments</Form.Label>
+                        
+                            <Form.Control 
+                            type="text" 
+                            placeholder="Place your comment" 
+                            value= {this.state.comment}
+                            onChange={this.handleInputChange}
+                            name="comment"/>
+
+                    </Form.Group>
+                    <Button variant="primary" type="submit">
+                        Submit
+                    </Button>
+                </Form>
+            </Container>
+        )
     }
 }
 

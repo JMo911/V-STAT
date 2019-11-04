@@ -14,7 +14,51 @@
         "customerNameLast": "Wayne",
         "mechanicNameFirst": "Tim",
         "mechanicNameLast": "Drake",
-        "mechanicShopName": "Batcave"
+        "mechanicShopName": "Batcave",
+        "comments": [
+            {
+                "author": "Customer",
+                "profilePic": "/assets/images/avatar.png",
+                "commentText": "My car rules!",
+                "commentId": 1,
+                "userId": 1
+            },
+            {
+                "author": "Mechanic",
+                "profilePic": "/assets/images/avatar.png",
+                "commentText": "Your car sucks and here's why.",
+                "commentId": 2,
+                "userId": 2
+            },
+            {
+                "author": "Insurance",
+                "profilePic": "/assets/images/avatar.png",
+                "commentText": "We won't pay for your car.",
+                "commentId": 3,
+                "userId": 3
+            },
+            {
+                "author": "CoolGuy",
+                "profilePic": "/assets/images/avatar.png",
+                "commentText": "I hate puppies!",
+                "commentId": 4,
+                "userId": 1
+            },
+            {
+                "author": "AngryGirl",
+                "profilePic": "/assets/images/avatar.png",
+                "commentText": "WTF puppies are the best!",
+                "commentId": 5,
+                "userId": 1
+            },
+            {
+                "author": "InternetTroll",
+                "profilePic": "/assets/images/avatar.png",
+                "commentText": "Go back to <insert country!>",
+                "commentId": 6,
+                "userId": 1
+            }
+        ]
     }
 ]
 

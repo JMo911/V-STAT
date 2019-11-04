@@ -6,7 +6,7 @@ import {Link} from 'react-router-dom';
 const InsuranceCard = (props) => {
   return (
     <React.Fragment>
-    <div className="cardDiv">
+    <div id="cardDiv">
       <Card style={{backgroundColor: "rgba(255,255,255,0.2"}}>
         <Card.Body>
         <Card.Title>{props.vehicleMake} {props.vehicleModel} {props.vehicleYear}</Card.Title>

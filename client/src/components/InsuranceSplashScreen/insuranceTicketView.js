@@ -14,6 +14,7 @@ class InsuranceTicketView extends Component {
             <div id="cardarea">
                 {this.state.data.map(data => (
                     <InsuranceCard 
+                    key={data.caseNumber}
                     caseNumber={data.caseNumber}
                     estimatedCost={data.estimatedCost}
                     approvalDate={data.approvalDate}
