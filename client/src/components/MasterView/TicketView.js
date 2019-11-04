@@ -3,10 +3,13 @@ import '../../frontend-assets/css/masterView.css';
 import TaskList from '../TaskList/taskList';
 import TicketCard from '../MasterView/TicketCard';
 import {Container} from "react-bootstrap";
+import axios from "axios";
 
 class MasterView extends Component {
     state = { 
         completedTasks: [],
+        data:[],
+        userId: ""
     }
     handleCompletedTask = (task) => { 
         const tasks = this.state.completedTasks.slice()
@@ -14,9 +17,41 @@ class MasterView extends Component {
         this.setState({completedTasks:tasks})
     }
 
-    state = { 
-        completedTasks: [],
-    }
+
+
+    async componentDidMount() {
+        let cookie = document.cookie;
+        cookie = cookie.split('; ');
+        let userId = cookie[0].split('=');
+        let finalUserId = userId[1];
+
+        console.log("our real user ID is: " + finalUserId);
+
+        var result = {};
+        for (var i = 0; i < cookie.length; i++) {
+            var cur = cookie[i].split('=');
+            result[cur[0]] = cur[1];
+        }
+        let token = result.token;
+        let userCredentials = token.split('; ');
+        let finalToken = userCredentials[0];
+        console.log("the finalToken is: " + finalToken);
+        this.setState({userId:finalUserId});
+        await axios({
+          method: "get",
+          url: '/api/tickets/' + this.state.userId,
+          headers: {
+            Authorization: "Bearer " + finalToken
+          }
+        })
+        .then(response => {
+          const data = response.data;
+          this.setState({ data:data })
+        }).catch(function(error) {
+          console.log(error);
+        })
+      }
+
     handleCompletedTask = (task) => { 
         const tasks = this.state.completedTasks.slice()
         tasks.push(task)
@@ -31,7 +66,8 @@ class MasterView extends Component {
     render() {
         return (
             <Container id="ticket-view">
-                <TicketCard/>
+                {console.log("We are passing down... ", this.state.data)}
+                <TicketCard props={this.state.data}/>
 
                 <TaskList handleCompletedTask={this.handleCompletedTask}/>             
              

@@ -7,7 +7,7 @@ import {
     Form,
     Tab,
     Tabs,
-    Alert
+    // Alert
 } from "react-bootstrap";
 import './styles.css';
 import CustomerSignup from "../signup/customersignup";
@@ -42,8 +42,9 @@ class CustomerLogin extends Component {
                 // console.log(response.data);
                 const userType = response.data.user.UserTypeId;
                 // console.log(userType);
-                if (userType != 1) {
+                if (userType !== 1) {
                     console.log('wrong user type');
+
                     
 
                     function reroutetologin() {
@@ -72,6 +73,7 @@ class CustomerLogin extends Component {
                     function reroutetologin() {
                         window.location = "/"
                     }
+                    console.log(errormessage);
 
                     setTimeout(reroutetologin, 3000);
                     // this.setState({

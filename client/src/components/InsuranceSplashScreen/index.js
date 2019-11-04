@@ -17,7 +17,7 @@ const InsuranceSplashScreen = (props) => {
                                 </Card.Text>
                                 <Row>
                                     <Link to = "/insurance-ticket-view">
-                                    <Col><Button variant="primary">View Ticket</Button></Col>
+                                    <Col><Button variant="primary">View Tickets</Button></Col>
                                     </Link>
                                     <Col>
                                         <Link to = "/new-ticket">

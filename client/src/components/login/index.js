@@ -4,9 +4,9 @@ import {
 } from "react-bootstrap";
 import './styles.css';
 import { Link } from "react-router-dom";
-import { Button } from "react-bootstrap";
+// import { Button } from "react-bootstrap";
 import posed from 'react-pose';
-import ReactDOM from 'react-dom';
+// import ReactDOM from 'react-dom';
 
 const Box = posed.div({
   hoverable: true,

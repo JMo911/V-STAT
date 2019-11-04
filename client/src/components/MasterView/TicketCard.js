@@ -2,12 +2,15 @@ import React from 'react';
 import Card from 'react-bootstrap/Card'
 
 const TicketCard = (props) => {
-
   return (
     <React.Fragment>
       <Card id="master-view-ticket">
         {/* <Card.Img top width="100%" src={props.photo} alt="Card image cap" /> */}
         <Card.Body>
+          {console.log("Child is grabbing props: ", props)}
+          {console.log("Child is grabbing props.props: ", props.props)}
+          {console.log("Child is grabbing props.props[0]: ", props.props[0])}
+          {/* {console.log("Child is grabbing props.props[0].vehicleMake: ", props.props[0].vehicleMake)} */}
           <Card.Title>{props.vehicleMake} {props.vehicleModel} {props.vehicleYear}</Card.Title>
           <br/>
           <Card.Text>
@@ -50,6 +53,6 @@ const TicketCard = (props) => {
       </Card>
     </React.Fragment>
   );
-};
+}
 
 export default TicketCard;

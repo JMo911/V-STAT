@@ -42,7 +42,7 @@ class MechanicLogin extends Component {
                 // console.log(response);
                 const userType = response.data.user.UserTypeId;
                 console.log(userType);
-                if (userType != 2) {
+                if (userType !== 2) {
                     console.log('wrong user type');
                     // this.setState({
                     //     error: true,
@@ -69,6 +69,7 @@ class MechanicLogin extends Component {
                     function reroutetologin() {
                         window.location = "/"
                     }
+                    console.log(errormessage);
 
                     setTimeout(reroutetologin, 3000);
                     // this.setState({

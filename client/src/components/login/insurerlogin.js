@@ -38,7 +38,7 @@ class InsurerLogin extends Component {
             .then(function (response) {
                 const userType = response.data.user.UserTypeId;
                 // console.log(userType);
-                if (userType != 3) {
+                if (userType !== 3) {
                     console.log('wrong user type');
                     
 
@@ -69,6 +69,7 @@ class InsurerLogin extends Component {
                     function reroutetologin() {
                         window.location = "/"
                     }
+                    console.log(errormessage);
 
                     setTimeout(reroutetologin, 3000);
                     // this.setState({

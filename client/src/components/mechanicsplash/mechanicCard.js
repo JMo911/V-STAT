@@ -9,7 +9,7 @@ const MechanicCard = (props) => {
     <div className="cardDiv">
       <Card style={{backgroundColor: "rgba(255,255,255,0.2"}}>
         <Card.Body>
-          <Card.Title>{props.vehicleMake} {props.vehicleModel} {props.vehicleYear}</Card.Title>
+          <Card.Title >{props.vehicleMake} {props.vehicleModel} {props.vehicleYear}</Card.Title>
           <br/>
           <Card.Text>
               Customer: {props.customerNameFirst} {props.customerNameLast}

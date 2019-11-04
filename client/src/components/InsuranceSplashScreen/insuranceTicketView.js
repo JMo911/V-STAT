@@ -1,12 +1,39 @@
 import React, { Component } from "react";
 import InsuranceCard from "./insuranceCard.js";
-import data from "../data/data.json";
+import axios from "axios";
+// import data from "../data/data.json";
 
 
-class InsuranceTicketView extends Component {
+class MechanicSplash extends Component {
     state = {
-      data:data
+      data:[]
     };
+
+    componentWillMount() {
+      let cookie = document.cookie;
+      cookie = cookie.split(', ');
+      var result = {};
+      for (var i = 0; i < cookie.length; i++) {
+          var cur = cookie[i].split('=');
+          result[cur[0]] = cur[1];
+      }
+      let token = result.token;
+      let userCredentials = token.split('; ');
+      let finalToken = userCredentials[0];
+      axios({
+        method: "get",
+        url: '/api/tickets',
+        headers: {
+          Authorization: "Bearer " + finalToken
+        }
+      })
+      .then(response => {
+        const data = response.data;
+        this.setState({ data:data })
+      }).catch(function(error) {
+        console.log(error);
+      })
+    }
   
     render() {
       return (
@@ -14,7 +41,6 @@ class InsuranceTicketView extends Component {
             <div id="cardarea">
                 {this.state.data.map(data => (
                     <InsuranceCard 
-                    key={data.caseNumber}
                     caseNumber={data.caseNumber}
                     estimatedCost={data.estimatedCost}
                     approvalDate={data.approvalDate}
@@ -37,4 +63,4 @@ class InsuranceTicketView extends Component {
       )
     }
 }
-export default InsuranceTicketView;
+export default MechanicSplash;
