@@ -12,6 +12,7 @@ class MasterView extends Component {
         const tasks = this.state.completedTasks.slice()
         tasks.push(task)
         this.setState({completedTasks:tasks})
+    }
 
     state = { 
         completedTasks: [],
@@ -35,7 +36,8 @@ class MasterView extends Component {
                 <TaskList handleCompletedTask={this.handleCompletedTask}/>             
              
             </Container>
-        );
+        )
     }
 }
+
 export default MasterView;

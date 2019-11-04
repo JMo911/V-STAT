@@ -21,7 +21,8 @@ export default function (app) {
                     }
                     var sanitizedUser = {
                         id: user.id,
-                        username: user.username
+                        username: user.username,
+                        UserTypeId: user.UserTypeId
                     };
 
                     // generate a signed son web token with the contents of user object and return it in the response
