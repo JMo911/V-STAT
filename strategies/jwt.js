@@ -9,8 +9,6 @@ export default new JWTStrategy(
         try {
             return done(null, jwtPayload)
         } catch (error) {
-            console.log(error);
-
             done(error);
         }
     }

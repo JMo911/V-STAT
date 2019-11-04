@@ -13,11 +13,6 @@ let sequelize;
 if (config.use_env_variable) {
   sequelize = new Sequelize(process.env[config.use_env_variable], config);
 } else {
-
-  console.log(
-    config
-  )
-
   sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
 
@@ -36,8 +31,6 @@ Object.keys(db).forEach(modelName => {
     db[modelName].associate(db);
   }
 });
-
-
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;

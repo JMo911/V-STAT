@@ -3,7 +3,6 @@ import jwt from 'jsonwebtoken';
 // import models from '../models';
 export default function (app) {
      app.post('/api/auth', function(request, response) {
-         console.log(request.body);
         passport.authenticate(
             'local',
             {session: false},
@@ -37,17 +36,4 @@ export default function (app) {
             }
         )(request, response);
     });
-    //  app.post('/api/users', (request, response) => {
-    //      const body = request.body;
-    //     models.user.create({
-    //         username: body.username,
-    //         password: body.password,
-    //         email: DataTypes.STRING,
-    //         first_name: DataTypes.STRING,
-    //         last_name: DataTypes.STRING,
-    //     }).then(() => {
-    //         response.send();
-    //     })
-
-    //  });
 }
