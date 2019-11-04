@@ -1,6 +1,5 @@
 import React from 'react';
-import Card, { CardBody } from 'react-bootstrap/Card'
-// import {Button} from "react-bootstrap";
+import Card from 'react-bootstrap/Card'
 
 const TicketCard = (props) => {
 
@@ -33,7 +32,6 @@ const TicketCard = (props) => {
           <br/>
 
       <Card id="contact-area">
-
         <Card.Body>
             <Card.Text>
                     Insurance Company: {props.insuranceCompany}

@@ -7,20 +7,19 @@ import {
     Form,
     Tab,
     Tabs
-    } from "react-bootstrap";
+} from "react-bootstrap";
 import './styles.css';
 import CustomerSignup from "../signup/customersignup";
+import Cookie from 'universal-cookie';
 const axios = require("axios");
 
 class CustomerLogin extends Component {
-
     constructor(props) {
         super(props);
         this.state = {
             customerUsername: "",
             customerPassword: ""
         };
-
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -38,13 +37,14 @@ class CustomerLogin extends Component {
         axios.post('/api/auth', customerRequest)
             .then(function (response) {
                 console.log(response);
+                const cookie = new Cookie();
+                cookie.set('token', response.data.token)
+                cookie.set('userId', response.data.user.id)
             })
             .catch(function (error) {
                 console.log(error);
             }); event.preventDefault();
     }
-
-
 
     render() {
         return (

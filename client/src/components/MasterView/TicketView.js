@@ -1,12 +1,17 @@
 import React, {Component} from 'react';
-// import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../frontend-assets/css/masterView.css';
 import TaskList from '../TaskList/taskList';
 import TicketCard from '../MasterView/TicketCard';
 import {Container} from "react-bootstrap";
 
-
 class MasterView extends Component {
+    state = { 
+        completedTasks: [],
+    }
+    handleCompletedTask = (task) => { 
+        const tasks = this.state.completedTasks.slice()
+        tasks.push(task)
+        this.setState({completedTasks:tasks})
 
     state = { 
         completedTasks: [],
@@ -33,5 +38,4 @@ class MasterView extends Component {
         );
     }
 }
-
 export default MasterView;

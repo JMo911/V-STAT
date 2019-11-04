@@ -1,8 +1,5 @@
 import React, {Component} from 'react';
-// import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../frontend-assets/css/masterView.css';
-import TaskItem from '../TaskList/TaskItem'
-
    
 // class CompletedTask extends Component {
 export function CompletedTask(props) {

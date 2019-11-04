@@ -9,7 +9,6 @@ import InsurerLogin from "../login/insurerlogin"
 import MechanicLogin from "../login/mechaniclogin"
 import CustomerLogin from "../login/customerlogin"
 
-
 class LoginBox extends Component {
     render() {
       return (

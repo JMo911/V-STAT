@@ -1,13 +1,8 @@
 import React, {Component} from 'react';
-// import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../frontend-assets/css/masterView.css';
 import TaskItem from './TaskItem'
 import CompletedTask from '../CompletedTask/CompletedTask';
 import {Button, Col, Row} from "react-bootstrap";
-
-// const data = {
-//     task:""
-// }
 import Comment from '../Comments/Comment'
 
 class TaskList extends Component {
@@ -35,27 +30,13 @@ class TaskList extends Component {
 
     addTask(event) {
         if (this.onSubmit.value !== "") {
-            var newTask = {
-                text: this.onSubmit.value,
-                key: Date.now()
+            // var newTask = {
+            //     text: this.onSubmit.value,
+            //     key: Date.now()
                 
-            };
+            // };
         }
     }
-
-
-
-
-
-    // handleCompletedTask = (task) => { 
-    //     const tasks = this.state.completedTasks.slice()
-    //     tasks.push(task)
-    //     // this.setState({completedTasks:tasks})
-    //     this.setState(previousState => ({
-    //         completedTasks: previousState.completedTasks
-    //     }))
-    //     console.log("Our completed tasks are now...", this.state.completedTasks)
-    // }
 
     completeTask = (event, task, i) => {
         event.preventDefault();
@@ -69,11 +50,6 @@ class TaskList extends Component {
         this.props.handleCompletedTask(task)
         console.log("Task completed!");
     }
-
-
-
-
-
 
     render() {
         return (

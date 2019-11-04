@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import InsuranceCard from "./insuranceCard.js";
-
 import data from "../data/data.json";
 
 

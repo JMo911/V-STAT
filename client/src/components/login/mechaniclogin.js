@@ -10,6 +10,7 @@ import {
 import { Link } from 'react-router-dom';
 import './styles.css';
 import MechanicSignup from "../signup/mechanicsignup";
+import Cookie from 'universal-cookie';
 const axios = require("axios");
 
 class MechanicLogin extends Component {
@@ -39,6 +40,8 @@ class MechanicLogin extends Component {
         axios.post('/api/auth', mechaniceRequest)
             .then(function (response) {
                 console.log(response);
+                const cookie = new Cookie();
+                cookie.set('token', response.data.token)
             })
             .catch(function (error) {
                 console.log(error);

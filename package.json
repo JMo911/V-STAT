@@ -40,7 +40,7 @@
     "react-redux": "^7.1.1",
     "react-router-dom": "^5.1.2",
     "reactstrap": "^8.1.1",
-    "sequelize": "^4.41.2",
+    "sequelize": "^4.44.3",
     "sequelize-cli": "^5.5.1",
     "universal-cookie": "^4.0.2"
   }

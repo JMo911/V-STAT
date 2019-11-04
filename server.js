@@ -32,9 +32,20 @@ passport.use(JWTStrategy);
 
 // app.use('/api/examples', exampleRoutes(app));
 
+// import authRoutes from './routes/auth';
+// authRoutes(app);
+// app.use(routes);
+
+// NEW AUTH
 import authRoutes from './routes/auth';
 authRoutes(app);
-app.use(routes);
+app.use('/', passport.authenticate('jwt', {session: false}), routes);
+
+
+
+
+// require("./routes/auth")(app);
+// require("./routes/htmlRoutes")(app);
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {

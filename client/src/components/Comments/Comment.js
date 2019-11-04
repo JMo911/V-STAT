@@ -1,10 +1,8 @@
 import React, {Component} from 'react';
-// import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../frontend-assets/css/masterView.css';
 import axios from 'axios';
-import {Button, Container, Card, Col, Form} from 'react-bootstrap';
+import {Button, Container, Form} from 'react-bootstrap';
 import {List, ListItem} from "./commentList.js";
-import data from "../data/data.json";
 
 
 
@@ -42,16 +40,16 @@ class Comments extends Component {
     handleSubmit(event) {
 
         const comment = {
-            comment: this.state.comment,
+            message: this.state.comment,
             UsertypeId: 1
         }
         axios.post('/api/comments', comment)
             .then(function (response) {
-                console.log(response)
             })
             .catch(function (error) {
                 console.log(error);
-            }); event.preventDefault();
+            }); 
+        event.preventDefault();
     }
 
     render() {
@@ -101,4 +99,4 @@ class Comments extends Component {
 }
 
 
-    export default Comments;
+export default Comments;

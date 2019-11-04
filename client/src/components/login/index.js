@@ -25,11 +25,7 @@ const Box = posed.div({
   }
 });
 
-
-
 class LoginPage extends Component {
-
-  
 
     render() {
       return (
@@ -40,14 +36,11 @@ class LoginPage extends Component {
           <p>This program aims to take some of the confusion out of the car repair process, ensuring total transparency throughout every step of your journey. From the time a Customer gets into an accident, to the moment they pick up their fixed vehicle, V-STAT is there every step of the way. </p>
           <p>Whether you're an insurance agent, a mechanic, or a customer, V-STAT can help!</p>
           {/* <p>With V-STAT, get the STATus of your V-hicle, STAT!</p> */}
-
           <p>To begin, please select the Login button below.</p>
-          {/* <Box className="box" /> */}
             <Link to = "/login">
               <Box id="login-button">Login</Box>
             </Link> 
-
-            </div>
+          </div>
         </Container>
       )
     }
