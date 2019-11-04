@@ -41,16 +41,21 @@ class CustomerLogin extends Component {
             .then(function (response) {
                 // console.log(response.data);
                 const userType = response.data.user.UserTypeId;
-                console.log(userType);
+                // console.log(userType);
                 if (userType != 1) {
-                this.setState({
-                    error: true,
-                    errormessage: "Please log in at the appropriate page."
-                });
-                function reroutetologin() {
-                    window.location = "/login"
-                }
-                setTimeout(reroutetologin, 3000);
+                    console.log('wrong user type');
+                    
+
+                    function reroutetologin() {
+                        window.location = "/"
+                    }
+
+                    setTimeout(reroutetologin, 3000);
+                    // this.setState({
+                    //     error: true,
+                    //     errormessage: "Please log in at the appropriate page."
+                    // });
+
                 } else {
                     // console.log("Hello World");
                     const cookie = new Cookie();
@@ -61,6 +66,29 @@ class CustomerLogin extends Component {
                 }
             })
             .catch(function (error) {
+                if (error.response) {
+                    console.log(error.response.data.info.message);
+                    const errormessage = error.response.data.info.message;
+                    function reroutetologin() {
+                        window.location = "/"
+                    }
+
+                    setTimeout(reroutetologin, 3000);
+                    // this.setState({
+                    //     error: true,
+                    //     errormessage: errormessage
+                    // });
+                } 
+                // console.log('catch error')
+                // function reroutetologin() {
+                //     window.location = "/"
+                // }
+
+                // setTimeout(reroutetologin, 3000);
+                // this.setState({
+                //     error: true,
+                //     errormessage: "incorrect username and password"
+                // })
                 // if (error.response) {
                     // console.log(error.response.data.info.message);
                     // const errormessage = error.response.data.info.message;
@@ -69,7 +97,8 @@ class CustomerLogin extends Component {
                     //     errormessage: "incorrect username and password"
                     // });
                 // } 
-            }); event.preventDefault();
+            }); 
+        event.preventDefault();
     }
 
     render() {
@@ -79,7 +108,7 @@ class CustomerLogin extends Component {
             <Container>
                 <div id="customer-login">
                     {
-                        (error) ? <Alert>Error: {errormessage}</Alert>:<div></div>
+                        (error) ? <div>Error: {errormessage}</div>:<div></div>
                     }
                     <Card.Body>
                         <Tabs defaultActiveKey="Login" transition={false} id="noanim-tab-example">

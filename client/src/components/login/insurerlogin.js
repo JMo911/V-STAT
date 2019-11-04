@@ -36,11 +36,46 @@ class InsurerLogin extends Component {
         }
         axios.post('/api/auth', insuranceAgentRequest)
             .then(function (response) {
-                const cookie = new Cookie();
-                cookie.set('token', response.data.token)
+                const userType = response.data.user.UserTypeId;
+                // console.log(userType);
+                if (userType != 3) {
+                    console.log('wrong user type');
+                    
+
+                    function reroutetologin() {
+                        window.location = "/"
+                    }
+
+                    setTimeout(reroutetologin, 3000);
+                    // this.setState({
+                    //     error: true,
+                    //     errormessage: "Please log in at the appropriate page."
+                    // });
+
+                } else {
+                    // console.log("Hello World");
+                    const cookie = new Cookie();
+                    cookie.set('token', response.data.token)
+                    cookie.set('userId', response.data.user.id)
+                    cookie.set('userId', response.data.user.UserTypeId)
+                    window.location = "/insurance-splash";
+                }
             })
             .catch(function (error) {
                 console.log(error);
+                if (error.response) {
+                    console.log(error.response.data.info.message);
+                    const errormessage = error.response.data.info.message;
+                    function reroutetologin() {
+                        window.location = "/"
+                    }
+
+                    setTimeout(reroutetologin, 3000);
+                    // this.setState({
+                    //     error: true,
+                    //     errormessage: errormessage
+                    // });
+                } 
             })
         ;
         event.preventDefault();
