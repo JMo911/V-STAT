@@ -14,7 +14,7 @@ module.exports = {
     */
    return queryInterface.bulkInsert('UserTypes', [
      {
-      type: 'Client',
+      type: 'Customer',
       'createdAt': new Date(),
       'updatedAt': new Date()
      },

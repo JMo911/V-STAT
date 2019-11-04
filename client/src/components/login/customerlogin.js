@@ -6,7 +6,8 @@ import {
     Col,
     Form,
     Tab,
-    Tabs
+    Tabs,
+    Alert
 } from "react-bootstrap";
 import './styles.css';
 import CustomerSignup from "../signup/customersignup";
@@ -18,7 +19,9 @@ class CustomerLogin extends Component {
         super(props);
         this.state = {
             customerUsername: "",
-            customerPassword: ""
+            customerPassword: "",
+            error: false,
+            errormessage: ''
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -36,20 +39,48 @@ class CustomerLogin extends Component {
         }
         axios.post('/api/auth', customerRequest)
             .then(function (response) {
-                console.log(response);
-                const cookie = new Cookie();
-                cookie.set('token', response.data.token)
-                cookie.set('userId', response.data.user.id)
+                // console.log(response.data);
+                const userType = response.data.user.UserTypeId;
+                console.log(userType);
+                if (userType != 1) {
+                this.setState({
+                    error: true,
+                    errormessage: "Please log in at the appropriate page."
+                });
+                function reroutetologin() {
+                    window.location = "/login"
+                }
+                setTimeout(reroutetologin, 3000);
+                } else {
+                    // console.log("Hello World");
+                    const cookie = new Cookie();
+                    cookie.set('token', response.data.token)
+                    cookie.set('userId', response.data.user.id)
+                    cookie.set('userId', response.data.user.UserTypeId)
+                    window.location = "/MasterView";
+                }
             })
             .catch(function (error) {
-                console.log(error);
+                // if (error.response) {
+                    // console.log(error.response.data.info.message);
+                    // const errormessage = error.response.data.info.message;
+                    // this.setState({
+                    //     error: true,
+                    //     errormessage: "incorrect username and password"
+                    // });
+                // } 
             }); event.preventDefault();
     }
 
     render() {
+        const errormessage = this.state.errormessage;
+        const error = this.state.error;
         return (
             <Container>
                 <div id="customer-login">
+                    {
+                        (error) ? <Alert>Error: {errormessage}</Alert>:<div></div>
+                    }
                     <Card.Body>
                         <Tabs defaultActiveKey="Login" transition={false} id="noanim-tab-example">
                             <Tab eventKey="Login" title="Log in">
