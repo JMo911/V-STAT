@@ -39,12 +39,43 @@ class MechanicLogin extends Component {
         console.log(mechaniceRequest);
         axios.post('/api/auth', mechaniceRequest)
             .then(function (response) {
-                console.log(response);
-                const cookie = new Cookie();
-                cookie.set('token', response.data.token)
+                // console.log(response);
+                const userType = response.data.user.UserTypeId;
+                console.log(userType);
+                if (userType != 2) {
+                    console.log('wrong user type');
+                    // this.setState({
+                    //     error: true,
+                    //     errormessage: "Please log in at the appropriate page."
+                    // })
+                    function reroutetologin() {
+                        window.location = "/"
+                    }
+                    setTimeout(reroutetologin, 3000);
+                } else {
+                    // console.log("Hello World");
+                    const cookie = new Cookie();
+                    cookie.set('token', response.data.token)
+                    cookie.set('userId', response.data.user.id)
+                    cookie.set('userId', response.data.user.UserTypeId)
+                    window.location = "/mechanic-splash";
+                }
             })
             .catch(function (error) {
                 console.log(error);
+                if (error.response) {
+                    console.log(error.response.data.info.message);
+                    const errormessage = error.response.data.info.message;
+                    function reroutetologin() {
+                        window.location = "/"
+                    }
+
+                    setTimeout(reroutetologin, 3000);
+                    // this.setState({
+                    //     error: true,
+                    //     errormessage: errormessage
+                    // });
+                }
             });
         event.preventDefault();
     }
