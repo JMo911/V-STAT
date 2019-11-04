@@ -3,6 +3,7 @@ import '../../frontend-assets/css/masterView.css';
 import axios from 'axios';
 import {Button, Container, Form} from 'react-bootstrap';
 import {List, ListItem} from "./commentList.js";
+import data from '../data/data.json'
 
 
 
@@ -10,10 +11,9 @@ class Comments extends Component {
 
     constructor(props) {
         super(props);
-        console.log(data);
+        // console.log(data);
         this.state = {
             comments:data[0].comments,
-
             comment: ""
         };
 
