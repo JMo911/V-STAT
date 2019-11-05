@@ -35,7 +35,7 @@ class CustomerSignup extends Component {
             lastName: this.state.customerNameLast,
             UserTypeId: 1
         }
-        axios.post('/api/users', customer)
+        axios.post('/api/registration/', customer)
             .then(function (response) {
                 console.log(response);
             })

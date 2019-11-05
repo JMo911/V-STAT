@@ -33,5 +33,17 @@ module.exports = {
             .then(dbModel => dbModel.remove())
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
+    },
+    findTicketsByUserId: function (req, res) {
+        console.log(req.user)
+        db.User
+        .findAll({ 
+            include: [{
+                model:db.Ticket,
+            }],
+            where: { '$User.id$': req.user.id} 
+        })
+        .then(dbTicketIds => res.json(dbTicketIds))
+        .catch(err => res.status(422).json(err));
     }
 };

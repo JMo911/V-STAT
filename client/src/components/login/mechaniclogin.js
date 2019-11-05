@@ -65,7 +65,7 @@ class MechanicLogin extends Component {
                     const cookie = new Cookie();
                     cookie.set('token', response.data.token)
                     cookie.set('userId', response.data.user.id)
-                    cookie.set('userId', response.data.user.UserTypeId)
+                    cookie.set('userTypeId', response.data.user.UserTypeId)
                     window.location = "/mechanic-splash";
                 }
             })
