@@ -32,9 +32,10 @@ class MechanicSplash extends Component {
       console.log(token);
       let userCredentials = token.split('; ');
       let finalToken = userCredentials[0];
+      // FIRST make an API call to the user info API, THEN use that result to populate res.data.id, below.
       axios({
         method: "get",
-        url: '/api/tickets',
+        url: '/api/users/' + res.data.id + '/tickets',
         headers: {
           Authorization: "Bearer " + finalToken
         }
