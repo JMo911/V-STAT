@@ -20,6 +20,7 @@ module.exports = (sequelize, DataTypes) => {
       constraints: false
     });
     Ticket.hasMany(models.Comment);
+    Ticket.hasMany(models.Task);
   };
 
   return Ticket;

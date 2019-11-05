@@ -44,7 +44,7 @@ class CustomerLogin extends Component {
                 // console.log(userType);
                 if (userType != 1) {
                     console.log('wrong user type');
-                    
+
 
                     function reroutetologin() {
                         window.location = "/"
@@ -78,7 +78,7 @@ class CustomerLogin extends Component {
                     //     error: true,
                     //     errormessage: errormessage
                     // });
-                } 
+                }
                 // console.log('catch error')
                 // function reroutetologin() {
                 //     window.location = "/"
@@ -90,14 +90,14 @@ class CustomerLogin extends Component {
                 //     errormessage: "incorrect username and password"
                 // })
                 // if (error.response) {
-                    // console.log(error.response.data.info.message);
-                    // const errormessage = error.response.data.info.message;
-                    // this.setState({
-                    //     error: true,
-                    //     errormessage: "incorrect username and password"
-                    // });
+                // console.log(error.response.data.info.message);
+                // const errormessage = error.response.data.info.message;
+                // this.setState({
+                //     error: true,
+                //     errormessage: "incorrect username and password"
+                // });
                 // } 
-            }); 
+            });
         event.preventDefault();
     }
 
@@ -108,7 +108,7 @@ class CustomerLogin extends Component {
             <Container>
                 <div id="customer-login">
                     {
-                        (error) ? <div>Error: {errormessage}</div>:<div></div>
+                        (error) ? <div>Error: {errormessage}</div> : <div></div>
                     }
                     <Card.Body>
                         <Tabs defaultActiveKey="Login" transition={false} id="noanim-tab-example">
