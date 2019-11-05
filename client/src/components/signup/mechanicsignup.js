@@ -40,7 +40,6 @@ class InsurerSignup extends Component {
             mechanicShopName: this.state.mechanicShopName,
             UserTypeId: 2
         }
-        console.log(mechanic);
         axios.post('/api/registration/', mechanic)
             .then(function (response) {
             })

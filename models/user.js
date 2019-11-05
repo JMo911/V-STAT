@@ -32,7 +32,7 @@ module.exports = function (sequelize, DataTypes) {
                 unique: false,
                 timestamps: false
             },
-            foreignKey: 'ticketId',
+            foreignKey: 'userId',
             constraints: false
         });
     };
