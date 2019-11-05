@@ -4,7 +4,7 @@ import axios from "axios";
 // import data from "../data/data.json";
 
 
-class MechanicSplash extends Component {
+class InsuranceTicketView extends Component {
     state = {
       data:[]
     };
@@ -41,6 +41,7 @@ class MechanicSplash extends Component {
             <div id="cardarea">
                 {this.state.data.map(data => (
                     <InsuranceCard 
+                    key={data.caseNumber}
                     caseNumber={data.caseNumber}
                     estimatedCost={data.estimatedCost}
                     approvalDate={data.approvalDate}
@@ -63,4 +64,4 @@ class MechanicSplash extends Component {
       )
     }
 }
-export default MechanicSplash;
+export default InsuranceTicketView;
