@@ -19,7 +19,7 @@ class MasterView extends Component {
 
 
 
-    async componentDidMount() {
+    async componentWillMount() {
         let cookie = document.cookie;
         cookie = cookie.split('; ');
         let userId = cookie[0].split('=');
@@ -37,9 +37,9 @@ class MasterView extends Component {
         let finalToken = userCredentials[0];
         console.log("the finalToken is: " + finalToken);
         this.setState({userId:finalUserId});
-        await axios({
+        axios({
           method: "get",
-          url: '/api/tickets/' + this.state.userId,
+          url: '/api/users/' + this.state.userId,
           headers: {
             Authorization: "Bearer " + finalToken
           }
@@ -48,7 +48,7 @@ class MasterView extends Component {
           const data = response.data;
           this.setState({ data:data })
         }).catch(function(error) {
-          console.log(error);
+          console.log("error:", error);
         })
       }
 
@@ -64,15 +64,20 @@ class MasterView extends Component {
     }
     onStateChange
     render() {
-        return (
-            <Container id="ticket-view">
-                {console.log("We are passing down... ", this.state.data)}
-                <TicketCard props={this.state.data}/>
-
-                <TaskList handleCompletedTask={this.handleCompletedTask}/>             
-             
-            </Container>
-        )
+        {if (this.state.data.length > 1) {
+            return (
+                <Container id="ticket-view">
+                    {console.log("We are passing down... ", this.state.data)}
+                    <TicketCard props={this.state.data}/>
+    
+                    <TaskList handleCompletedTask={this.handleCompletedTask}/>             
+                 
+                </Container>
+            )
+        } else {
+            return (<div></div>);
+        }
+    }
     }
 }
 
