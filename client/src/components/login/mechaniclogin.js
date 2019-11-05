@@ -5,13 +5,16 @@ import {
     Col,
     Form,
     Tab,
-    Tabs
+    Tabs,
+    
 } from "react-bootstrap";
 import { Link } from 'react-router-dom';
 import './styles.css';
 import MechanicSignup from "../signup/mechanicsignup";
 import Cookie from 'universal-cookie';
+import Alert from "react-bootstrap/Alert";
 const axios = require("axios");
+
 
 class MechanicLogin extends Component {
 
@@ -44,6 +47,11 @@ class MechanicLogin extends Component {
                 console.log(userType);
                 if (userType !== 2) {
                     console.log('wrong user type');
+                    return (
+                        <Alert variant="danger">
+                            <Alert.Heading>Wrong user type!</Alert.Heading>
+                        </Alert>
+                    )
                     // this.setState({
                     //     error: true,
                     //     errormessage: "Please log in at the appropriate page."
@@ -117,9 +125,10 @@ class MechanicLogin extends Component {
                             <MechanicSignup />
                         </Tab>
                     </Tabs>
-                    <Link to="/mechanic-splash">
+                    {/* <Link to={"/mechanic-splash"} > {this.state.data[0].id}> */}
+                    {/* <Link to="/mechanic-splash">
                         <Button id="mechanic-splash-button">Mechanic Splash</Button>
-                    </Link>
+                    </Link> */}
                 </Card.Body>
             </div>
         )

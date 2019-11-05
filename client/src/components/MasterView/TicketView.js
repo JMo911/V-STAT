@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, useEffect} from 'react';
 import '../../frontend-assets/css/masterView.css';
 import TaskList from '../TaskList/taskList';
 import TicketCard from '../MasterView/TicketCard';
@@ -6,20 +6,32 @@ import {Container} from "react-bootstrap";
 import axios from "axios";
 
 class MasterView extends Component {
-    state = { 
-        completedTasks: [],
-        data:[],
-        userId: ""
+    constructor(props) {
+        super(props);
+        this.state = {
+            completedTasks: [],
+            data:[],
+            userId: "",
+            caseNumber: props.match.caseNumber
+        }
     }
+    // state = { 
+    //     completedTasks: [],
+    //     data:[],
+    //     userId: ""
+    // }
     handleCompletedTask = (task) => { 
         const tasks = this.state.completedTasks.slice()
         tasks.push(task)
         this.setState({completedTasks:tasks})
     }
 
+    // useEffect( () => {
+    //     fetchTicket();
+    //     console.log(this.state.caseNumber)
+    // }, [])
 
-
-    async componentWillMount() {
+    componentWillMount() {
         let cookie = document.cookie;
         cookie = cookie.split('; ');
         let userId = cookie[0].split('=');
@@ -63,6 +75,15 @@ class MasterView extends Component {
 
     }
     onStateChange
+
+    fetchTicket = async() => {
+        const fetchTicket = await fetch(`api/tickets`)
+        const ticket = await fetchTicket.json;
+        console.log("Our ticket is: ", ticket);
+        console.log(this.state.caseNumber)
+    }
+
+
     render() {
         {if (this.state.data.length > 1) {
             return (

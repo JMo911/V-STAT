@@ -43,7 +43,8 @@ const MechanicCard = (props) => {
           </Card.Text>
 
         </Card.Body>
-        <Link to = "/insurance-ticket-view">
+        {/* <Link to={"/mechanic-splash"} > {this.state.data[0].id}> */}
+        <Link to = {`/MasterView/${props.caseNumber}`}>
           <Button variant="primary">View Ticket</Button>
         </Link>
       </Card>

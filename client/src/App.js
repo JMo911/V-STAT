@@ -18,22 +18,17 @@ class App extends Component {
     return (
         <Container>
           <BrowserRouter>
-            {/* <Row>
-              
-              <Col md={8}> */}
                   <Switch>
-                  <Route exact path="/" component={LoginPage} />
+                    <Route exact path="/" component={LoginPage} />
                     <Route exact path="/insurance-splash" component = {InsuranceSplash} />
                     <Route exact path="/insurance-ticket-view" component = {InsuranceTicketView} />
-                    <Route exact path="/MasterView" component = {MasterView} />
+                    {/* <Route path="/MasterView" component = {MasterView} /> */}
+                    <Route path="/MasterView/:id" component = {MasterView} />
 
                     <Route exact path="/login" component={LoginBox} />
                     <Route exact path="/new-ticket" component={NewTicket} />
                     <Route exact path="/mechanic-splash" component={MechanicSplash} />
                   </Switch>
-              {/* </Col>
-
-            </Row> */}
           </BrowserRouter>
         </Container>
     );

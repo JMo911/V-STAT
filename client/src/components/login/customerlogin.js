@@ -6,9 +6,9 @@ import {
     Col,
     Form,
     Tab,
-    Tabs,
-    // Alert
+    Tabs
 } from "react-bootstrap";
+import Alert from 'react-bootstrap/Alert'
 import './styles.css';
 import CustomerSignup from "../signup/customersignup";
 import Cookie from 'universal-cookie';
@@ -25,6 +25,9 @@ class CustomerLogin extends Component {
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+    }
+    displayError(errormessage) {
+        return <Alert variant="danger">{errormessage}</Alert>
     }
 
     handleChange(event) {
@@ -44,18 +47,18 @@ class CustomerLogin extends Component {
                 // console.log(userType);
                 if (userType !== 1) {
                     console.log('wrong user type');
-
-                    
+   
 
                     function reroutetologin() {
                         window.location = "/"
                     }
 
                     setTimeout(reroutetologin, 3000);
-                    // this.setState({
-                    //     error: true,
-                    //     errormessage: "Please log in at the appropriate page."
-                    // });
+                    this.setState({
+                        error: true,
+                        errormessage: "Please log in at the appropriate page."
+                    });
+                    
 
                 } else {
                     // console.log("Hello World");
@@ -70,6 +73,8 @@ class CustomerLogin extends Component {
                 if (error.response) {
                     console.log(error.response.data.info.message);
                     const errormessage = error.response.data.info.message;
+                    this.displayError(errormessage)
+
                     function reroutetologin() {
                         window.location = "/"
                     }
@@ -144,6 +149,7 @@ class CustomerLogin extends Component {
                             </Tab>
                         </Tabs>
                     </Card.Body>
+
                 </div>
             </Container>
         )

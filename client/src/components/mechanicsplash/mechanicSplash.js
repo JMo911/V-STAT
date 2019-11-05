@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import MechanicCard from "./mechanicCard.js";
 import axios from "axios";
-// import data from "../data/data.json";
 
 
 class MechanicSplash extends Component {
@@ -11,13 +10,26 @@ class MechanicSplash extends Component {
 
     componentWillMount() {
       let cookie = document.cookie;
+      console.log("Our cookie is: ", document.cookie);
       cookie = cookie.split(', ');
       var result = {};
+
       for (var i = 0; i < cookie.length; i++) {
+        var curSemiSplit = cookie[i].split(';');
+        result[curSemiSplit[0]] = curSemiSplit[1];
+        console.log("curSemiSplit[0] is: ", curSemiSplit[0]);
+        console.log("curSemiSplit[1] is: ", curSemiSplit[1]);
+
+
+
+
           var cur = cookie[i].split('=');
           result[cur[0]] = cur[1];
+          console.log("cur[0] is: ", cur[0]);
+          console.log("cur[1] is: ", cur[1]);
       }
       let token = result.token;
+      console.log(token);
       let userCredentials = token.split('; ');
       let finalToken = userCredentials[0];
       axios({
@@ -30,6 +42,7 @@ class MechanicSplash extends Component {
       .then(response => {
         const data = response.data;
         this.setState({ data:data })
+        console.log("this.state.data is: ", this.state.data);
       }).catch(function(error) {
         console.log(error);
       })
@@ -41,6 +54,7 @@ class MechanicSplash extends Component {
             <div id="cardarea">
                 {this.state.data.map(data => (
                     <MechanicCard 
+                    key={data.caseNumber}
                     caseNumber={data.caseNumber}
                     estimatedCost={data.estimatedCost}
                     approvalDate={data.approvalDate}
