@@ -12,4 +12,8 @@ router
     .get(usersController.findById)
     .put(usersController.update)
 
+router
+    .route("/:id/tickets")
+    .get(usersController.findTicketsByUserId)
+
 module.exports = router;
