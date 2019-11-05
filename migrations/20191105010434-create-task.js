@@ -11,6 +11,9 @@ module.exports = {
       todo: {
         type: Sequelize.STRING
       },
+      completed: {
+        type: Sequelize.BOOLEAN
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
