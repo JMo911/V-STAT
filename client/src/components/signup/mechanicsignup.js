@@ -41,7 +41,7 @@ class InsurerSignup extends Component {
             UserTypeId: 2
         }
         console.log(mechanic);
-        axios.post('/api/users', mechanic)
+        axios.post('/api/registration/', mechanic)
             .then(function (response) {
             })
             .catch(function (error) {
