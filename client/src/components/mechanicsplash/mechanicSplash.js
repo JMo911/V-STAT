@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import MechanicCard from "./mechanicCard.js";
 import axios from "axios";
 
-
 class MechanicSplash extends Component {
     state = {
       data:[]
@@ -69,21 +68,10 @@ class MechanicSplash extends Component {
         }).catch(function(error) {
           console.log(error);
         })
-
-
-
-
       }).catch(function(error) {
         console.log(error);
       })
-    
-
-
-
-
-
-
-
+ 
     }
   
     render() {
