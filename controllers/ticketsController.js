@@ -41,10 +41,18 @@ module.exports = {
             }],
             where: { '$Ticket.id$': req.params.id} 
         })
-        .then(dbTicketIds => res.json(dbTicketIds))
+        .then(dbTicketTasks => res.json(dbTicketTasks))
+        .catch(err => res.status(422).json(err));
+    },
+    findCommentsByticketId: function (req, res) {
+        db.Ticket
+        .findAll({ 
+            include: [{
+                model:db.Comment,
+            }],
+            where: { '$Ticket.id$': req.params.id} 
+        })
+        .then(dbTicketComments => res.json(dbTicketComments))
         .catch(err => res.status(422).json(err));
     }
-    // findByUserId: function (req, res) {
-    //     dbTicket
-    // }
 };
