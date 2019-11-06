@@ -38,17 +38,67 @@ class Comments extends Component {
     }
 
     handleSubmit(event) {
+        
+        let cookie = document.cookie;
+        // console.log("Our cookie is: ", document.cookie);
+        cookie = cookie.split(', ');
+        var result = {};
+  
+        for (var i = 0; i < cookie.length; i++) {
+          var curSemiSplit = cookie[i].split(';');
+          result[curSemiSplit[0]] = curSemiSplit[1];
+          // console.log("curSemiSplit[0] is: ", curSemiSplit[0]);
+          // console.log("curSemiSplit[1] is: ", curSemiSplit[1]);
+  
+  
+  
+  
+            var cur = cookie[i].split('=');
+            result[cur[0]] = cur[1];
+            // console.log("cur[0] is: ", cur[0]);
+            // console.log("cur[1] is: ", cur[1]);
+        }
+        let token = result.token;
+        // console.log(token);
+        let userCredentials = token.split('; ');
+        // console.log(userCredentials);
+        let finalToken = userCredentials[0];
+        const userID = document.cookie.split(";")[1].split("=")[1];
+        const ticketNumber = window.location.href[window.location.href.length -1];
+        const newComment = {
+            message: this.state.comment,
+            UserId: userID,
+            TicketId: ticketNumber
+        }
+  
+        // console.log("Our final token is: ", finalToken)
+  
+  
+        axios({
+          method: "post",
+          url: '/api/comments',
+          headers: {
+            Authorization: "Bearer " + finalToken
+          },
+          data: newComment
+        })
+        .then(response => {
+            console.log("Comment created")
+        })
+        .catch(error => {
+            console.log(error);
+        })
 
-        // const comment = {
-        //     message: this.state.comment,
-        //     UsertypeId: 1
-        // }
-        // axios.post('/api/comments', comment)
-        //     .then(function (response) {
-        //     })
-        //     .catch(function (error) {
-        //         console.log(error);
-        //     }); 
+                // const comment = {
+                //     message: this.state.comment,
+                //     UsertypeId: 1
+                // }
+                // axios.post('/api/comments', comment)
+                //     .then(function (response) {
+                //     })
+                //     .catch(function (error) {
+                //         console.log(error);
+                //     }); 
         event.preventDefault();
     }
 
