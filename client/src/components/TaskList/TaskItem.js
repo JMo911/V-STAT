@@ -10,7 +10,7 @@ class TaskItem extends Component {
                     {/* task detail */}
                     <Col md={7}>
                         <div className="taskName">
-                            <p id="task-text">{this.props.description}</p>
+                            <p id="task-text">{this.props.todo}</p>
                         </div>
                     </Col>
                     {/* actions container like yes, no */}

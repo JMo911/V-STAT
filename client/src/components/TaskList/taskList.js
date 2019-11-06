@@ -3,7 +3,8 @@ import '../../frontend-assets/css/masterView.css';
 import TaskItem from './TaskItem'
 import CompletedTask from '../CompletedTask/CompletedTask';
 import {Button, Col, Row} from "react-bootstrap";
-import Comment from '../Comments/Comment'
+import Comment from '../Comments/Comment';
+import axios from 'axios';
 
 class TaskList extends Component {
     state = { 
@@ -51,6 +52,41 @@ class TaskList extends Component {
         console.log("Task completed!");
     }
 
+    componentWillMount() {
+        let cookie = document.cookie;
+        cookie = cookie.split('; ');
+        let userId = cookie[0].split('=');
+        let finalUserId = userId[1];
+
+        // console.log("our real user ID is: " + finalUserId);
+
+        var result = {};
+        for (var i = 0; i < cookie.length; i++) {
+            var cur = cookie[i].split('=');
+            result[cur[0]] = cur[1];
+        }
+        let token = result.token;
+        let userCredentials = token.split('; ');
+        let finalToken = userCredentials[0];
+        const ticketNumber = window.location.href[window.location.href.length -1];
+        axios({
+            method: "get",
+            url: '/api/tickets/' + ticketNumber + "/tasks",
+            headers: {
+              Authorization: "Bearer " + finalToken
+            }
+          })
+          .then(response => {
+            const data = response.data[0].Tasks;
+            // console.log("TASK DATA",data)
+            this.setState({tasks:data})
+            console.log("TASK DATA",this.state.tasks)
+            // this.setState({ data:data })
+          }).catch(function(error) {
+            console.log("error:", error);
+          })
+    }
+
     render() {
         return (
             <Row md={2}>
@@ -83,11 +119,12 @@ class TaskList extends Component {
                             <div className="allTasks">
                                 {/* task */}
                                 <ul>
-                                    {this.state.tasks.map((task, i) => (
+                                    {this.state.tasks.map((tasks) => (
                                         <TaskItem 
-                                        key={i}
-                                        description={task} 
-                                        handleCompletedTask = {event=>this.completeTask(event, task, i)}
+                                        key={tasks.id}
+                                        todo={tasks.todo} 
+                                        completed={tasks.completed}
+                                        handleCompletedTask = {event=>this.completeTask(event)}
                                         />
                                     ))}
                                 </ul>
