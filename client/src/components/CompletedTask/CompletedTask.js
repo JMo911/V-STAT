@@ -1,7 +1,6 @@
-import React, {Component} from 'react';
+import React from 'react';
 import '../../frontend-assets/css/masterView.css';
    
-// class CompletedTask extends Component {
 export function CompletedTask(props) {
     console.log(props.tasks);
     return (

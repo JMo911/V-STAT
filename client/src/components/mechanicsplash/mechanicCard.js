@@ -9,20 +9,20 @@ const MechanicCard = (props) => {
     <div className="cardDiv">
       <Card style={{backgroundColor: "rgba(255,255,255,0.2"}}>
         <Card.Body>
-          <Card.Title>{props.vehicleMake} {props.vehicleModel} {props.vehicleYear}</Card.Title>
+          <Card.Title >{props.vehicleMake} {props.vehicleModel} {props.vehicleYear}</Card.Title>
           <br/>
           <Card.Text>
-              Customer: {props.customerNameFirst} {props.customerNameLast}
+              {/* Customer: {props.customerNameFirst} {props.customerNameLast} */}
               <br/>
               Case Number: {props.caseNumber}
               <br/>
               Estimated Cost: ${props.estimatedCost}
-              <br/>
-              Approval Date: {props.approvalDate}
+              {/* <br/> */}
+              {/* Approval Date: {props.approvalDate} */}
               <br/>
               Vehicle Mileage: {props.vehicleMileage}
               <br/>
-              Insurance Company: {props.insuranceCompany}
+              {/* Insurance Company: {props.insuranceCompany}
               <br/>
               Insurance Agent: {props.insuranceNameFirst} {props.insuranceNameLast}
               <br/>
@@ -39,11 +39,12 @@ const MechanicCard = (props) => {
                     Mechanic: {props.mechanicNameFirst} {props.mechanicNameLast}
                     <br/>
                     Customer: {props.customerNameFirst} {props.customerNameLast}
-              </div>
+              </div> */}
           </Card.Text>
 
         </Card.Body>
-        <Link to = "/insurance-ticket-view">
+        {/* <Link to={"/mechanic-splash"} > {this.state.data[0].id}> */}
+        <Link to = {`/MasterView/${props.caseNumber}`}>
           <Button variant="primary">View Ticket</Button>
         </Link>
       </Card>
