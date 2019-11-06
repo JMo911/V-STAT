@@ -8,11 +8,18 @@ router.route("/")
     .get(usersController.userInfo)
     // .post(usersController.create);
 
-// Matches with "/api/user/:id"
+    //Corresponds to /api/users/username
+router
+.route("/:username")
+.get(usersController.findByUsername)  
+
+// Matches with "/api/users/:id"
 router
     .route("/:id")
     .get(usersController.findById)
     .put(usersController.update)
+
+  
 
 router
     .route("/:id/tickets")
