@@ -33,6 +33,17 @@ module.exports = {
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
+    findTasksByticketId: function (req, res) {
+        db.Ticket
+        .findAll({ 
+            include: [{
+                model:db.Task,
+            }],
+            where: { '$Ticket.id$': req.params.id} 
+        })
+        .then(dbTicketIds => res.json(dbTicketIds))
+        .catch(err => res.status(422).json(err));
+    }
     // findByUserId: function (req, res) {
     //     dbTicket
     // }

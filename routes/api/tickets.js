@@ -12,4 +12,9 @@ router
     .get(ticketsController.findById)
     .put(ticketsController.update)
 
+    router
+    .route("/:id/tasks")
+    .get(ticketsController.findTasksByticketId)
+
+
 module.exports = router;
