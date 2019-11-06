@@ -28,11 +28,13 @@ class NewTicket extends Component {
                 // customerUsername: ""
             };
             this.handleChange = this.handleChange.bind(this);
+
             this.handleSubmit = this.handleSubmit.bind(this);
           }
         
           handleChange(event) {
             let name = event.target.name;
+            console.log("event.target.name is... ", event.target.name)
             this.setState({[name]: event.target.value});
           }
         
@@ -126,7 +128,7 @@ class NewTicket extends Component {
                 console.log("Server status is: ", response.status + " " + response.statusText)
                 console.log("Server response is: ", response)
                 // After creating ticket, agent is redirected to their Ticket View page.
-                // window.location = "/insurance-ticket-view"
+                window.location = "/insurance-ticket-view"
                 
             })
             .catch(function (error) {
