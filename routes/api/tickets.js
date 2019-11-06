@@ -12,9 +12,13 @@ router
     .get(ticketsController.findById)
     .put(ticketsController.update)
 
-    router
-    .route("/:id/tasks")
-    .get(ticketsController.findTasksByticketId)
+router
+.route("/:id/tasks")
+.get(ticketsController.findTasksByticketId)
+
+router
+.route("/:id/comments")
+.get(ticketsController.findCommentsByticketId)
 
 
 module.exports = router;
