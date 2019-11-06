@@ -116,9 +116,6 @@ class InsurerLogin extends Component {
                             <InsurerSignup />
                         </Tab>
                     </Tabs>
-                    <Link to="/insurance-splash">
-                        <Button id="insurance-splash-button">Insurance Splash</Button>
-                    </Link>
                 </Card.Body>
             </div>
         )

@@ -5,9 +5,14 @@ import {
     Container,
     Form,
     } from "react-bootstrap";
-import {Link} from 'react-router-dom';
+// import {Link} from 'react-router-dom';
 import './styles.css';
+
+
+
+
 const axios = require('axios');
+
 
 class NewTicket extends Component {
         constructor(props) {
@@ -18,9 +23,9 @@ class NewTicket extends Component {
                 vehicleYear: "",
                 vehicleMileage: "",
                 estimatedCost: "",
-                caseNumber: "",
-                mechanicUsername: "",
-                customerUsername: ""
+                caseNumber: ""
+                // mechanicUsername: "",
+                // customerUsername: ""
             };
             this.handleChange = this.handleChange.bind(this);
             this.handleSubmit = this.handleSubmit.bind(this);
@@ -32,6 +37,8 @@ class NewTicket extends Component {
           }
         
           handleSubmit(event) {
+            event.preventDefault();
+            console.log("HandleSubmit function begun.");
             const newTicket = {
                 vehicleMake: this.state.vehicleMake,
                 vehicleModel: this.state.vehicleModel,
@@ -40,14 +47,137 @@ class NewTicket extends Component {
                 estimatedCost: this.state.estimatedCost,
                 caseNumber: this.state.caseNumber
             }
-            axios.post('/api/tickets', newTicket)
-                .then(function (response) {
-                })
-                .catch(function (error) {
-                    console.log(error);
-                }); 
+            console.log("At the start, newTicket is: ", newTicket)
+
+
+
+
+            console.log("Cookie call starting...");
+            let cookie = document.cookie;
+            // console.log("Our cookie is: ", document.cookie);
+            cookie = cookie.split(', ');
+            var result = {};
+        
+            for (var i = 0; i < cookie.length; i++) {
+                var curSemiSplit = cookie[i].split(';');
+                result[curSemiSplit[0]] = curSemiSplit[1]
+                var cur = cookie[i].split('=');
+                result[cur[0]] = cur[1];
+            }
+            let token = result.token;
+            // console.log(token);
+            let userCredentials = token.split('; ');
+            // console.log(userCredentials);
+            let finalToken = userCredentials[0];
+        
+            console.log("Our final token is: ", finalToken)
+        
+            console.log("Cookie call completed.")
+            console.log("Querying server...");
+            axios({
+                method: "get",
+                url: '/api/users/user-info',
+                headers: {
+                Authorization: "Bearer " + finalToken
+                }
+            })
+            .then(response => {
+                console.log("Response received from server.");
+                const userData = response.data;
+                // this.setState({ userData:userInfoData })
+                console.log("Our user data is: ", userData);
+        
+                console.log("Our user ID is: ", userData.id);
+                // FIRST make an API call to the user info API, THEN use that result to populate res.data.id, below.
+                
+            }).catch(function(error) {
+                console.log(error);
+            })
+
+            console.log("Starting Axios post...");
+            console.log("We are about to post: ", newTicket)
+            axios(
+                {
+                    method: "post",
+                    url: '/api/tickets',
+                    headers: {
+                        Authorization: "Bearer " + finalToken
+                    }
+                }, 
+                {withCredentials: true},
+                newTicket.vehicleMake
+            )
+            
+            // axios.post(
+                // '/api/tickets', newTicket
+                // {
+                //     vehicleMake: this.state.vehicleMake,
+                //     vehicleModel: this.state.vehicleModel,
+                //     vehicleYear: this.state.vehicleYear,
+                //     vehicleMileage: this.state.vehicleMileage,
+                //     estimatedCost: this.state.estimatedCost,
+                //     caseNumber: this.state.caseNumber
+                // }
+            // )
+            .then(function (response) {
+                console.log("Axios post completed.");
+                console.log("After the Axios post, newTicket is: ", newTicket)
+                console.log("Server status is: ", response.status + " " + response.statusText)
+                console.log("Server response is: ", response)
+                // After creating ticket, agent is redirected to their Ticket View page.
+                // window.location = "/insurance-ticket-view"
+                
+            })
+            .catch(function (error) {
+                console.log(error);
+            }); 
             event.preventDefault();
           }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // componentWillMount() {
+        //     let cookie = document.cookie;
+        //     // console.log("Our cookie is: ", document.cookie);
+        //     cookie = cookie.split(', ');
+        //     var result = {};
+        
+        //     for (var i = 0; i < cookie.length; i++) {
+        //         var curSemiSplit = cookie[i].split(';');
+        //         result[curSemiSplit[0]] = curSemiSplit[1]
+        //         var cur = cookie[i].split('=');
+        //         result[cur[0]] = cur[1];
+        //     }
+        //     let token = result.token;
+        //     // console.log(token);
+        //     let userCredentials = token.split('; ');
+        //     // console.log(userCredentials);
+        //     let finalToken = userCredentials[0];
+        
+        //     // console.log("Our final token is: ", finalToken)
+        // }
+
+
+
+
+
+
+
+
+
+
+
 
     render() {
       return (
@@ -126,7 +256,7 @@ class NewTicket extends Component {
                                     />
                                 </Form.Group>
                             </Form.Row>
-                            <Form.Row>
+                            {/* <Form.Row>
                                 <Form.Group as={Col}>
                                     <Form.Label>Customer Username</Form.Label>
                                     <Form.Control 
@@ -148,16 +278,14 @@ class NewTicket extends Component {
                                         name="mechanicUsername"
                                     />
                                 </Form.Group>
-                                </Form.Row>
+                            </Form.Row> */}
                             <Form.Row>
                                 </Form.Row>
 
                             <Button variant="primary" type="submit">
                                 Submit
                             </Button>
-                            <Link to = "/MasterView">
-                                <Button variant="primary">View Ticket</Button>
-                            </Link>
+
                         </Form>
                     </div>
         </Container>

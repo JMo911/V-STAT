@@ -6,3 +6,8 @@
 .MainCard{
     margin: auto;
 }
+#welcome-card {
+    background-color:pink;
+    position:relative;
+    top:5rem;
+}
