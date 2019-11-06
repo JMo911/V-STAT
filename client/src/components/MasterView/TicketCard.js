@@ -24,7 +24,7 @@ const TicketCard = (props) => {
                 <br/>
                 Estimated Cost: ${props.estimatedCost}
                 <br/>
-                Approval Date: {props.approvalDate}
+                Estimated Completion Date: {props.approvalDate}
 
                 <br/>
                 Case Number: {props.caseNumber}

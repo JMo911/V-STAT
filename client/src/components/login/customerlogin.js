@@ -21,7 +21,8 @@ class CustomerLogin extends Component {
             customerUsername: "",
             customerPassword: "",
             error: false,
-            errormessage: ''
+            errormessage: '',
+            data:[]
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -40,6 +41,64 @@ class CustomerLogin extends Component {
             username: this.state.customerUsername,
             password: this.state.customerPassword
         }
+
+
+
+
+
+        // let cookie = document.cookie;
+        // cookie = cookie.split(', ');
+        // var result = {};
+  
+        // for (var i = 0; i < cookie.length; i++) {
+        //   var curSemiSplit = cookie[i].split(';');
+        //   result[curSemiSplit[0]] = curSemiSplit[1];
+  
+        //     var cur = cookie[i].split('=');
+        //     result[cur[0]] = cur[1];
+        // }
+        // let token = result.token;
+        // let userCredentials = token.split('; ');
+        // let finalToken = userCredentials[0];
+  
+  
+  
+        // axios({
+        //   method: "get",
+        //   url: '/api/users/user-info',
+        //   headers: {
+        //     Authorization: "Bearer " + finalToken
+        //   }
+        // })
+        // .then(response => {
+        //   const userData = response.data;
+        //   console.log("Our user data is: ", userData);
+  
+        //   console.log("Our user ID is: ", userData.id);
+        //   axios({
+        //   method: "get",
+        //   url: '/api/users/' + userData.id + '/tickets',
+        //   headers: {
+        //     Authorization: "Bearer " + finalToken
+        //   }
+        // })
+        //   .then(response => {
+        //     const data = response.data;
+        //     this.setState({ data:data })
+  
+        //   }).catch(function(error) {
+        //     console.log(error);
+        //   })
+        // }).catch(function(error) {
+        //   console.log(error);
+        // })
+
+
+
+
+
+
+
         axios.post('/api/auth', customerRequest)
             .then(function (response) {
                 // console.log(response.data);
@@ -47,7 +106,7 @@ class CustomerLogin extends Component {
                 // console.log(userType);
                 if (userType !== 1) {
                     console.log('wrong user type');
-
+                    alert("Wrong User Type! Returning to login...");
                     function reroutetologin() {
                         window.location = "/"
                     }
@@ -65,7 +124,10 @@ class CustomerLogin extends Component {
                     cookie.set('token', response.data.token)
                     cookie.set('userId', response.data.user.id)
                     cookie.set('userTypeId', response.data.user.UserTypeId)
-                    window.location = "/MasterView";
+                    // window.location = `/MasterView/${response.data.caseNumber}`
+                    window.location = `/MasterView/`
+
+      
                 }
             })
             .catch(function (error) {

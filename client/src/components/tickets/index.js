@@ -95,20 +95,23 @@ class NewTicket extends Component {
             }).catch(function(error) {
                 console.log(error);
             })
-
+            console.log("Final Token is: ", finalToken);
             console.log("Starting Axios post...");
-            console.log("We are about to post: ", newTicket.vehicleMake)
+            console.log("We are about to post: ", newTicket)
             axios(
                 {
                     method: "post",
                     url: '/api/tickets',
+                    data: 
+                        newTicket
+                      ,
                     headers: {
                         Authorization: "Bearer " + finalToken,
                         "Content-Type": "application/json"
                     }
-                }, 
-                {withCredentials: true},
-                newTicket.vehicleMake
+                }
+                
+                
             )
             
             // axios.post(
@@ -128,7 +131,7 @@ class NewTicket extends Component {
                 console.log("Server status is: ", response.status + " " + response.statusText)
                 console.log("Server response is: ", response)
                 // After creating ticket, agent is redirected to their Ticket View page.
-                window.location = "/insurance-ticket-view"
+                // window.location = "/insurance-ticket-view"
                 
             })
             .catch(function (error) {

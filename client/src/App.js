@@ -22,7 +22,7 @@ class App extends Component {
                     <Route exact path="/" component={LoginPage} />
                     <Route exact path="/insurance-splash" component = {InsuranceSplash} />
                     <Route exact path="/insurance-ticket-view" component = {InsuranceTicketView} />
-                    {/* <Route path="/MasterView" component = {MasterView} /> */}
+                    <Route path="/MasterView" component = {MasterView} />
                     <Route path="/MasterView/:id" component = {MasterView} />
 
                     <Route exact path="/login" component={LoginBox} />
