@@ -95,13 +95,14 @@ class NewTicket extends Component {
             })
 
             console.log("Starting Axios post...");
-            console.log("We are about to post: ", newTicket)
+            console.log("We are about to post: ", newTicket.vehicleMake)
             axios(
                 {
                     method: "post",
                     url: '/api/tickets',
                     headers: {
-                        Authorization: "Bearer " + finalToken
+                        Authorization: "Bearer " + finalToken,
+                        "Content-Type": "application/json"
                     }
                 }, 
                 {withCredentials: true},
