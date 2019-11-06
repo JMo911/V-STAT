@@ -3,7 +3,8 @@ import '../../frontend-assets/css/masterView.css';
 import TaskItem from './TaskItem'
 import CompletedTask from '../CompletedTask/CompletedTask';
 import {Button, Col, Row} from "react-bootstrap";
-import Comment from '../Comments/Comment'
+import Comment from '../Comments/Comment';
+import axios from 'axios';
 
 class TaskList extends Component {
     state = { 
@@ -15,6 +16,59 @@ class TaskList extends Component {
 
     onSubmit = (event) => {
         event.preventDefault();
+        // console.log("NEW TASK: ", newTask)
+        const ticketNumber = window.location.href[window.location.href.length -1];
+        const newTask = {
+            todo: this.state.task,
+            completed: false,
+            TicketId: ticketNumber
+        }
+        let cookie = document.cookie;
+        // console.log("Our cookie is: ", document.cookie);
+        cookie = cookie.split(', ');
+        var result = {};
+  
+        for (var i = 0; i < cookie.length; i++) {
+          var curSemiSplit = cookie[i].split(';');
+          result[curSemiSplit[0]] = curSemiSplit[1];
+          // console.log("curSemiSplit[0] is: ", curSemiSplit[0]);
+          // console.log("curSemiSplit[1] is: ", curSemiSplit[1]);
+  
+  
+  
+  
+            var cur = cookie[i].split('=');
+            result[cur[0]] = cur[1];
+            // console.log("cur[0] is: ", cur[0]);
+            // console.log("cur[1] is: ", cur[1]);
+        }
+        let token = result.token;
+        // console.log(token);
+        let userCredentials = token.split('; ');
+        // console.log(userCredentials);
+        let finalToken = userCredentials[0];
+  
+        // console.log("Our final token is: ", finalToken)
+  
+  
+        axios({
+          method: "post",
+          url: '/api/tasks',
+          headers: {
+            Authorization: "Bearer " + finalToken
+          },
+          data: newTask
+        })
+        .then(response => {
+            console.log("task created")
+        })
+        .catch(error => {
+            console.log(error);
+        })
+        
+
+
+
         const tasks = this.state.tasks.slice()
         tasks.push(this.state.task)
         this.setState({tasks:tasks, task:""})
@@ -38,17 +92,96 @@ class TaskList extends Component {
         }
     }
 
-    completeTask = (event, task, i) => {
-        event.preventDefault();
-        const tasks = this.state.tasks.slice()
-        const completedTasks = this.state.completedTasks.slice()
-        tasks.splice(i, 1)
+    completeTask = (event, id, completed, todo) => {
+        // event.preventDefault();
+        console.log(id, "Todo: " + todo + "completed: " + completed)
+        let cookie = document.cookie;
+        cookie = cookie.split('; ');
+        let userId = cookie[0].split('=');
+        let finalUserId = userId[1];
 
-        completedTasks.push(task)
+        // console.log("our real user ID is: " + finalUserId);
 
-        this.setState({tasks:tasks, completedTasks:completedTasks})
-        this.props.handleCompletedTask(task)
-        console.log("Task completed!");
+        var result = {};
+        for (var i = 0; i < cookie.length; i++) {
+            var cur = cookie[i].split('=');
+            result[cur[0]] = cur[1];
+        }
+        let token = result.token;
+        let userCredentials = token.split('; ');
+        let finalToken = userCredentials[0];
+        const updatedTask = {
+            completed: true
+        }
+
+        axios({
+            method: "put",
+            url: '/api/tasks/' + id,
+            data: updatedTask,
+            headers: {
+              Authorization: "Bearer " + finalToken
+            }
+          })
+          .then(response => {
+            const data = response.data;
+            console.log(data)
+            // this.setState({updated: this.state.updated+1})
+            // console.log("TASK DATA",this.state.tasks)
+            // this.setState({ data:data })
+          }).catch(function(error) {
+            console.log("error:", error);
+          })
+
+    }
+
+    componentWillMount() {
+        let cookie = document.cookie;
+        cookie = cookie.split('; ');
+        let userId = cookie[0].split('=');
+        let finalUserId = userId[1];
+
+        // console.log("our real user ID is: " + finalUserId);
+
+        var result = {};
+        for (var i = 0; i < cookie.length; i++) {
+            var cur = cookie[i].split('=');
+            result[cur[0]] = cur[1];
+        }
+        let token = result.token;
+        let userCredentials = token.split('; ');
+        let finalToken = userCredentials[0];
+        const ticketNumber = window.location.href[window.location.href.length -1];
+        axios({
+            method: "get",
+            url: '/api/tickets/' + ticketNumber + "/tasks",
+            headers: {
+              Authorization: "Bearer " + finalToken
+            }
+          })
+          .then(response => {
+            const data = response.data[0].Tasks;
+            // console.log("TASK DATA",data)
+            const incompleteTasks=[];
+            const completeTasks=[];
+            data.forEach(element => {
+                console.log(element.completed);
+                if(element.completed) {
+                    completeTasks.push(element)
+                    console.log(element)
+                } else {
+                    incompleteTasks.push(element)
+                }
+            });
+            this.setState({
+                tasks:incompleteTasks,
+                completedTasks: completeTasks
+            });
+            // console.log("TASK DATA",this.state.tasks)
+            // this.setState({ data:data })
+          }).catch(function(error) {
+            console.log("error:", error);
+          })
+          console.log(this.state.completedTasks)
     }
 
     render() {
@@ -83,11 +216,12 @@ class TaskList extends Component {
                             <div className="allTasks">
                                 {/* task */}
                                 <ul>
-                                    {this.state.tasks.map((task, i) => (
+                                    {this.state.tasks.map((tasks) => (
                                         <TaskItem 
-                                        key={i}
-                                        description={task} 
-                                        handleCompletedTask = {event=>this.completeTask(event, task, i)}
+                                        key={tasks.id}
+                                        todo={tasks.todo} 
+                                        completed={tasks.completed}
+                                        handleCompletedTask = {(event, key)=>this.completeTask(event, tasks.id, tasks.completed, tasks.todo)}
                                         />
                                     ))}
                                 </ul>
@@ -95,7 +229,7 @@ class TaskList extends Component {
                             </div>
                         </fieldset>
                     </div>
-                    <CompletedTask tasks={this.state.completedTasks}/>
+                    <CompletedTask completedTasks={this.state.completedTasks}/>
                 </Col>
                 <Col md={2}>
                     <Comment/>

@@ -21,18 +21,18 @@ const InsuranceCard = (props) => {
               Approval Date: {props.approvalDate}
               <br/>
               Vehicle Mileage: {props.vehicleMileage}
-              <br/>
+              {/* <br/>
               Insurance Company: {props.insuranceCompany}
               <br/>
               Insurance Agent: {props.insuranceNameFirst} {props.insuranceNameLast}
               <br/>
               Mechanic Shop: {props.mechanicShopName}
               <br/>
-              Mechanic: {props.mechanicNameFirst} {props.mechanicNameLast}
+              Mechanic: {props.mechanicNameFirst} {props.mechanicNameLast} */}
           </Card.Text>
 
         </Card.Body>
-        <Link to = "/MasterView">
+        <Link to = {`/MasterView/${props.caseNumber}`}>
           <Button variant="primary">View Ticket</Button>
         </Link>
       </Card>

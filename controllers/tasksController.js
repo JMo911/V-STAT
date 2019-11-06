@@ -23,7 +23,12 @@ module.exports = {
     },
     update: function (req, res) {
         db.Task
-            .findOneAndUpdate({ _id: req.params.id }, req.body)
+            .update(req.body, 
+                {
+                    where: {
+                        id: req.params.id
+                    }
+                })
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
