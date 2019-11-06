@@ -10,8 +10,7 @@ class TaskList extends Component {
     state = { 
         tasks: [],
         task: "",
-        completedTasks: [],
-        updated: 1
+        completedTasks: []
     }
 
 
@@ -94,7 +93,7 @@ class TaskList extends Component {
     }
 
     completeTask = (event, id, completed, todo) => {
-        event.preventDefault();
+        // event.preventDefault();
         console.log(id, "Todo: " + todo + "completed: " + completed)
         let cookie = document.cookie;
         cookie = cookie.split('; ');
@@ -126,7 +125,7 @@ class TaskList extends Component {
           .then(response => {
             const data = response.data;
             console.log(data)
-            this.setState({updated: this.state.updated+1})
+            // this.setState({updated: this.state.updated+1})
             // console.log("TASK DATA",this.state.tasks)
             // this.setState({ data:data })
           }).catch(function(error) {
