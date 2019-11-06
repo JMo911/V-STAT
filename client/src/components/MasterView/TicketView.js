@@ -12,7 +12,8 @@ class MasterView extends Component {
             completedTasks: [],
             data:[],
             userId: "",
-            caseNumber: props.match.caseNumber
+            caseNumber: props.match.caseNumber,
+            ticket: {}
         }
     }
     // state = { 
@@ -37,7 +38,7 @@ class MasterView extends Component {
         let userId = cookie[0].split('=');
         let finalUserId = userId[1];
 
-        console.log("our real user ID is: " + finalUserId);
+        // console.log("our real user ID is: " + finalUserId);
 
         var result = {};
         for (var i = 0; i < cookie.length; i++) {
@@ -47,7 +48,7 @@ class MasterView extends Component {
         let token = result.token;
         let userCredentials = token.split('; ');
         let finalToken = userCredentials[0];
-        console.log("the finalToken is: " + finalToken);
+        // console.log("the finalToken is: " + finalToken);
         this.setState({userId:finalUserId});
         axios({
           method: "get",
@@ -62,6 +63,25 @@ class MasterView extends Component {
         }).catch(function(error) {
           console.log("error:", error);
         })
+        // var lastChar = this.state.caseNumber[this.state.caseNumber.length -1];
+        const ticketNumber = window.location.href[window.location.href.length -1];
+        axios({
+            method: "get",
+            url: '/api/tickets/' + ticketNumber,
+            headers: {
+              Authorization: "Bearer " + finalToken
+            }
+          })
+          .then(response => {
+            //   console.log(response.data)
+              this.setState({ticket : response.data})
+              console.log("this.state.ticket = : ", this.state.ticket)
+            // const data = response.data;
+            // console.log("this is our ticket data: " + response)
+            // this.setState({ data:data })
+          }).catch(function(error) {
+            console.log("error:", error);
+          })
       }
 
     handleCompletedTask = (task) => { 
@@ -76,20 +96,33 @@ class MasterView extends Component {
     }
     onStateChange
 
-    fetchTicket = async() => {
-        const fetchTicket = await fetch(`api/tickets`)
-        const ticket = await fetchTicket.json;
-        console.log("Our ticket is: ", ticket);
-        console.log(this.state.caseNumber)
-    }
+
 
 
     render() {
         // {if (this.state.data.length > 1) {
             return (
                 <Container id="ticket-view">
-                    {console.log("We are passing down... ", this.state.data)}
-                    <TicketCard props={this.state.data}/>
+                    {console.log("We are passing down... ", this.state.data, this.state.ticket)}
+                    <TicketCard 
+                    key={this.state.ticket.caseNumber}
+                    caseNumber={this.state.ticket.caseNumber}
+                    estimatedCost={this.state.ticket.estimatedCost}
+                    approvalDate={this.state.ticket.approvalDate}
+                    vehicleMake={this.state.ticket.vehicleMake}
+                    vehicleModel={this.state.ticket.vehicleModel}
+                    vehicleYear={this.state.ticket.vehicleYear}
+                    vehicleMileage={this.state.ticket.vehicleMileage}
+                    // customerNameFirst={data.customerNameFirst}
+                    // customerNameLast={data.customerNameLast}
+                    // mechanicNameFirst={data.mechanicNameFirst}
+                    // mechanicNameLast={data.mechanicNameLast}
+                    // mechanicShopName={data.mechanicShopName}
+                    // insuranceNameFirst={data.insuranceNameFirst}
+                    // insuranceNameLast={data.insuranceNameLast}
+                    // insuranceCompany={data.insuranceCompany}
+                    />
+           
     
                     <TaskList handleCompletedTask={this.handleCompletedTask}/>             
                  
