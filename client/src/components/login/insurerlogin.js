@@ -103,6 +103,7 @@ class InsurerLogin extends Component {
                                         id="insurance-password-submit"
                                         value={this.state.customerPassword}
                                         onChange={this.handleChange}
+                                        type="password"
                                         name="insurancePassword"
                                         placeholder="Enter Password"
                                     />

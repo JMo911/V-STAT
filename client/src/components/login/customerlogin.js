@@ -197,6 +197,7 @@ class CustomerLogin extends Component {
                                             value={this.state.customerPassword}
                                             onChange={this.handleChange}
                                             name="customerPassword"
+                                            type="password"
                                             placeholder="Enter Password"
                                         />
                                     </Col>
