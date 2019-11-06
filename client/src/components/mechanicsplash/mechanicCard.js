@@ -12,17 +12,17 @@ const MechanicCard = (props) => {
           <Card.Title >{props.vehicleMake} {props.vehicleModel} {props.vehicleYear}</Card.Title>
           <br/>
           <Card.Text>
-              Customer: {props.customerNameFirst} {props.customerNameLast}
+              {/* Customer: {props.customerNameFirst} {props.customerNameLast} */}
               <br/>
               Case Number: {props.caseNumber}
               <br/>
               Estimated Cost: ${props.estimatedCost}
-              <br/>
-              Approval Date: {props.approvalDate}
+              {/* <br/> */}
+              {/* Approval Date: {props.approvalDate} */}
               <br/>
               Vehicle Mileage: {props.vehicleMileage}
               <br/>
-              Insurance Company: {props.insuranceCompany}
+              {/* Insurance Company: {props.insuranceCompany}
               <br/>
               Insurance Agent: {props.insuranceNameFirst} {props.insuranceNameLast}
               <br/>
@@ -39,7 +39,7 @@ const MechanicCard = (props) => {
                     Mechanic: {props.mechanicNameFirst} {props.mechanicNameLast}
                     <br/>
                     Customer: {props.customerNameFirst} {props.customerNameLast}
-              </div>
+              </div> */}
           </Card.Text>
 
         </Card.Body>
