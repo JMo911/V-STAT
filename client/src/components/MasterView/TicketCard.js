@@ -34,7 +34,7 @@ const TicketCard = (props) => {
 
           <br/>
 
-      <Card id="contact-area">
+      {/* <Card id="contact-area">
         <Card.Body>
             <Card.Text>
                     Insurance Company: {props.insuranceCompany}
@@ -50,7 +50,7 @@ const TicketCard = (props) => {
 
         </Card.Body>
         
-      </Card>
+      </Card> */}
     </React.Fragment>
   );
 }
