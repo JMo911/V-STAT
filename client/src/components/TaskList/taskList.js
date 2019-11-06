@@ -10,7 +10,8 @@ class TaskList extends Component {
     state = { 
         tasks: [],
         task: "",
-        completedTasks: []
+        completedTasks: [],
+        updated: 1
     }
 
 
@@ -92,17 +93,46 @@ class TaskList extends Component {
         }
     }
 
-    completeTask = (event, task, i) => {
+    completeTask = (event, id, completed, todo) => {
         event.preventDefault();
-        const tasks = this.state.tasks.slice()
-        const completedTasks = this.state.completedTasks.slice()
-        tasks.splice(i, 1)
+        console.log(id, "Todo: " + todo + "completed: " + completed)
+        let cookie = document.cookie;
+        cookie = cookie.split('; ');
+        let userId = cookie[0].split('=');
+        let finalUserId = userId[1];
 
-        completedTasks.push(task)
+        // console.log("our real user ID is: " + finalUserId);
 
-        this.setState({tasks:tasks, completedTasks:completedTasks})
-        this.props.handleCompletedTask(task)
-        console.log("Task completed!");
+        var result = {};
+        for (var i = 0; i < cookie.length; i++) {
+            var cur = cookie[i].split('=');
+            result[cur[0]] = cur[1];
+        }
+        let token = result.token;
+        let userCredentials = token.split('; ');
+        let finalToken = userCredentials[0];
+        const updatedTask = {
+            completed: true
+        }
+
+        axios({
+            method: "put",
+            url: '/api/tasks/' + id,
+            data: updatedTask,
+            headers: {
+              Authorization: "Bearer " + finalToken
+            }
+          })
+          .then(response => {
+            const data = response.data;
+            console.log(data)
+            this.setState({updated: this.state.updated+1})
+            // console.log("TASK DATA",this.state.tasks)
+            // this.setState({ data:data })
+          }).catch(function(error) {
+            console.log("error:", error);
+          })
+
     }
 
     componentWillMount() {
@@ -192,7 +222,7 @@ class TaskList extends Component {
                                         key={tasks.id}
                                         todo={tasks.todo} 
                                         completed={tasks.completed}
-                                        handleCompletedTask = {event=>this.completeTask(event)}
+                                        handleCompletedTask = {(event, key)=>this.completeTask(event, tasks.id, tasks.completed, tasks.todo)}
                                         />
                                     ))}
                                 </ul>
