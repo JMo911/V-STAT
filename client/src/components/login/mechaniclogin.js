@@ -113,6 +113,7 @@ class MechanicLogin extends Component {
                                         value={this.state.customerPassword}
                                         onChange={this.handleChange}
                                         name="mechanicPassword"
+                                        type="password"
                                         placeholder="Enter Password"
                                     />
                                 </Col>

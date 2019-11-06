@@ -85,7 +85,7 @@ class MasterView extends Component {
 
 
     render() {
-        {if (this.state.data.length > 1) {
+        // {if (this.state.data.length > 1) {
             return (
                 <Container id="ticket-view">
                     {console.log("We are passing down... ", this.state.data)}
@@ -95,10 +95,10 @@ class MasterView extends Component {
                  
                 </Container>
             )
-        } else {
-            return (<div></div>);
-        }
-    }
+        // } else {
+        //     return (<div></div>);
+        // }
+    // }
     }
 }
 

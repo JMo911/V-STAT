@@ -103,6 +103,7 @@ class InsurerLogin extends Component {
                                         id="insurance-password-submit"
                                         value={this.state.customerPassword}
                                         onChange={this.handleChange}
+                                        type="password"
                                         name="insurancePassword"
                                         placeholder="Enter Password"
                                     />
@@ -116,9 +117,6 @@ class InsurerLogin extends Component {
                             <InsurerSignup />
                         </Tab>
                     </Tabs>
-                    <Link to="/insurance-splash">
-                        <Button id="insurance-splash-button">Insurance Splash</Button>
-                    </Link>
                 </Card.Body>
             </div>
         )
