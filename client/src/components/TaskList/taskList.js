@@ -16,6 +16,59 @@ class TaskList extends Component {
 
     onSubmit = (event) => {
         event.preventDefault();
+        // console.log("NEW TASK: ", newTask)
+        const ticketNumber = window.location.href[window.location.href.length -1];
+        const newTask = {
+            todo: this.state.task,
+            completed: false,
+            TicketId: ticketNumber
+        }
+        let cookie = document.cookie;
+        // console.log("Our cookie is: ", document.cookie);
+        cookie = cookie.split(', ');
+        var result = {};
+  
+        for (var i = 0; i < cookie.length; i++) {
+          var curSemiSplit = cookie[i].split(';');
+          result[curSemiSplit[0]] = curSemiSplit[1];
+          // console.log("curSemiSplit[0] is: ", curSemiSplit[0]);
+          // console.log("curSemiSplit[1] is: ", curSemiSplit[1]);
+  
+  
+  
+  
+            var cur = cookie[i].split('=');
+            result[cur[0]] = cur[1];
+            // console.log("cur[0] is: ", cur[0]);
+            // console.log("cur[1] is: ", cur[1]);
+        }
+        let token = result.token;
+        // console.log(token);
+        let userCredentials = token.split('; ');
+        // console.log(userCredentials);
+        let finalToken = userCredentials[0];
+  
+        // console.log("Our final token is: ", finalToken)
+  
+  
+        axios({
+          method: "post",
+          url: '/api/tasks',
+          headers: {
+            Authorization: "Bearer " + finalToken
+          },
+          data: newTask
+        })
+        .then(response => {
+            console.log("task created")
+        })
+        .catch(error => {
+            console.log(error);
+        })
+        
+
+
+
         const tasks = this.state.tasks.slice()
         tasks.push(this.state.task)
         this.setState({tasks:tasks, task:""})
