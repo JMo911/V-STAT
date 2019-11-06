@@ -41,5 +41,16 @@ module.exports = {
         })
         .then(dbTicketIds => res.json(dbTicketIds))
         .catch(err => res.status(422).json(err));
-    }
+    },
+    findByUsername: function (req, res) {
+        console.log(req.params.username)
+        db.User
+            .find({
+                where: {
+                    username: req.params.username
+                }
+            })
+            .then(dbModel => res.json(dbModel))
+            .catch(err => res.status(422).json(err));
+    },
 };

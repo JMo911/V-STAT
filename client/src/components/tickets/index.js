@@ -25,7 +25,10 @@ class NewTicket extends Component {
                 estimatedCost: "",
                 caseNumber: "",
                 mechanicUsername: "",
-                customerUsername: ""
+                customerUsername: "",
+                mechanicID: null,
+                customerID: null,
+                ticketID: null
             };
             this.handleChange = this.handleChange.bind(this);
 
@@ -37,22 +40,8 @@ class NewTicket extends Component {
             this.setState({[name]: event.target.value});
           }
         
-          handleSubmit(event) {
+          async handleSubmit(event) {
             event.preventDefault();
-            const newTicket = {
-                vehicleMake: this.state.vehicleMake,
-                vehicleModel: this.state.vehicleModel,
-                vehicleYear: this.state.vehicleYear,
-                vehicleMileage: this.state.vehicleMileage,
-                estimatedCost: this.state.estimatedCost,
-                caseNumber: this.state.caseNumber
-            }
-            console.log("At the start, newTicket is: ", newTicket)
-
-
-
-
-            console.log("Cookie call starting...");
             let cookie = document.cookie;
             cookie = cookie.split(', ');
             var result = {};
@@ -65,8 +54,56 @@ class NewTicket extends Component {
             let token = result.token;
             let userCredentials = token.split('; ');
             let finalToken = userCredentials[0];
-        
-            axios({
+
+            //FIND USERS mechanicID FIRST
+            await axios({
+                method: "get",
+                url: '/api/users/' + this.state.mechanicUsername,
+                headers: {
+                Authorization: "Bearer " + finalToken
+                }
+            })
+            .then(response => {
+                const data = response.data.id;
+                
+                this.setState({mechanicID:data})
+                // console.log("MECHANIC",this.state.mechanicID);
+                
+            }).catch(function(error) {
+                console.log(error);
+            })
+
+            //find customer ID
+            await axios({
+                method: "get",
+                url: '/api/users/' + this.state.customerUsername,
+                headers: {
+                Authorization: "Bearer " + finalToken
+                }
+            })
+            .then(response => {
+                const data = response.data.id;
+                // console.log("CUSTOMER",data);
+                this.setState({customerID:data})
+                // console.log("CUSTOMER",this.state.customerID);
+                
+            }).catch(function(error) {
+                console.log(error);
+            })
+            // console.log("STATES",this.state.mechanicID, this.state.customerID)
+            
+            const newTicket = {
+                vehicleMake: this.state.vehicleMake,
+                vehicleModel: this.state.vehicleModel,
+                vehicleYear: this.state.vehicleYear,
+                vehicleMileage: this.state.vehicleMileage,
+                estimatedCost: this.state.estimatedCost,
+                caseNumber: this.state.caseNumber
+            }
+            console.log(newTicket)
+
+            //GIVE US CURRENT USER INFO
+            await axios({
                 method: "get",
                 url: '/api/users/user-info',
                 headers: {
@@ -79,28 +116,37 @@ class NewTicket extends Component {
             }).catch(function(error) {
                 console.log(error);
             })
+
+            //CREATE THE TICKET
             axios(
                 {
                     method: "post",
                     url: '/api/tickets',
-                    data: 
-                        newTicket
-                      ,
+                    data: newTicket,
                     headers: {
-                        Authorization: "Bearer " + finalToken,
-                        "Content-Type": "application/json"
+                        Authorization: "Bearer " + finalToken
                     }
                 }
             )
             .then(function (response) {
                 // After creating ticket, agent is redirected to their Ticket View page.
+                const data = response.data.id;
+                console.log(data)
+                this.setState({ticketID:data})
+                // console.log('TICKET',ticketId);
+                //  console.log('CUSTOMER',this.state.customerID)
+                //  console.log('MECH',this.state.mechanicID)
                 window.location = "/insurance-ticket-view"
                 
             })
             .catch(function (error) {
                 console.log(error);
             }); 
-            event.preventDefault();
+            console.log('TICKET',this.state.ticketID);
+            console.log('CUSTOMER',this.state.customerID)
+            console.log('MECH',this.state.mechanicID)
+
+            //CREATE THE JOINTABLE ENTRY
           }
     render() {
       return (
