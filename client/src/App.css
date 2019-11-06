@@ -189,6 +189,8 @@ input.form-control {
   margin-top: 5rem;
   /* border: 5px solid red; */
   width: 55%;
+  padding:15px;
+  margin:25px;
 }
 
 #contact-area {
