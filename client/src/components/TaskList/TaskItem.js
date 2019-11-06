@@ -17,12 +17,15 @@ class TaskItem extends Component {
                     <Col md={5}>
                         <div className="actions">
                             {/* yes button */}
+                            {(!this.props.completed) ?
                             <Button 
                             onClick={this.props.handleCompletedTask} 
                             className="btn btn-success text-white" 
                             id="task-completed-button">
                                 Complete Task
-                            </Button>
+                            </Button>:<div></div>
+                            }
+                            
                         </div>
                     </Col>
                 </Row>

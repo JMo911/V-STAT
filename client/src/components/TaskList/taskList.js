@@ -132,12 +132,27 @@ class TaskList extends Component {
           .then(response => {
             const data = response.data[0].Tasks;
             // console.log("TASK DATA",data)
-            this.setState({tasks:data})
-            console.log("TASK DATA",this.state.tasks)
+            const incompleteTasks=[];
+            const completeTasks=[];
+            data.forEach(element => {
+                console.log(element.completed);
+                if(element.completed) {
+                    completeTasks.push(element)
+                    console.log(element)
+                } else {
+                    incompleteTasks.push(element)
+                }
+            });
+            this.setState({
+                tasks:incompleteTasks,
+                completedTasks: completeTasks
+            });
+            // console.log("TASK DATA",this.state.tasks)
             // this.setState({ data:data })
           }).catch(function(error) {
             console.log("error:", error);
           })
+          console.log(this.state.completedTasks)
     }
 
     render() {
@@ -185,7 +200,7 @@ class TaskList extends Component {
                             </div>
                         </fieldset>
                     </div>
-                    <CompletedTask tasks={this.state.completedTasks}/>
+                    <CompletedTask completedTasks={this.state.completedTasks}/>
                 </Col>
                 <Col md={2}>
                     <Comment/>
