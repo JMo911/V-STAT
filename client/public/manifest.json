@@ -3,7 +3,7 @@
   "name": "Create React App Sample",
   "icons": [
     {
-      "src": "/assets/images/VSTAT-favicon.png",
+      "src": "client/public/favicon.ico",
       "sizes": "32x32",
       "type": "image/png"
     }
