@@ -2,7 +2,7 @@
 <img src="client/public/assets/images/VSTAT-logo2.png" alt="V-STAT">
 </p>
 
-# V-STAT
+# 
 
 ## Problem
 
