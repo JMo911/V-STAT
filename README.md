@@ -1,5 +1,6 @@
+<p align="center">
 ![Alt text](client/public/assets/images/VSTAT-logo2.png "V-STAT")
-
+</p>
 
 # V-STAT
 
