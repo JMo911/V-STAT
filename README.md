@@ -1,5 +1,5 @@
 <p align="center">
-![Alt text](client/public/assets/images/VSTAT-logo2.png "V-STAT")
+<img src="client/public/assets/images/VSTAT-logo2.png" alt="V-STAT">
 </p>
 
 # V-STAT
