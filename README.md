@@ -3,6 +3,7 @@
 </p>
 
 # 
+[Try the app here](https://vstatapp.herokuapp.com/)
 
 ## Problem
 
