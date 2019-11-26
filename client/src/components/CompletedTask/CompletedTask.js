@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../frontend-assets/css/masterView.css';
+// import '../../frontend-assets/css/masterView.css';
 import TaskItem from '../TaskList/TaskItem'
    
 export function CompletedTask(props) {

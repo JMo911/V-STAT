@@ -1,5 +1,5 @@
 import React, {Component, useEffect} from 'react';
-import '../../frontend-assets/css/masterView.css';
+// import '../../frontend-assets/css/masterView.css';
 import TaskList from '../TaskList/taskList';
 import TicketCard from '../MasterView/TicketCard';
 import {Container} from "react-bootstrap";

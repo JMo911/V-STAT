@@ -1,10 +1,10 @@
-import React, {Component} from 'react';
-import '../../frontend-assets/css/masterView.css';
-import {Button, Row, Col} from "react-bootstrap";
+import React, { Component } from 'react';
+// import '../../frontend-assets/css/masterView.css';
+import { Button, Row, Col } from "react-bootstrap";
 
 class TaskItem extends Component {
-    render(){
-        return(
+    render() {
+        return (
             <div className="task">
                 <Row>
                     {/* task detail */}
@@ -18,14 +18,14 @@ class TaskItem extends Component {
                         <div className="actions">
                             {/* yes button */}
                             {(!this.props.completed) ?
-                            <Button 
-                            onClick={this.props.handleCompletedTask} 
-                            className="btn btn-success text-white" 
-                            id="task-completed-button">
-                                Complete Task
-                            </Button>:<div></div>
+                                <Button
+                                    onClick={this.props.handleCompletedTask}
+                                    className="btn btn-success text-white"
+                                    id="task-completed-button">
+                                    Complete Task
+                            </Button> : <div></div>
                             }
-                            
+
                         </div>
                     </Col>
                 </Row>
