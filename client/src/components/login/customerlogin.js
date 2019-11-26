@@ -109,7 +109,7 @@ class CustomerLogin extends Component {
                     alert("Wrong User Type! Returning to login...");
                     function reroutetologin() {
                         window.location = "/"
-                    }
+                    } 
 
                     setTimeout(reroutetologin, 3000);
                     this.setState({
