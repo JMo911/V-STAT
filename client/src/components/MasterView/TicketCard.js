@@ -5,7 +5,6 @@ const TicketCard = (props) => {
   return (
     <React.Fragment>
       <Card id="master-view-ticket">
-        {/* <Card.Img top width="100%" src={props.photo} alt="Card image cap" /> */}
         <Card.Body>
           {/* {console.log("Child is grabbing props: ", props)}
           {console.log("Child is grabbing props.props: ", props.props)}

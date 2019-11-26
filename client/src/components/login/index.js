@@ -34,7 +34,6 @@ class LoginPage extends Component {
     return (
       <Container>
         <div id="loginArea">
-        {/* <img src={require('/images/image-name.png')} /> */}
           <img src="https://i.imgur.com/uSePAap.png" id="logo" alt="V-STAT!" />
           <p>Welcome to V-STAT!</p>
           <p>This program aims to take some of the confusion out of the car repair process, ensuring total transparency throughout every step of your journey. From the time a Customer gets into an accident, to the moment they pick up their fixed vehicle, V-STAT is there every step of the way. </p>
