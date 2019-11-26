@@ -7,6 +7,7 @@ import './styles.css';
 import { Link } from "react-router-dom";
 // import { Button } from "react-bootstrap";
 import posed from 'react-pose';
+const axios = require('axios');
 // import ReactDOM from 'react-dom';
 
 const Box = posed.div({
@@ -29,6 +30,95 @@ const Box = posed.div({
 // const imagePath = process.env.PUBLIC_URL + '/assets/images/'
 
 class LoginPage extends Component {
+  state = {
+    buttonLabel: "Login",
+    redirectURL: "/login"
+  }
+
+  componentWillMount() {
+    let cookie = document.cookie;
+    // console.log("Our cookie is: ", document.cookie);
+    cookie = cookie.split(', ');
+    var result = {};
+
+    for (var i = 0; i < cookie.length; i++) {
+      var curSemiSplit = cookie[i].split(';');
+      result[curSemiSplit[0]] = curSemiSplit[1];
+      // console.log("curSemiSplit[0] is: ", curSemiSplit[0]);
+      // console.log("curSemiSplit[1] is: ", curSemiSplit[1]);
+
+
+
+
+        var cur = cookie[i].split('=');
+        result[cur[0]] = cur[1];
+        // console.log("cur[0] is: ", cur[0]);
+        // console.log("cur[1] is: ", cur[1]);
+    }
+    if (result.token) {
+
+    let token = result.token;
+    // console.log(token);
+    let finalToken;
+    
+    let userCredentials = token.split('; ');
+    // console.log(userCredentials);
+    finalToken = userCredentials[0];
+  
+
+    console.log("Our final token is: ", finalToken)
+    axios({
+      method: "get",
+      url: '/api/users/user-info',
+      headers: {
+        Authorization: "Bearer " + finalToken
+      }
+    })
+    .then(response => {
+      const userData = response.data;
+      // this.setState({ userData:userInfoData })
+      console.log("Our user data is: ", userData);
+
+      console.log("Our user ID is: ", userData.id);
+      // FIRST make an API call to the user info API, THEN use that result to populate res.data.id, below.
+      const userType = userData.UserTypeId;
+
+      this.setState({
+        buttonLabel: "Take me to my portal"
+      })
+      
+      
+      if (userType === 1) {
+        this.setState({
+          redirectURL: "/insurance-splash"
+        })
+        
+      } else if (userType === 2) {
+        this.setState({
+          redirectURL: "/mechanic-splash"
+        })
+      } else if (userType === 3) {
+        this.setState({
+          redirectURL: "/MasterView"
+        })
+      }
+
+
+
+
+    }).catch(function(error) {
+      console.log(error);
+    })
+
+    }
+
+    
+
+
+
+
+  }
+
 
   render() {
     return (
@@ -40,8 +130,8 @@ class LoginPage extends Component {
           <p>Whether you're an insurance agent, a mechanic, or a customer, V-STAT can help!</p>
           {/* <p>With V-STAT, get the STATus of your V-hicle, STAT!</p> */}
           <p>To begin, please select the Login button below.</p>
-          <Link to="/login">
-            <Box id="login-button">Login</Box>
+          <Link to={this.state.redirectURL}>
+            <Box id="login-button">{this.state.buttonLabel}</Box>
           </Link>
         </div>
       </Container>
