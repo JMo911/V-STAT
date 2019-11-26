@@ -26,7 +26,7 @@ const Box = posed.div({
   }
 });
 
-const imagePath = process.env.PUBLIC_URL + '/assets/images/'
+// const imagePath = process.env.PUBLIC_URL + '/assets/images/'
 
 class LoginPage extends Component {
 
