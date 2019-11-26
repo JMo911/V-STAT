@@ -55,61 +55,66 @@ class LoginPage extends Component {
         // console.log("cur[0] is: ", cur[0]);
         // console.log("cur[1] is: ", cur[1]);
     }
+    if (result.token) {
+
     let token = result.token;
     // console.log(token);
+    let finalToken;
+    
     let userCredentials = token.split('; ');
     // console.log(userCredentials);
-    let finalToken = userCredentials[0];
+    finalToken = userCredentials[0];
+  
 
-    // console.log("Our final token is: ", finalToken)
+    console.log("Our final token is: ", finalToken)
+    axios({
+      method: "get",
+      url: '/api/users/user-info',
+      headers: {
+        Authorization: "Bearer " + finalToken
+      }
+    })
+    .then(response => {
+      const userData = response.data;
+      // this.setState({ userData:userInfoData })
+      console.log("Our user data is: ", userData);
+
+      console.log("Our user ID is: ", userData.id);
+      // FIRST make an API call to the user info API, THEN use that result to populate res.data.id, below.
+      const userType = userData.UserTypeId;
+
+      this.setState({
+        buttonLabel: "Take me to my portal"
+      })
+      
+      
+      if (userType === 1) {
+        this.setState({
+          redirectURL: "/insurance-splash"
+        })
+        
+      } else if (userType === 2) {
+        this.setState({
+          redirectURL: "/mechanic-splash"
+        })
+      } else if (userType === 3) {
+        this.setState({
+          redirectURL: "/MasterView"
+        })
+      }
+
+
+
+
+    }).catch(function(error) {
+      console.log(error);
+    })
+
+    }
 
     
 
-    if (finalToken.length > 10) { 
-      axios({
-        method: "get",
-        url: '/api/users/user-info',
-        headers: {
-          Authorization: "Bearer " + finalToken
-        }
-      })
-      .then(response => {
-        const userData = response.data;
-        // this.setState({ userData:userInfoData })
-        console.log("Our user data is: ", userData);
 
-        console.log("Our user ID is: ", userData.id);
-        // FIRST make an API call to the user info API, THEN use that result to populate res.data.id, below.
-        const userType = userData.UserTypeId;
-
-        this.setState({
-          buttonLabel: "Take me to my portal"
-        })
-        
-        
-        if (userType === 1) {
-          this.setState({
-            redirectURL: "/insurance-splash"
-          })
-          
-        } else if (userType === 2) {
-          this.setState({
-            redirectURL: "/mechanic-splash"
-          })
-        } else if (userType === 3) {
-          this.setState({
-            redirectURL: "/MasterView"
-          })
-        }
-
-
-
-
-      }).catch(function(error) {
-        console.log(error);
-      })
-
-  }
 
 
   }
