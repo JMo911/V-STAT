@@ -85,6 +85,7 @@ class Comments extends Component {
             .then(response => {
                 console.log("Comment created")
                 this.readComments();
+                this.setState({comment: ""})
             })
             .catch(error => {
                 console.log(error);
