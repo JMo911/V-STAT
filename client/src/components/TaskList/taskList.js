@@ -13,6 +13,59 @@ class TaskList extends Component {
         completedTasks: []
     }
 
+    readTasks = () => {
+        const ticketNumber = window.location.href[window.location.href.length - 1];
+        let cookie = document.cookie;
+        // console.log("Our cookie is: ", document.cookie);
+        cookie = cookie.split(', ');
+        var result = {};
+
+        for (var i = 0; i < cookie.length; i++) {
+            var curSemiSplit = cookie[i].split(';');
+            result[curSemiSplit[0]] = curSemiSplit[1];
+            // console.log("curSemiSplit[0] is: ", curSemiSplit[0]);
+            // console.log("curSemiSplit[1] is: ", curSemiSplit[1]);
+            var cur = cookie[i].split('=');
+            result[cur[0]] = cur[1];
+            // console.log("cur[0] is: ", cur[0]);
+            // console.log("cur[1] is: ", cur[1]);
+        }
+        let token = result.token;
+        // console.log(token);
+        let userCredentials = token.split('; ');
+        // console.log(userCredentials);
+        let finalToken = userCredentials[0];
+        axios({
+            method: "get",
+            url: '/api/tickets/' + ticketNumber + "/tasks",
+            headers: {
+                Authorization: "Bearer " + finalToken
+            }
+        })
+            .then(response => {
+                const data = response.data[0].Tasks;
+                // console.log("TASK DATA",data)
+                const incompleteTasks = [];
+                const completeTasks = [];
+                data.forEach(element => {
+                    console.log(element.completed);
+                    if (element.completed) {
+                        completeTasks.push(element)
+                        console.log(element)
+                    } else {
+                        incompleteTasks.push(element)
+                    }
+                });
+                this.setState({
+                    tasks: incompleteTasks,
+                    completedTasks: completeTasks
+                });
+                // console.log("TASK DATA",this.state.tasks)
+                // this.setState({ data:data })
+            }).catch(function (error) {
+                console.log("error:", error);
+            })
+    }
 
     onSubmit = (event) => {
         event.preventDefault();
@@ -170,6 +223,7 @@ class TaskList extends Component {
                 // this.setState({updated: this.state.updated+1})
                 // console.log("TASK DATA",this.state.tasks)
                 // this.setState({ data:data })
+                this.readTasks();
             }).catch(function (error) {
                 console.log("error:", error);
             })
