@@ -44,7 +44,7 @@ const MechanicCard = (props) => {
 
         </Card.Body>
         {/* <Link to={"/mechanic-splash"} > {this.state.data[0].id}> */}
-        <Link to = {`/MasterView/${props.caseNumber}`}>
+        <Link to = {`/MasterView/${props.dataKey}`}>
           <Button variant="primary">View Ticket</Button>
         </Link>
       </Card>
