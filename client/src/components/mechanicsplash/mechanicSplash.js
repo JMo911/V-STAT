@@ -61,6 +61,7 @@ class MechanicSplash extends Component {
         .then(response => {
           const data = response.data[0].Tickets;
           this.setState({ data:data })
+          console.log(data);
           // console.log("this.state.data is: ", this.state.data);
           // console.log("this.state.data[0] is: ", this.state.data[0])
           // console.log("this.state.data[0].tickets is: ", this.state.data[0].tickets)
@@ -85,6 +86,10 @@ class MechanicSplash extends Component {
 
 
     }
+
+    // handleClick = (e, id) => {
+    //   console.log(id);
+    // }
   
     render() {
       return (
@@ -93,7 +98,8 @@ class MechanicSplash extends Component {
             {/* {this.state.data[0].Tickets.map(data => ( */}
                 {this.state.data.map(data => (
                     <MechanicCard 
-                    key={data.caseNumber}
+                    key={data.id}
+                    dataKey={data.id}
                     caseNumber={data.caseNumber}
                     estimatedCost={data.estimatedCost}
                     approvalDate={data.approvalDate}
@@ -101,6 +107,7 @@ class MechanicSplash extends Component {
                     vehicleModel={data.vehicleModel}
                     vehicleYear={data.vehicleYear}
                     vehicleMileage={data.vehicleMileage}
+                    // routeToTicket = {((e) => this.handleClick(e, data.id))}
                     // customerNameFirst={data.customerNameFirst}
                     // customerNameLast={data.customerNameLast}
                     // mechanicNameFirst={data.mechanicNameFirst}
