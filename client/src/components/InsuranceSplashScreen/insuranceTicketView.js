@@ -93,7 +93,8 @@ class InsuranceTicketView extends Component {
             {/* {this.state.data[0].Tickets.map(data => ( */}
                 {this.state.data.map(data => (
                     <InsuranceCard 
-                    key={data.caseNumber}
+                    key={data.id}
+                    dataKey={data.id}
                     caseNumber={data.caseNumber}
                     estimatedCost={data.estimatedCost}
                     approvalDate={data.approvalDate}

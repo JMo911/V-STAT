@@ -32,7 +32,7 @@ const InsuranceCard = (props) => {
           </Card.Text>
 
         </Card.Body>
-        <Link to = {`/MasterView/${props.caseNumber}`}>
+        <Link to = {`/MasterView/${props.dataKey}`}>
           <Button variant="primary">View Ticket</Button>
         </Link>
       </Card>
