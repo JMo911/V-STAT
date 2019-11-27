@@ -32,7 +32,8 @@ const Box = posed.div({
 class LoginPage extends Component {
   state = {
     buttonLabel: "Login",
-    redirectURL: "/login"
+    redirectURL: "/login",
+    userTicketNumber: null
   }
 
   componentWillMount() {
@@ -86,22 +87,45 @@ class LoginPage extends Component {
       this.setState({
         buttonLabel: "Take me to my portal"
       })
+
+      axios({
+        method: "get",
+        url: '/api/users/' + userData.id + '/tickets',
+        headers: {
+          Authorization: "Bearer " + finalToken
+        }
+      })
+        .then(response => {
+          const userTicketNumber = response.data[0].Tickets[0].id;
+          console.log("userticketnumber:" , this.state.userTicketNumber)
+            //   this.setState({ data:data })
+            // window.location = "/MasterView/" + data;
+            this.setState({ userTicketNumber:userTicketNumber })
+          // console.log("this.state.data is: ", this.state.data);
+          // console.log("this.state.data[0] is: ", this.state.data[0])
+          // console.log("this.state.data[0].tickets is: ", this.state.data[0].tickets)
+          // console.log("this. is: ", this.state.data[0].Tickets)
+          if (userType === 1) {
+            this.setState({
+              redirectURL: "/MasterView/" + this.state.userTicketNumber
+            })
+            
+          } else if (userType === 2) {
+            this.setState({
+              redirectURL: "/mechanic-splash"
+            })
+          } else if (userType === 3) {
+            this.setState({
+              redirectURL: "/insurance-splash"
+            })
+          }
+
+        }).catch(function(error) {
+          console.log(error);
+        })
       
       
-      if (userType === 1) {
-        this.setState({
-          redirectURL: "/insurance-splash"
-        })
-        
-      } else if (userType === 2) {
-        this.setState({
-          redirectURL: "/mechanic-splash"
-        })
-      } else if (userType === 3) {
-        this.setState({
-          redirectURL: "/MasterView"
-        })
-      }
+      
 
 
 
