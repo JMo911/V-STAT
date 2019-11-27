@@ -125,7 +125,38 @@ class CustomerLogin extends Component {
                     cookie.set('userId', response.data.user.id)
                     cookie.set('userTypeId', response.data.user.UserTypeId)
                     // window.location = `/MasterView/${response.data.caseNumber}`
-                    window.location = `/MasterView/`
+
+
+                    axios({
+                        method: "get",
+                        url: '/api/users/' + response.data.user.id + '/tickets',
+                        headers: {
+                          Authorization: "Bearer " + response.data.token
+                        }
+                      })
+                        .then(response => {
+                          const data = response.data[0].Tickets[0].id;
+                            //   this.setState({ data:data })
+                            window.location = "/MasterView/" + data;
+                          // console.log("this.state.data is: ", this.state.data);
+                          // console.log("this.state.data[0] is: ", this.state.data[0])
+                          // console.log("this.state.data[0].tickets is: ", this.state.data[0].tickets)
+                          // console.log("this. is: ", this.state.data[0].Tickets)
+                
+                        }).catch(function(error) {
+                          console.log(error);
+                        })
+
+
+
+
+
+
+
+
+
+
+                    
 
       
                 }
