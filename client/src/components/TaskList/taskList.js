@@ -115,47 +115,7 @@ class TaskList extends Component {
             .then(response => {
                 console.log("task created")
 
-                axios({
-                    method: "get",
-                    url: '/api/tickets/' + ticketNumber + "/tasks",
-                    headers: {
-                        Authorization: "Bearer " + finalToken
-                    }
-                })
-                    .then(response => {
-                        const data = response.data[0].Tasks;
-                        // console.log("TASK DATA",data)
-                        const incompleteTasks = [];
-                        const completeTasks = [];
-                        data.forEach(element => {
-                            console.log(element.completed);
-                            if (element.completed) {
-                                completeTasks.push(element)
-                                console.log(element)
-                            } else {
-                                incompleteTasks.push(element)
-                            }
-                        });
-                        this.setState({
-                            tasks: incompleteTasks,
-                            completedTasks: completeTasks
-                        });
-                        // console.log("TASK DATA",this.state.tasks)
-                        // this.setState({ data:data })
-                    }).catch(function (error) {
-                        console.log("error:", error);
-                    })
-                // console.log(this.state.completedTasks)
-
-
-
-
-
-
-
-
-
-
+                this.readTasks();
             })
             .catch(error => {
                 console.log(error);

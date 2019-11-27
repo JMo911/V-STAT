@@ -84,6 +84,7 @@ class Comments extends Component {
         })
             .then(response => {
                 console.log("Comment created")
+                this.readComments();
             })
             .catch(error => {
                 console.log(error);
@@ -102,7 +103,7 @@ class Comments extends Component {
         event.preventDefault();
     }
 
-    componentWillMount() {
+    readComments = () => {
         let cookie = document.cookie;
         cookie = cookie.split('; ');
         let userId = cookie[0].split('=');
@@ -150,7 +151,11 @@ class Comments extends Component {
             }).catch(function (error) {
                 console.log("error:", error);
             })
-        console.log(this.state.completedTasks)
+    }
+
+    componentWillMount() {
+        this.readComments();
+        
     }
 
 
