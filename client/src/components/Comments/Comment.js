@@ -18,7 +18,7 @@ class Comments extends Component {
     handleInputChange(event) {
         let name = event.target.name;
         this.setState({ [name]: event.target.value });
-        console.log(this.state.comment)
+        // console.log(this.state.comment)
     }
 
     handleSubmit(event) {
@@ -53,7 +53,7 @@ class Comments extends Component {
             data: newComment
         })
             .then(response => {
-                console.log("Comment created")
+                // console.log("Comment created")
                 this.readComments();
                 this.setState({comment: ""})
             })
@@ -63,36 +63,36 @@ class Comments extends Component {
         event.preventDefault();
     }
 
-    readUserName = () => {
-        let cookie = document.cookie;
-        cookie = cookie.split('; ');
-        let userId = cookie[0].split('=');
-        let finalUserId = userId[1];
+    // readUserName = () => {
+    //     let cookie = document.cookie;
+    //     cookie = cookie.split('; ');
+    //     let userId = cookie[0].split('=');
+    //     let finalUserId = userId[1];
 
-        var result = {};
-        for (var i = 0; i < cookie.length; i++) {
-            var cur = cookie[i].split('=');
-            result[cur[0]] = cur[1];
-        }
-        let token = result.token;
-        let userCredentials = token.split('; ');
-        let finalToken = userCredentials[0];
-        // const ticketNumber = window.location.href[window.location.href.length - 1];
-        axios({
-            method: "get",
-            url: '/api/users/?=' + finalUserId,
-            headers: {
-                Authorization: "Bearer " + finalToken
-            }
-        })
-            .then(response => {
-                const username = response.data.username;
-                console.log("Username: ", username)
-                // this.setState({ comments: data })
-            }).catch(function (error) {
-                console.log("error:", error);
-            })
-    }
+    //     var result = {};
+    //     for (var i = 0; i < cookie.length; i++) {
+    //         var cur = cookie[i].split('=');
+    //         result[cur[0]] = cur[1];
+    //     }
+    //     let token = result.token;
+    //     let userCredentials = token.split('; ');
+    //     let finalToken = userCredentials[0];
+    //     // const ticketNumber = window.location.href[window.location.href.length - 1];
+    //     axios({
+    //         method: "get",
+    //         url: '/api/users/?=' + finalUserId,
+    //         headers: {
+    //             Authorization: "Bearer " + finalToken
+    //         }
+    //     })
+    //         .then(response => {
+    //             const username = response.data.username;
+    //             // console.log("Username: ", username)
+    //             // this.setState({ comments: data })
+    //         }).catch(function (error) {
+    //             console.log("error:", error);
+    //         })
+    // }
 
     readComments = () => {
         let cookie = document.cookie;
@@ -118,8 +118,61 @@ class Comments extends Component {
         })
             .then(response => {
                 const data = response.data[0].Comments;
-                console.log("COMMENT DATA", data)
-                this.setState({ comments: data })
+                
+                const comments = [];
+                data.forEach(element => {
+                    element.username="TBD"
+                    comments.push(element);
+                });
+                // comments.push(data)
+                // console.log("COMMENT DATA", comments)
+                
+
+                //LOOKUP USER BY ID
+
+                for (let i = 0; i< data.length; i++) {
+                    axios({
+                        method: "get",
+                        url: '/api/users/' + data[i].UserId,
+                        headers: {
+                        Authorization: "Bearer " + finalToken
+                        }
+                    })
+                    .then(response => {
+                        const userData = response.data;
+                        // console.log("User's name: ",userData.username);
+                        
+                        comments[i].username = userData.username;
+                        
+                        // // .setArribute("username", userData.username)
+                        // // this.setState({customerID:data})
+                        // console.log("FULLCOMMENTS",comments);
+                        this.setState({ comments: comments })
+                        
+                    }).catch(function(error) {
+                        console.log(error);
+                    })
+                }
+                
+                // this.setState({ comments: comments })
+                console.log("statecomments", this.state.comments)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             }).catch(function (error) {
                 console.log("error:", error);
             })
@@ -127,7 +180,7 @@ class Comments extends Component {
 
     componentWillMount() {
         this.readComments();    
-        this.readUserName();
+        // this.readUserName();
     }
 
 
@@ -136,12 +189,12 @@ class Comments extends Component {
             <Container>
                 {/* ================================================= */}
                 <div id="comment-box">
-                    {this.state.comments.length ? (
+                    {this.state.comments.length > 0 ? (
                         <List>
                             {this.state.comments.map(comment => (
                                 <ListItem key={comment.id}>
                                     {/* <img className="comment-avatar" src={comment.profilePic} alt="stuff" /> */}
-                                    UserID: {comment.UserId}  Comment: {comment.message}
+                                    {comment.username}: {comment.message}
                                     {/* <DeleteBtn
                                     deleteBook = { () => this.deleteBook(book._id)} 
                                 /> */}

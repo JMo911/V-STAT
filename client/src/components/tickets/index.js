@@ -58,7 +58,7 @@ class NewTicket extends Component {
             //FIND USERS mechanicID FIRST
             await axios({
                 method: "get",
-                url: '/api/users/' + this.state.mechanicUsername,
+                url: '/api/users/usernames/' + this.state.mechanicUsername,
                 headers: {
                 Authorization: "Bearer " + finalToken
                 }
@@ -76,7 +76,7 @@ class NewTicket extends Component {
             //find customer ID
             await axios({
                 method: "get",
-                url: '/api/users/' + this.state.customerUsername,
+                url: '/api/users/usernames/' + this.state.customerUsername,
                 headers: {
                 Authorization: "Bearer " + finalToken
                 }
