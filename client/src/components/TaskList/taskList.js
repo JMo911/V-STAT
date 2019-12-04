@@ -24,12 +24,8 @@ class TaskList extends Component {
         for (var i = 0; i < cookie.length; i++) {
             var curSemiSplit = cookie[i].split(';');
             result[curSemiSplit[0]] = curSemiSplit[1];
-            // console.log("curSemiSplit[0] is: ", curSemiSplit[0]);
-            // console.log("curSemiSplit[1] is: ", curSemiSplit[1]);
             var cur = cookie[i].split('=');
             result[cur[0]] = cur[1];
-            // console.log("cur[0] is: ", cur[0]);
-            // console.log("cur[1] is: ", cur[1]);
         }
         let token = result.token;
         // console.log(token);
@@ -258,8 +254,12 @@ class TaskList extends Component {
     
 
 
-
     render() {
+
+        const componentInputClass = this.state.taskInputClass;
+
+
+
         return (
             <Row md={2}>
                 <Col md={2}>
@@ -299,9 +299,9 @@ class TaskList extends Component {
                                         <TaskItem
                                             key={tasks.id}
                                             todo={tasks.todo}
+                                            dataClass={componentInputClass}
                                             completed={tasks.completed}
                                             handleCompletedTask={(event, key) => this.completeTask(event, tasks.id, tasks.completed, tasks.todo)}
-                                            // dataClass={this.state.taskInputClass}
                                         />
                                     ))}
                                 </ul>
