@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { Button, Row, Col } from "react-bootstrap";
 
 class TaskItem extends Component {
+
     render() {
         return (
             <div className="task">
@@ -20,7 +21,8 @@ class TaskItem extends Component {
                             {(!this.props.completed) ?
                                 <Button
                                     onClick={this.props.handleCompletedTask}
-                                    className="btn btn-success text-white"
+                                    // className="btn btn-success text-white"
+                                    className={"btn btn-success text-white "+ this.props.dataClass}
                                     id="task-completed-button">
                                     Complete Task
                             </Button> : <div></div>
