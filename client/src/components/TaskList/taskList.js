@@ -248,12 +248,6 @@ class TaskList extends Component {
         // console.log(this.state.completedTasks)
     }
 
-    renderTaskMaker = () => {
-
-    }
-    
-
-
     render() {
 
         const componentInputClass = this.state.taskInputClass;
