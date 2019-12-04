@@ -117,6 +117,23 @@ body {
   font-weight:bold;
 }
 
+
+.btn-secondary {
+  margin-left: 10px;
+  background-color:red;
+  color:gold;
+  border:gold;
+  font-weight:bold;
+}
+.btn-secondary:hover {
+  background-color:green;
+  color:steelblue;
+  border:steelblue;
+  font-weight:bold;
+}
+
+
+
 /* .new-user-area {
   background-color: orange;
   position: absolute;
@@ -256,8 +273,4 @@ fieldset {
 
 .input-area-hide {
   display:none;
-}
-
-.input-area-show {
-  display:contents;
 }

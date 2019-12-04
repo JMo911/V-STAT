@@ -22,7 +22,7 @@ class TaskItem extends Component {
                                 <Button
                                     onClick={this.props.handleCompletedTask}
                                     // className="btn btn-success text-white"
-                                    className={"btn btn-success text-white " + this.props.dataClass}
+                                    className={"btn btn-success text-white "+ this.props.dataClass}
                                     id="task-completed-button">
                                     Complete Task
                             </Button> : <div></div>
