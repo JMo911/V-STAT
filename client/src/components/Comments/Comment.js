@@ -1,67 +1,39 @@
 import React, { Component } from 'react';
-// import '../../frontend-assets/css/masterView.css';
 import axios from 'axios';
 import { Button, Container, Form } from 'react-bootstrap';
 import { List, ListItem } from "./commentList.js";
 import data from '../data/data.json'
 
-
-
 class Comments extends Component {
-
     constructor(props) {
         super(props);
-        // console.log(data);
         this.state = {
             comments: data[0].comments,
             comment: ""
         };
-
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-    }
-
-    addComment(event) {
-        if (this.onSubmit.value !== "") {
-            var newComment = {
-                text: this.onSubmit.value,
-                key: Date.now()
-            }
-            console.log(newComment.data.config.data);
-        }
     }
 
     handleInputChange(event) {
         let name = event.target.name;
         this.setState({ [name]: event.target.value });
-        console.log(this.state.comment)
+        // console.log(this.state.comment)
     }
 
     handleSubmit(event) {
-
         let cookie = document.cookie;
-        // console.log("Our cookie is: ", document.cookie);
         cookie = cookie.split(', ');
         var result = {};
 
         for (var i = 0; i < cookie.length; i++) {
             var curSemiSplit = cookie[i].split(';');
             result[curSemiSplit[0]] = curSemiSplit[1];
-            // console.log("curSemiSplit[0] is: ", curSemiSplit[0]);
-            // console.log("curSemiSplit[1] is: ", curSemiSplit[1]);
-
-
-
-
             var cur = cookie[i].split('=');
             result[cur[0]] = cur[1];
-            // console.log("cur[0] is: ", cur[0]);
-            // console.log("cur[1] is: ", cur[1]);
         }
         let token = result.token;
-        // console.log(token);
         let userCredentials = token.split('; ');
-        // console.log(userCredentials);
         let finalToken = userCredentials[0];
         const userID = document.cookie.split(";")[1].split("=")[1];
         const ticketNumber = window.location.href[window.location.href.length - 1];
@@ -70,8 +42,6 @@ class Comments extends Component {
             UserId: userID,
             TicketId: ticketNumber
         }
-
-        // console.log("Our final token is: ", finalToken)
 
 
         axios({
@@ -83,24 +53,13 @@ class Comments extends Component {
             data: newComment
         })
             .then(response => {
-                console.log("Comment created")
+                // console.log("Comment created")
                 this.readComments();
                 this.setState({comment: ""})
             })
             .catch(error => {
                 console.log(error);
             })
-
-        // const comment = {
-        //     message: this.state.comment,
-        //     UsertypeId: 1
-        // }
-        // axios.post('/api/comments', comment)
-        //     .then(function (response) {
-        //     })
-        //     .catch(function (error) {
-        //         console.log(error);
-        //     }); 
         event.preventDefault();
     }
 
@@ -109,8 +68,6 @@ class Comments extends Component {
         cookie = cookie.split('; ');
         let userId = cookie[0].split('=');
         let finalUserId = userId[1];
-
-        // console.log("our real user ID is: " + finalUserId);
 
         var result = {};
         for (var i = 0; i < cookie.length; i++) {
@@ -130,47 +87,77 @@ class Comments extends Component {
         })
             .then(response => {
                 const data = response.data[0].Comments;
-                console.log("COMMENT DATA", data)
-                this.setState({ comments: data })
-                const incompleteTasks = [];
-                const completeTasks = [];
-                // data.forEach(element => {
-                //     console.log(element.completed);
-                //     if(element.completed) {
-                //         completeTasks.push(element)
-                //         console.log(element)
-                //     } else {
-                //         incompleteTasks.push(element)
-                //     }
-                // });
-                // this.setState({
-                //     tasks:incompleteTasks,
-                //     completedTasks: completeTasks
-                // });
-                // console.log("TASK DATA",this.state.tasks)
-                // this.setState({ data:data })
+                
+                const comments = [];
+                data.forEach(element => {
+                    // element.username="TBD"
+                    comments.push(element);
+                });
+                // comments.push(data)
+                // console.log("COMMENT DATA", comments)
+                
+
+                //LOOKUP USER BY ID
+
+                for (let i = 0; i< data.length; i++) {
+                    axios({
+                        method: "get",
+                        url: '/api/users/' + data[i].UserId,
+                        headers: {
+                        Authorization: "Bearer " + finalToken
+                        }
+                    })
+                    .then(response => {
+                        const userData = response.data;
+                        // console.log("User's name: ",userData.username);
+                        
+                        comments[i].username = userData.username;
+                        comments[i].UserTypeId = userData.UserTypeId;
+                        if (userData.UserTypeId === 1) {
+                            comments[i].src="https://i.imgur.com/FirviMN.png"
+                        } else if (userData.UserTypeId === 2) {
+                            comments[i].src="https://i.imgur.com/Z8TktyD.png"
+                        } else {
+                            comments[i].src="https://i.imgur.com/zvdP9Hg.png"
+                        }
+                        
+                        // // .setArribute("username", userData.username)
+                        // // this.setState({customerID:data})
+                        // console.log("FULLCOMMENTS",comments);
+                        this.setState({ comments: comments })
+                        
+                    }).catch(function(error) {
+                        console.log(error);
+                    })
+                }
+                
+                // console.log(this.state.comments);
             }).catch(function (error) {
                 console.log("error:", error);
             })
     }
 
     componentWillMount() {
-        this.readComments();
-        
+        this.readComments();    
+        // this.readUserName();
     }
 
 
     render() {
+        
         return (
             <Container>
                 {/* ================================================= */}
                 <div id="comment-box">
-                    {this.state.comments.length ? (
+                    {this.state.comments.length > 0 ? (
                         <List>
                             {this.state.comments.map(comment => (
                                 <ListItem key={comment.id}>
                                     {/* <img className="comment-avatar" src={comment.profilePic} alt="stuff" /> */}
-                                    UserID: {comment.UserId}  Comment: {comment.message}
+                                        
+                                        
+                                        
+                                    <img src={comment.src}/> {comment.username}: {comment.message}
                                     {/* <DeleteBtn
                                     deleteBook = { () => this.deleteBook(book._id)} 
                                 /> */}
@@ -205,6 +192,5 @@ class Comments extends Component {
         )
     }
 }
-
 
 export default Comments;

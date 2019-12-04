@@ -58,7 +58,7 @@ class NewTicket extends Component {
             //FIND USERS mechanicID FIRST
             await axios({
                 method: "get",
-                url: '/api/users/' + this.state.mechanicUsername,
+                url: '/api/users/usernames/' + this.state.mechanicUsername,
                 headers: {
                 Authorization: "Bearer " + finalToken
                 }
@@ -76,7 +76,7 @@ class NewTicket extends Component {
             //find customer ID
             await axios({
                 method: "get",
-                url: '/api/users/' + this.state.customerUsername,
+                url: '/api/users/usernames/' + this.state.customerUsername,
                 headers: {
                 Authorization: "Bearer " + finalToken
                 }
@@ -100,7 +100,7 @@ class NewTicket extends Component {
                 estimatedCost: this.state.estimatedCost,
                 caseNumber: this.state.caseNumber
             }
-            console.log(newTicket)
+            // console.log(newTicket)
 
             //GIVE US CURRENT USER INFO
             await axios({
@@ -131,7 +131,7 @@ class NewTicket extends Component {
             .then(function (response) {
                 // After creating ticket, agent is redirected to their Ticket View page.
                 const data = response.data.id;
-                console.log(data)
+                // console.log(data)
                 this.setState({ticketID:data})
                 // console.log('TICKET',ticketId);
                 //  console.log('CUSTOMER',this.state.customerID)
@@ -142,9 +142,9 @@ class NewTicket extends Component {
             .catch(function (error) {
                 console.log(error);
             }); 
-            console.log('TICKET',this.state.ticketID);
-            console.log('CUSTOMER',this.state.customerID)
-            console.log('MECH',this.state.mechanicID)
+            // console.log('TICKET',this.state.ticketID);
+            // console.log('CUSTOMER',this.state.customerID)
+            // console.log('MECH',this.state.mechanicID)
 
             //CREATE THE JOINTABLE ENTRY
           }

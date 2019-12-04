@@ -41,10 +41,10 @@ class InsurerSignup extends Component {
             mechanicShopName: null,
             UserTypeId: 3
         }
-        console.log(insuranceAgent);
+        // console.log(insuranceAgent);
         axios.post('/api/registration/', insuranceAgent)
             .then(function (response) {
-                console.log(response);
+                // console.log(response);
             })
             .catch(function (error) {
                 console.log(error);

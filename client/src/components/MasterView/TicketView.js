@@ -75,7 +75,7 @@ class MasterView extends Component {
           .then(response => {
             //   console.log(response.data)
               this.setState({ticket : response.data})
-              console.log("this.state.ticket = : ", this.state.ticket)
+              // console.log("this.state.ticket = : ", this.state.ticket)
             // const data = response.data;
             // console.log("this is our ticket data: " + response)
             // this.setState({ data:data })
@@ -103,7 +103,7 @@ class MasterView extends Component {
         // {if (this.state.data.length > 1) {
             return (
                 <Container id="ticket-view">
-                    {console.log("We are passing down... ", this.state.data, this.state.ticket)}
+                    {/* {console.log("We are passing down... ", this.state.data, this.state.ticket)} */}
                     <TicketCard 
                     key={this.state.ticket.caseNumber}
                     caseNumber={this.state.ticket.caseNumber}

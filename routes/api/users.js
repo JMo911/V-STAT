@@ -8,10 +8,7 @@ router.route("/")
     .get(usersController.userInfo)
     // .post(usersController.create);
 
-    //Corresponds to /api/users/username
-router
-.route("/:username")
-.get(usersController.findByUsername)  
+
 
 // Matches with "/api/users/:id"
 router
@@ -24,6 +21,11 @@ router
 router
     .route("/:id/tickets")
     .get(usersController.findTicketsByUserId)
+
+//Corresponds to /api/users/usernames/username
+router
+.route("/usernames/:username")
+.get(usersController.findByUsername)  
 
    
 

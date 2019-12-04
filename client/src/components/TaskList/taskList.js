@@ -113,7 +113,7 @@ class TaskList extends Component {
             data: newTask
         })
             .then(response => {
-                console.log("task created")
+                // console.log("task created")
 
                 this.readTasks();
             })
@@ -133,7 +133,7 @@ class TaskList extends Component {
 
     handleInputChange = (event) => {
         this.setState({ task: event.target.value })
-        console.log(this.state.task);
+        // console.log(this.state.task);
 
     }
 
@@ -149,7 +149,7 @@ class TaskList extends Component {
 
     completeTask = (event, id, completed, todo) => {
         // event.preventDefault();
-        console.log(id, "Todo: " + todo + "completed: " + completed)
+        // console.log(id, "Todo: " + todo + "completed: " + completed)
         let cookie = document.cookie;
         cookie = cookie.split('; ');
         let userId = cookie[0].split('=');
@@ -179,7 +179,7 @@ class TaskList extends Component {
         })
             .then(response => {
                 const data = response.data;
-                console.log(data)
+                // console.log(data)
                 // this.setState({updated: this.state.updated+1})
                 // console.log("TASK DATA",this.state.tasks)
                 // this.setState({ data:data })
@@ -220,10 +220,10 @@ class TaskList extends Component {
                 const incompleteTasks = [];
                 const completeTasks = [];
                 data.forEach(element => {
-                    console.log(element.completed);
+                    // console.log(element.completed);
                     if (element.completed) {
                         completeTasks.push(element)
-                        console.log(element)
+                        // console.log(element)
                     } else {
                         incompleteTasks.push(element)
                     }
@@ -237,7 +237,7 @@ class TaskList extends Component {
             }).catch(function (error) {
                 console.log("error:", error);
             })
-        console.log(this.state.completedTasks)
+        // console.log(this.state.completedTasks)
     }
 
     render() {

@@ -47,7 +47,7 @@ class MechanicSplash extends Component {
       .then(response => {
         const userData = response.data;
         // this.setState({ userData:userInfoData })
-        console.log("Our user data is: ", userData);
+        // console.log("Our user data is: ", userData);
 
         console.log("Our user ID is: ", userData.id);
         // FIRST make an API call to the user info API, THEN use that result to populate res.data.id, below.
@@ -61,7 +61,7 @@ class MechanicSplash extends Component {
         .then(response => {
           const data = response.data[0].Tickets;
           this.setState({ data:data })
-          console.log(data);
+          // console.log(data);
           // console.log("this.state.data is: ", this.state.data);
           // console.log("this.state.data[0] is: ", this.state.data[0])
           // console.log("this.state.data[0].tickets is: ", this.state.data[0].tickets)
