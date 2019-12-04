@@ -10,7 +10,8 @@ class TaskList extends Component {
     state = {
         tasks: [],
         task: "",
-        completedTasks: []
+        completedTasks: [],
+        taskInputClass: "input-area-hide"
     }
 
     readTasks = () => {
@@ -195,8 +196,16 @@ class TaskList extends Component {
         cookie = cookie.split('; ');
         let userId = cookie[0].split('=');
         let finalUserId = userId[1];
+        let userTypeId;
+        console.log("The cookie is: ",cookie);
 
-        // console.log("our real user ID is: " + finalUserId);
+
+        if (cookie[2] === "userTypeId=2") {
+
+            this.setState({taskInputClass: "input-area-show"})
+
+        } 
+
 
         var result = {};
         for (var i = 0; i < cookie.length; i++) {
@@ -219,6 +228,9 @@ class TaskList extends Component {
                 // console.log("TASK DATA",data)
                 const incompleteTasks = [];
                 const completeTasks = [];
+
+           
+
                 data.forEach(element => {
                     // console.log(element.completed);
                     if (element.completed) {
@@ -240,11 +252,19 @@ class TaskList extends Component {
         // console.log(this.state.completedTasks)
     }
 
+    renderTaskMaker = () => {
+
+    }
+    
+
+
+
     render() {
         return (
             <Row md={2}>
                 <Col md={2}>
-                    <form>
+
+                    <form className={this.state.taskInputClass}>
                         <Row>
                             <Col md={8} id="task-input-area">
                                 <input
@@ -262,6 +282,9 @@ class TaskList extends Component {
                             </Row>
                         </Row>
                     </form>
+
+
+
                 </Col>
                 <Col md={8}>
                     {/* tasks list container */}
@@ -278,6 +301,7 @@ class TaskList extends Component {
                                             todo={tasks.todo}
                                             completed={tasks.completed}
                                             handleCompletedTask={(event, key) => this.completeTask(event, tasks.id, tasks.completed, tasks.todo)}
+                                            // dataClass={this.state.taskInputClass}
                                         />
                                     ))}
                                 </ul>

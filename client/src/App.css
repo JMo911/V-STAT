@@ -253,3 +253,11 @@ fieldset {
   overflow-x: hidden;
   height:300px;
 }
+
+.input-area-hide {
+  display:none;
+}
+
+.input-area-show {
+  display:contents;
+}
