@@ -10,7 +10,8 @@ class TaskList extends Component {
     state = {
         tasks: [],
         task: "",
-        completedTasks: []
+        completedTasks: [],
+        taskInputClass: "input-area-hide"
     }
 
     readTasks = () => {
@@ -23,12 +24,8 @@ class TaskList extends Component {
         for (var i = 0; i < cookie.length; i++) {
             var curSemiSplit = cookie[i].split(';');
             result[curSemiSplit[0]] = curSemiSplit[1];
-            // console.log("curSemiSplit[0] is: ", curSemiSplit[0]);
-            // console.log("curSemiSplit[1] is: ", curSemiSplit[1]);
             var cur = cookie[i].split('=');
             result[cur[0]] = cur[1];
-            // console.log("cur[0] is: ", cur[0]);
-            // console.log("cur[1] is: ", cur[1]);
         }
         let token = result.token;
         // console.log(token);
@@ -195,8 +192,16 @@ class TaskList extends Component {
         cookie = cookie.split('; ');
         let userId = cookie[0].split('=');
         let finalUserId = userId[1];
+        let userTypeId;
+        console.log("The cookie is: ",cookie);
 
-        // console.log("our real user ID is: " + finalUserId);
+
+        if (cookie[2] === "userTypeId=2") {
+
+            this.setState({taskInputClass: "input-area-show"})
+
+        } 
+
 
         var result = {};
         for (var i = 0; i < cookie.length; i++) {
@@ -219,6 +224,9 @@ class TaskList extends Component {
                 // console.log("TASK DATA",data)
                 const incompleteTasks = [];
                 const completeTasks = [];
+
+           
+
                 data.forEach(element => {
                     // console.log(element.completed);
                     if (element.completed) {
@@ -240,11 +248,23 @@ class TaskList extends Component {
         // console.log(this.state.completedTasks)
     }
 
+    renderTaskMaker = () => {
+
+    }
+    
+
+
     render() {
+
+        const componentInputClass = this.state.taskInputClass;
+
+
+
         return (
             <Row md={2}>
                 <Col md={2}>
-                    <form>
+
+                    <form className={this.state.taskInputClass}>
                         <Row>
                             <Col md={8} id="task-input-area">
                                 <input
@@ -262,6 +282,9 @@ class TaskList extends Component {
                             </Row>
                         </Row>
                     </form>
+
+
+
                 </Col>
                 <Col md={8}>
                     {/* tasks list container */}
@@ -276,6 +299,7 @@ class TaskList extends Component {
                                         <TaskItem
                                             key={tasks.id}
                                             todo={tasks.todo}
+                                            dataClass={componentInputClass}
                                             completed={tasks.completed}
                                             handleCompletedTask={(event, key) => this.completeTask(event, tasks.id, tasks.completed, tasks.todo)}
                                         />
