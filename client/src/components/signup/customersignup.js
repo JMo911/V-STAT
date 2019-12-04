@@ -37,7 +37,7 @@ class CustomerSignup extends Component {
         }
         axios.post('/api/registration/', customer)
             .then(function (response) {
-                console.log(response);
+                // console.log(response);
             })
             .catch(function (error) {
                 console.log(error);

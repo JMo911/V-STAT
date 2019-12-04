@@ -113,6 +113,13 @@ class Comments extends Component {
                         
                         comments[i].username = userData.username;
                         comments[i].UserTypeId = userData.UserTypeId;
+                        if (userData.UserTypeId === 1) {
+                            comments[i].src="https://i.imgur.com/FirviMN.png"
+                        } else if (userData.UserTypeId === 2) {
+                            comments[i].src="https://i.imgur.com/Z8TktyD.png"
+                        } else {
+                            comments[i].src="https://i.imgur.com/zvdP9Hg.png"
+                        }
                         
                         // // .setArribute("username", userData.username)
                         // // this.setState({customerID:data})
@@ -137,6 +144,7 @@ class Comments extends Component {
 
 
     render() {
+        
         return (
             <Container>
                 {/* ================================================= */}
@@ -146,7 +154,10 @@ class Comments extends Component {
                             {this.state.comments.map(comment => (
                                 <ListItem key={comment.id}>
                                     {/* <img className="comment-avatar" src={comment.profilePic} alt="stuff" /> */}
-                                    {comment.username}: {comment.message}
+                                        
+                                        
+                                        
+                                    <img src={comment.src}/> {comment.username}: {comment.message}
                                     {/* <DeleteBtn
                                     deleteBook = { () => this.deleteBook(book._id)} 
                                 /> */}
