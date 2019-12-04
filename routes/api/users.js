@@ -20,7 +20,7 @@ router
 
 router
     .route("/:id/tickets")
-    .get(usersController.findTicketsByUserId)
+    .get(usersController.findTicketsByUserId) 
 
 //Corresponds to /api/users/usernames/username
 router
