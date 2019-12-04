@@ -1,5 +1,5 @@
 <p align="center">
-<img src="client/public/assets/images/vstatlogo2.png" alt="V-STAT">
+<img src="https://i.imgur.com/uSePAap.png" alt="V-STAT">
 </p>
 
 # 
