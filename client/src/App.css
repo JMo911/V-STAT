@@ -118,21 +118,6 @@ body {
 }
 
 
-.btn-secondary {
-  margin-left: 10px;
-  background-color:red;
-  color:gold;
-  border:gold;
-  font-weight:bold;
-}
-.btn-secondary:hover {
-  background-color:green;
-  color:steelblue;
-  border:steelblue;
-  font-weight:bold;
-}
-
-
 
 /* .new-user-area {
   background-color: orange;
