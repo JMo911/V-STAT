@@ -1,9 +1,19 @@
 import {Link} from 'react-router-dom';
-import React from 'react';
+import React, { Component } from "react";
 import { Container, Row, Col,Card,Button } from 'react-bootstrap';
 
+class InsuranceSplashScreen extends Component {
+    logOut = () => {
+        document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        document.cookie = "userId=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        document.cookie = "userTypeId=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        function reroutetologin() {
+          window.location = "/"
+        }
+        setTimeout(reroutetologin, 1000);
+      }
 
-const InsuranceSplashScreen = (props) => {
+render() {
     return (
             <Container>
                 <Row className="MainCard" alignItems="center" flexCol>
@@ -24,13 +34,18 @@ const InsuranceSplashScreen = (props) => {
                                             <Button id="ticket-button">Create New Ticket</Button>
                                         </Link> 
                                     </Col>
+                                    <Col>
+                                    <Button variant="danger" onClick={() => this.logOut()}>Log out</Button>
+                                    </Col>
                                 </Row>
                             </Card.Body>
                         </Card>
                     </Col>
                 </Row>
+                
             </Container>
     );
+}
 }
 
 export default InsuranceSplashScreen;

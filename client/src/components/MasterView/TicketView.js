@@ -2,7 +2,7 @@ import React, {Component, useEffect} from 'react';
 // import '../../frontend-assets/css/masterView.css';
 import TaskList from '../TaskList/taskList';
 import TicketCard from '../MasterView/TicketCard';
-import {Container} from "react-bootstrap";
+import {Container, Button} from "react-bootstrap";
 import axios from "axios";
 
 class MasterView extends Component {
@@ -16,11 +16,16 @@ class MasterView extends Component {
             ticket: {}
         }
     }
-    // state = { 
-    //     completedTasks: [],
-    //     data:[],
-    //     userId: ""
-    // }
+    logOut = () => {
+      document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+      document.cookie = "userId=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+      document.cookie = "userTypeId=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+      function reroutetologin() {
+        window.location = "/"
+      }
+      setTimeout(reroutetologin, 1000);
+    }
+
     handleCompletedTask = (task) => { 
         const tasks = this.state.completedTasks.slice()
         tasks.push(task)
@@ -103,6 +108,7 @@ class MasterView extends Component {
         // {if (this.state.data.length > 1) {
             return (
                 <Container id="ticket-view">
+                  <Button variant="danger" onClick={() => this.logOut()}>Log out</Button>
                     {/* {console.log("We are passing down... ", this.state.data, this.state.ticket)} */}
                     <TicketCard 
                     key={this.state.ticket.caseNumber}
@@ -125,8 +131,9 @@ class MasterView extends Component {
            
     
                     <TaskList handleCompletedTask={this.handleCompletedTask}/>             
-                 
+                    
                 </Container>
+                
             )
         // } else {
         //     return (<div></div>);
