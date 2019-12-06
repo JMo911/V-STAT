@@ -45,7 +45,7 @@ class InsuranceTicketView extends Component {
       // console.log(userCredentials);
       let finalToken = userCredentials[0];
 
-      // console.log("Our final token is: ", finalToken)
+      // console.log("Our final token is: ", finalToken) 
 
 
       axios({
