@@ -2,11 +2,17 @@
   width: 700px;
   position: absolute;
   left: 33%;
-  color: white;
+  color: #13293D;
   /* font-weight: bold; */
-  background-color: steelblue;
+  background-color: white;
   font-family: 'Stoke', serif;
   font-size: x-large;
+  opacity: 0.9;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom:100px;
+    border-radius:1rem;
+    margin-top:5%;
   /* font-family: 'McLaren', cursive; */
 }
 .centered {
@@ -17,23 +23,29 @@
   margin-top:-50px;
 }
 #loginBox {
-  width: 600px;
+  min-width: 600px;
+  max-width: 35%;
   height: auto;
-  background-color:aliceblue;
+  background-color: aliceblue;
+  opacity: 0.9;
+  padding: 5%;
+  border-radius: 1rem;
+  border: 10px inset silver;
 }
 
 #login-button {
-  padding-left:100px;
-  padding-right:100px;
+  padding-left: 13%;
+  padding-right: 100px;
   padding-top: 20px;
-  padding-bottom:20px;
-  left: 33%;
+  padding-bottom: 20px;
+  left: 28%;
   right: 33%;
   width: 40%;
-  position:relative;
+  position: relative;
   font-size: xx-large;
-  background-color:orange;
-  border-radius:15px;
+  background-color: orange;
+  border-radius: 15px;
+  opacity:1;
 }
 
 .card-text {
@@ -71,12 +83,14 @@ a {
 }
 
 body {
-  background-color:steelblue;
+  background-color:white;
   padding-top:0px;
 }
 
 #root {
-  background-color:steelblue;
+  background-color:white;
+  background-size: cover;
+  background-image: url("https://previews.123rf.com/images/antmatveev/antmatveev1510/antmatveev151000003/46928236-car-engine-concept-of-modern-automobile-motor-with-metal-chrome-plastic-parts.jpg")
 }
 
 #logo {
@@ -105,18 +119,25 @@ body {
 }
 .btn-primary {
   margin-left: 10px;
-  background-color:steelblue;
-  color:gold;
+  background-color:#FF7F11;
+  color:#13293D;
   border:gold;
   font-weight:bold;
 }
 .btn-primary:hover {
-  background-color:gold;
-  color:steelblue;
-  border:steelblue;
+  background-color:orange;
+  color:White;
+  border:#FF8821;
   font-weight:bold;
+  transform: scale(1.2);
+  transition: all .1s ease-in-out;
 }
 
+.btn-danger:hover {
+  transform: scale(1.2);
+  transition: all .1s ease-in-out;
+  font-weight:bold
+}
 
 
 /* .new-user-area {
@@ -166,7 +187,11 @@ input.form-control {
 }
 
 .card-body {
-  color:steelblue;
+  color:#13293D;
+  flex: 1 1 auto;
+    padding: 1.25rem;
+    border: 10px inset silver;
+    background: lightgrey;
 }
 
 /* Ticket View Stuff */
@@ -174,8 +199,8 @@ input.form-control {
 #ticket-view {
   position:relative;
   left:33%;
-  background-color:steelblue;
-  color: white;
+  background-color:white;
+  color: #13293D;
 }
 #master-view-ticket {
   position:relative;
@@ -207,9 +232,13 @@ fieldset {
   left: 10%;
   max-width: 625px;
   margin-bottom: 3rem;
+  
 }
 #task-text {
-  font-size:14px;
+  font-size: 20px;
+  /* background-color: #E8B799; */
+  padding: 5px;
+  font-family: monospace;
 }
 
 .actions {
@@ -236,6 +265,7 @@ fieldset {
 #comment-box {
   color:black;
   width:500px;
+  background-color:white;
 
 }
 #comment-box img {
