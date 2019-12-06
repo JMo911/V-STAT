@@ -1,6 +1,8 @@
 import React, { Component } from "react";
+import { Button } from 'react-bootstrap';
 import MechanicCard from "./mechanicCard.js";
 import axios from "axios";
+import Cookies from 'universal-cookie';
 
 
 class MechanicSplash extends Component {
@@ -77,19 +79,19 @@ class MechanicSplash extends Component {
       }).catch(function(error) {
         console.log(error);
       })
-    
-
-
-
-
-
 
 
     }
 
-    // handleClick = (e, id) => {
-    //   console.log(id);
-    // }
+    logOut = () => {
+      document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+      document.cookie = "userId=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+      document.cookie = "userTypeId=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+      function reroutetologin() {
+        window.location = "/"
+      }
+      setTimeout(reroutetologin, 1000);
+    }
   
     render() {
       return (
@@ -119,6 +121,7 @@ class MechanicSplash extends Component {
                     />
                 ))}
             </div>
+            <Button variant="danger" onClick={() => this.logOut()}>Log out</Button>
         </React.Fragment>
       )
     }

@@ -1,12 +1,23 @@
 import React, { Component } from "react";
 import InsuranceCard from "./insuranceCard.js";
 import axios from "axios";
+import { Button } from 'react-bootstrap';
 
 
 class InsuranceTicketView extends Component {
     state = {
       data:[]
     };
+
+    logOut = () => {
+      document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+      document.cookie = "userId=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+      document.cookie = "userTypeId=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+      function reroutetologin() {
+        window.location = "/"
+      }
+      setTimeout(reroutetologin, 1000);
+    }
 
     componentWillMount() {
       let cookie = document.cookie;
@@ -34,7 +45,7 @@ class InsuranceTicketView extends Component {
       // console.log(userCredentials);
       let finalToken = userCredentials[0];
 
-      // console.log("Our final token is: ", finalToken)
+      // console.log("Our final token is: ", finalToken) 
 
 
       axios({
@@ -113,6 +124,7 @@ class InsuranceTicketView extends Component {
                     />
                 ))}
             </div>
+            <Button variant="danger" onClick={() => this.logOut()}>Log out</Button>
         </React.Fragment>
       )
     }
