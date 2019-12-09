@@ -133,6 +133,10 @@ body {
   transition: all .1s ease-in-out;
 }
 
+#comment-area {
+  background-color: purple;
+}
+
 .btn-danger:hover {
   transform: scale(1.2);
   transition: all .1s ease-in-out;
@@ -184,6 +188,10 @@ input.form-control {
 }
 .col {
   height:100%;
+}
+
+#comment-zone {
+  border:5px solid pink;
 }
 
 .card-body {

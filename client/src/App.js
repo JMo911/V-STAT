@@ -7,7 +7,7 @@ import LoginBox from "./components/login/loginbox";
 import NewTicket from "./components/tickets/index";
 import MechanicSplash from "./components/mechanicsplash/mechanicSplash.js";
 
-import MasterView from "./components/MasterView/TicketView";
+import MasterView from "./components/MasterView/MasterView";
 import InsuranceSplash from "./components/InsuranceSplashScreen/index";
 import InsuranceTicketView from "./components/InsuranceSplashScreen/insuranceTicketView";
 

@@ -305,9 +305,7 @@ class TaskList extends Component {
                     </div>
                     <CompletedTask completedTasks={this.state.completedTasks} />
                 </Col>
-                <Col md={2}>
-                    <Comment />
-                </Col>
+
             </Row>
         );
     }

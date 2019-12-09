@@ -1,9 +1,10 @@
 import React, {Component, useEffect} from 'react';
 // import '../../frontend-assets/css/masterView.css';
 import TaskList from '../TaskList/taskList';
-import TicketCard from '../MasterView/TicketCard';
-import {Container, Button} from "react-bootstrap";
+import TicketCard from './TicketCard';
+import {Container, Button, Col, Row} from "react-bootstrap";
 import axios from "axios";
+import Comment from '../Comments/Comment';
 
 class MasterView extends Component {
     constructor(props) {
@@ -130,8 +131,13 @@ class MasterView extends Component {
                     />
            
     
-                    <TaskList handleCompletedTask={this.handleCompletedTask}/>             
-                    
+                    <TaskList handleCompletedTask={this.handleCompletedTask}/>          
+                    TEST   
+                    <Col md={2}>
+                      <div id="comment-zone">
+                      <Comment />
+                      </div>
+                    </Col>
                 </Container>
                 
             )
