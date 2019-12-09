@@ -28,7 +28,8 @@ class NewTicket extends Component {
                 customerUsername: "",
                 mechanicID: null,
                 customerID: null,
-                ticketID: null
+                ticketID: null,
+                userData: null
             };
             this.handleChange = this.handleChange.bind(this);
 
@@ -55,7 +56,7 @@ class NewTicket extends Component {
             let userCredentials = token.split('; ');
             let finalToken = userCredentials[0];
 
-            //FIND USERS mechanicID FIRST
+            //FIND mechanic by username
             await axios({
                 method: "get",
                 url: '/api/users/usernames/' + this.state.mechanicUsername,
@@ -67,13 +68,13 @@ class NewTicket extends Component {
                 const data = response.data.id;
                 
                 this.setState({mechanicID:data})
-                // console.log("MECHANIC",this.state.mechanicID);
+                
                 
             }).catch(function(error) {
                 console.log(error);
             })
 
-            //find customer ID
+            //find customer by username
             await axios({
                 method: "get",
                 url: '/api/users/usernames/' + this.state.customerUsername,
@@ -85,7 +86,7 @@ class NewTicket extends Component {
                 const data = response.data.id;
                 // console.log("CUSTOMER",data);
                 this.setState({customerID:data})
-                // console.log("CUSTOMER",this.state.customerID);
+                
                 
             }).catch(function(error) {
                 console.log(error);
@@ -112,42 +113,45 @@ class NewTicket extends Component {
             })
             .then(response => {
                 const userData = response.data;
-                
+                this.setState({userData : userData})
             }).catch(function(error) {
                 console.log(error);
             })
 
             //CREATE THE TICKET
-            axios(
+            await axios(
                 {
                     method: "post",
-                    url: '/api/tickets',
+                    url: '/api/tickets/' + this.state.customerID + "/" + this.state.mechanicID,
                     data: newTicket,
                     headers: {
                         Authorization: "Bearer " + finalToken
                     }
                 }
             )
-            .then(function (response) {
+            .then( (response) => {
                 // After creating ticket, agent is redirected to their Ticket View page.
-                const data = response.data.id;
-                // console.log(data)
-                this.setState({ticketID:data})
-                // console.log('TICKET',ticketId);
+                const ticketID = response.data.id;
+                // console.log('TICKET',ticketID);
+                this.setState({ ticketID : ticketID });
+                console.log('TICKET',this.state.ticketID);
                 //  console.log('CUSTOMER',this.state.customerID)
                 //  console.log('MECH',this.state.mechanicID)
-                window.location = "/insurance-ticket-view"
+
+
+                 //MAKE ANOTHER AXIOS POST TO CREATE 'USERTICKETS'
+                // window.location = "/insurance-ticket-view"
                 
             })
             .catch(function (error) {
                 console.log(error);
             }); 
-            // console.log('TICKET',this.state.ticketID);
-            // console.log('CUSTOMER',this.state.customerID)
-            // console.log('MECH',this.state.mechanicID)
+            
 
             //CREATE THE JOINTABLE ENTRY
           }
+
+
     render() {
       return (
         <Container>

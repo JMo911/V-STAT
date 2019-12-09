@@ -26,15 +26,15 @@ module.exports = function (sequelize, DataTypes) {
     );
     User.associate = function (models) {
         User.hasMany(models.Comment);
-        User.belongsToMany(models.Ticket, {
-            through: {
-                model: 'UserTicket',
-                unique: false,
-                timestamps: false
-            },
-            foreignKey: 'userId',
-            constraints: false
-        });
+        // User.belongsToMany(models.Ticket, {
+        //     through: {
+        //         model: 'UserTicket',
+        //         unique: false,
+        //         timestamps: false
+        //     },
+        //     foreignKey: 'userId',
+        //     constraints: false
+        // });
     };
     User.prototype.validatePassword = function (password) {
         return bcrypt.compareSync(

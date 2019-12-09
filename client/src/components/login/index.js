@@ -67,7 +67,7 @@ class LoginPage extends Component {
     finalToken = userCredentials[0];
   
 
-    console.log("Our final token is: ", finalToken)
+    // console.log("Our final token is: ", finalToken)
     axios({
       method: "get",
       url: '/api/users/user-info',
@@ -78,9 +78,9 @@ class LoginPage extends Component {
     .then(response => {
       const userData = response.data;
       // this.setState({ userData:userInfoData })
-      console.log("Our user data is: ", userData);
+      // console.log("Our user data is: ", userData);
 
-      console.log("Our user ID is: ", userData.id);
+      // console.log("Our user ID is: ", userData.id);
       // FIRST make an API call to the user info API, THEN use that result to populate res.data.id, below.
       const userType = userData.UserTypeId;
 
@@ -97,7 +97,7 @@ class LoginPage extends Component {
       })
         .then(response => {
           const userTicketNumber = response.data[0].Tickets[0].id;
-          console.log("userticketnumber:" , this.state.userTicketNumber)
+          // console.log("userticketnumber:" , this.state.userTicketNumber)
             //   this.setState({ data:data })
             // window.location = "/MasterView/" + data;
             this.setState({ userTicketNumber:userTicketNumber })

@@ -12,7 +12,7 @@ module.exports = {
         isBetaMember: false
       }], {});
     */
-    queryInterface.bulkInsert('Tickets', [
+    return queryInterface.bulkInsert('Tickets', [
       {
         caseNumber: 'casenum1',
         estimatedCost: 1,
@@ -45,32 +45,32 @@ module.exports = {
       }
     ], {});
 
-    return queryInterface.bulkInsert('UserTicket', [
-      {
-        'UserId': 1,
-        'TicketId': 1,
-        'createdAt': new Date(),
-        'updatedAt': new Date(),
-      },
-      {
-        'UserId': 2,
-        'TicketId': 1,
-        'createdAt': new Date(),
-        'updatedAt': new Date(),
-      },
-      {
-        'UserId': 3,
-        'TicketId': 2,
-        'createdAt': new Date(),
-        'updatedAt': new Date(),
-      },
-      {
-        'UserId': 2,
-        'TicketId': 3,
-        'createdAt': new Date(),
-        'updatedAt': new Date(),
-      }
-    ])
+    // return queryInterface.bulkInsert('UserTicket', [
+    //   {
+    //     'UserId': 1,
+    //     'TicketId': 1,
+    //     'createdAt': new Date(),
+    //     'updatedAt': new Date(),
+    //   },
+    //   {
+    //     'UserId': 2,
+    //     'TicketId': 1,
+    //     'createdAt': new Date(),
+    //     'updatedAt': new Date(),
+    //   },
+    //   {
+    //     'UserId': 3,
+    //     'TicketId': 2,
+    //     'createdAt': new Date(),
+    //     'updatedAt': new Date(),
+    //   },
+    //   {
+    //     'UserId': 2,
+    //     'TicketId': 3,
+    //     'createdAt': new Date(),
+    //     'updatedAt': new Date(),
+    //   }
+    // ])
   },
 
   down: (queryInterface, Sequelize) => {

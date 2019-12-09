@@ -10,15 +10,15 @@ module.exports = (sequelize, DataTypes) => {
   });
   Ticket.associate = function (models) {
     // associations can be defined here
-    Ticket.belongsToMany(models.User, {
-      through: {
-        model: 'UserTicket',
-        unique: false,
-        timestamps: false
-      },
-      foreignKey: 'ticketId',
-      constraints: false
-    });
+    // Ticket.belongsToMany(models.User, {
+    //   through: {
+    //     model: 'UserTicket',
+    //     unique: false,
+    //     timestamps: false
+    //   },
+    //   foreignKey: 'ticketId',
+    //   constraints: false
+    // });
     Ticket.hasMany(models.Comment);
     Ticket.hasMany(models.Task);
   };
