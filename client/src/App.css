@@ -197,6 +197,7 @@ input.form-control {
 }
 .row {
   height:10%;
+  justify-content: center;
 }
 .col {
   height:100%;
@@ -213,6 +214,10 @@ input.form-control {
 /* #tasks-area {
   border: 10px solid red;
 } */
+
+#add-comments {
+  border:10px solid red;
+}
 
 .card-body {
   color:#13293D;

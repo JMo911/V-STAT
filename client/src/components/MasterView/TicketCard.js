@@ -33,23 +33,6 @@ const TicketCard = (props) => {
 
       <br />
 
-      {/* <Card id="contact-area">
-        <Card.Body>
-            <Card.Text>
-                    Insurance Company: {props.insuranceCompany}
-                    <br/>
-                    Insurance Agent: {props.insuranceNameFirst} {props.insuranceNameLast}
-                    <br/>
-                    Mechanic Shop: {props.mechanicShopName}
-                    <br/>
-                    Mechanic: {props.mechanicNameFirst} {props.mechanicNameLast}
-                    <br/>
-                    Customer: {props.customerNameFirst} {props.customerNameLast}
-          </Card.Text>
-
-        </Card.Body>
-        
-      </Card> */}
     </React.Fragment>
   );
 }

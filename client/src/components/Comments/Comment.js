@@ -170,7 +170,7 @@ class Comments extends Component {
                         )}
                     {/* ================================================= */}
                 </div>
-
+                <div id="add-comments">
                 <Form onSubmit={this.handleSubmit}>
                     <Form.Group controlId="formBasicPassword">
 
@@ -188,6 +188,7 @@ class Comments extends Component {
                         Submit
                     </Button>
                 </Form>
+                </div>
             </Container>
         )
     }
