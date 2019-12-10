@@ -109,9 +109,9 @@ class MasterView extends Component {
         // {if (this.state.data.length > 1) {
             return (
                 <Container id="ticket-view">
-                  <Button variant="danger" onClick={() => this.logOut()}>Log out</Button>
-                    {/* {console.log("We are passing down... ", this.state.data, this.state.ticket)} */}
-                    <TicketCard 
+
+                  {/* {console.log("We are passing down... ", this.state.data, this.state.ticket)} */}
+                  <TicketCard 
                     key={this.state.ticket.caseNumber}
                     caseNumber={this.state.ticket.caseNumber}
                     estimatedCost={this.state.ticket.estimatedCost}
@@ -120,24 +120,18 @@ class MasterView extends Component {
                     vehicleModel={this.state.ticket.vehicleModel}
                     vehicleYear={this.state.ticket.vehicleYear}
                     vehicleMileage={this.state.ticket.vehicleMileage}
-                    // customerNameFirst={data.customerNameFirst}
-                    // customerNameLast={data.customerNameLast}
-                    // mechanicNameFirst={data.mechanicNameFirst}
-                    // mechanicNameLast={data.mechanicNameLast}
-                    // mechanicShopName={data.mechanicShopName}
-                    // insuranceNameFirst={data.insuranceNameFirst}
-                    // insuranceNameLast={data.insuranceNameLast}
-                    // insuranceCompany={data.insuranceCompany}
-                    />
+                  />
            
-    
-                    <TaskList handleCompletedTask={this.handleCompletedTask}/>          
-                    TEST   
-                    <Col md={2}>
+                  {/* <Col md={4}> */}
+                    <TaskList handleCompletedTask={this.handleCompletedTask}/>
+                  {/* </Col>           */}
+                    
+                    {/* <Col md={4}> */}
                       <div id="comment-zone">
                       <Comment />
                       </div>
-                    </Col>
+                    {/* </Col> */}
+                    <Button variant="danger" onClick={() => this.logOut()}>Log out</Button>
                 </Container>
                 
             )

@@ -146,7 +146,7 @@ class Comments extends Component {
     render() {
         
         return (
-            <Container id="comment-area">
+            <Container>
                 {/* ================================================= */}
                 <div id="comment-box">
                     {this.state.comments.length > 0 ? (

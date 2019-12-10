@@ -137,6 +137,11 @@ body {
   background-color: purple;
 }
 
+.btn-danger {
+  margin-bottom: 5%;
+  margin-top: 5%;
+}
+
 .btn-danger:hover {
   transform: scale(1.2);
   transition: all .1s ease-in-out;
@@ -174,6 +179,13 @@ input.form-control {
   position:relative;
 }
 
+#cardarea {
+  /* border:5px solid pink; */
+  left: 35%;
+    position: absolute;
+
+}
+
 /* Fixing a bunch of height and margin shit. */
 #root {
   height:100%;
@@ -190,9 +202,17 @@ input.form-control {
   height:100%;
 }
 
-#comment-zone {
+/* #comment-zone {
   border:5px solid pink;
-}
+  right: 0px;
+  position: relative;
+  justify-content: center;
+  margin-left: 25%;
+} */
+
+/* #tasks-area {
+  border: 10px solid red;
+} */
 
 .card-body {
   color:#13293D;
@@ -200,21 +220,24 @@ input.form-control {
     padding: 1.25rem;
     border: 10px inset silver;
     background: lightgrey;
+    margin-top: 3rem;
 }
 
 /* Ticket View Stuff */
 
 #ticket-view {
-  position:relative;
-  left:33%;
-  background-color:white;
+  left: 33%;
+  background-color: white;
   color: #13293D;
+  display: inline-grid;
+  position: relative;
+  justify-content: center;
 }
-#master-view-ticket {
+/* #master-view-ticket {
   position:relative;
   left:25%;
-  /* margin-top:10rem; */
-}
+  margin-top:10rem; 
+} */
 
 #cardDiv {
   position: relative;
@@ -236,8 +259,8 @@ fieldset {
   width: 100%;
   color: black;
   min-height: 10rem;
-  position: relative;
-  left: 10%;
+  /* position: relative; */
+  /* left: 10%; */
   max-width: 625px;
   margin-bottom: 3rem;
   

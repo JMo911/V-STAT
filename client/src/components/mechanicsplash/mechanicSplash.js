@@ -109,15 +109,6 @@ class MechanicSplash extends Component {
                     vehicleModel={data.vehicleModel}
                     vehicleYear={data.vehicleYear}
                     vehicleMileage={data.vehicleMileage}
-                    // routeToTicket = {((e) => this.handleClick(e, data.id))}
-                    // customerNameFirst={data.customerNameFirst}
-                    // customerNameLast={data.customerNameLast}
-                    // mechanicNameFirst={data.mechanicNameFirst}
-                    // mechanicNameLast={data.mechanicNameLast}
-                    // mechanicShopName={data.mechanicShopName}
-                    // insuranceNameFirst={data.insuranceNameFirst}
-                    // insuranceNameLast={data.insuranceNameLast}
-                    // insuranceCompany={data.insuranceCompany}
                     />
                 ))}
             </div>

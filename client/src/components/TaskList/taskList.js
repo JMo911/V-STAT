@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 // import '../../frontend-assets/css/masterView.css';
 import TaskItem from './TaskItem'
 import CompletedTask from '../CompletedTask/CompletedTask';
-import { Button, Col, Row } from "react-bootstrap";
+import { Button, Col, Row, Container } from "react-bootstrap";
 import Comment from '../Comments/Comment';
 import axios from 'axios';
 
@@ -255,12 +255,13 @@ class TaskList extends Component {
 
 
         return (
-            <Row md={2}>
-                <Col md={2}>
+            <Container>
+            <Row>
+                {/* <Col md={2}> */}
 
                     <form className={this.state.taskInputClass}>
                         <Row>
-                            <Col md={8} id="task-input-area">
+                            <Col id="task-input-area">
                                 <input
                                     type="text"
                                     className="form-control"
@@ -269,18 +270,17 @@ class TaskList extends Component {
                                     onChange={(event) => this.handleInputChange(event)}
                                 />
                             </Col>
-                            <Row>
                                 <div id="task-input-submit" className="col-md-3 col-sm-3 col-3">
                                     <Button onClick={this.onSubmit} className="btn btn-primary addNew" id="add-task-button">Add Task</Button>
                                 </div>
-                            </Row>
                         </Row>
                     </form>
 
-
-
-                </Col>
-                <Col md={8}>
+            </Row>
+            <Row>
+                {/* </Col> */}
+                <Col>
+                    <div id="tasks-area">
                     {/* tasks list container */}
                     <div className="task-list">
                         <fieldset>
@@ -304,9 +304,10 @@ class TaskList extends Component {
                         </fieldset>
                     </div>
                     <CompletedTask completedTasks={this.state.completedTasks} />
+                    </div>
                 </Col>
-
             </Row>
+            </Container>
         );
     }
 }
