@@ -80,24 +80,26 @@ a {
   color: black;
 }
 
-* {
+body {
   /* background-color:white; */
-  background-image: url("https://previews.123rf.com/images/antmatveev/antmatveev1510/antmatveev151000003/46928236-car-engine-concept-of-modern-automobile-motor-with-metal-chrome-plastic-parts.jpg") no-repeat center center fixed; 
+  background-image: url("https://i.imgur.com/OI0pnN0.jpg") no-repeat center center fixed; 
   /* padding-top:0px; */
   /* height:100% !important; */
 }
 
-/* #root {
+#root {
   background-color:white;
   background-size: cover;
-  background-image: url("https://previews.123rf.com/images/antmatveev/antmatveev1510/antmatveev151000003/46928236-car-engine-concept-of-modern-automobile-motor-with-metal-chrome-plastic-parts.jpg"); 
+  background-image: url("https://i.imgur.com/OI0pnN0.jpg"); 
+
+  /* background-image: url("https://i.imgur.com/OI0pnN0.jpg") no-repeat center center fixed;  */
 
 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover;
-} */
+  background-size: auto;
+}
 
 #logo {
   border-radius: 25px;
@@ -219,6 +221,7 @@ input.form-control {
 #root {
   height:100%;
   width:100%;
+  /* background-image: url("https://i.imgur.com/OI0pnN0.jpg") no-repeat center center fixed;  */
 }
 .container {
   height:100%;
