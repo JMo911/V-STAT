@@ -8,7 +8,7 @@
     "start:prod": "node -r esm server.js",
     "start:dev": "concurrently \"nodemon -r esm --ignore 'client/*'\" \"npm run client\"",
     "client": "cd client && npm run start",
-    "seed": "node scripts/seedDB.js",
+    "seed": "node seeders/20191029002323-CreateUserTypes.js",
     "install": "cd client && npm install",
     "build": "cd client && npm run build",
     "heroku-postbuild": "npm run build"
