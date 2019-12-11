@@ -36,8 +36,7 @@ import authRoutes from './routes/auth';
 authRoutes(app);
 import userRegistrationRoutes from './routes/registration';
 userRegistrationRoutes(app);
-app.use(routes);
-// '/', passport.authenticate('jwt', { session: false }), 
+app.use('/', passport.authenticate('jwt', { session: false }), routes);
 
 // Send every request to the React app
 // Define any API routes before this runs
