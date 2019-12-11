@@ -16,10 +16,11 @@ class InsuranceSplashScreen extends Component {
 render() {
     return (
             <Container>
+                <div id="insurance-splash-area">
                 <Row className="MainCard" alignItems="center" flexCol>
                     <Col xs="8" className="offset-2">
                         <Card>
-                            <Card.Header>Welcome</Card.Header>
+                            <Card.Header>Welcome, Insurance Agent!</Card.Header>
                             <Card.Body>
                                 <Card.Title>Select an Option</Card.Title>
                                 <Card.Text>
@@ -42,7 +43,7 @@ render() {
                         </Card>
                     </Col>
                 </Row>
-                
+                </div>
             </Container>
     );
 }

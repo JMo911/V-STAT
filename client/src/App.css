@@ -73,8 +73,6 @@ a {
 
 
 
-
-
 .card {
   width: 600px;
   height: auto;
@@ -82,16 +80,24 @@ a {
   color: black;
 }
 
-body {
-  background-color:white;
-  padding-top:0px;
+* {
+  /* background-color:white; */
+  background-image: url("https://previews.123rf.com/images/antmatveev/antmatveev1510/antmatveev151000003/46928236-car-engine-concept-of-modern-automobile-motor-with-metal-chrome-plastic-parts.jpg") no-repeat center center fixed; 
+  /* padding-top:0px; */
+  /* height:100% !important; */
 }
 
-#root {
+/* #root {
   background-color:white;
   background-size: cover;
-  background-image: url("https://previews.123rf.com/images/antmatveev/antmatveev1510/antmatveev151000003/46928236-car-engine-concept-of-modern-automobile-motor-with-metal-chrome-plastic-parts.jpg")
-}
+  background-image: url("https://previews.123rf.com/images/antmatveev/antmatveev1510/antmatveev151000003/46928236-car-engine-concept-of-modern-automobile-motor-with-metal-chrome-plastic-parts.jpg"); 
+
+
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+} */
 
 #logo {
   border-radius: 25px;
@@ -99,6 +105,11 @@ body {
   left: 25%;
 
 }
+
+#alert-area {
+  color:black;
+}
+
 .tab-pane {
   width:100%;
 }
@@ -117,6 +128,18 @@ body {
 #customer-login-area {
   background-color: green;
 }
+
+#user-login-button {
+  margin-top:25px;
+}
+#mechanic-login-button {
+  margin-top:25px;
+}
+#insurance-login-button {
+  margin-top:25px;
+}
+
+
 .btn-primary {
   margin-left: 10px;
   background-color:#FF7F11;
@@ -131,6 +154,12 @@ body {
   font-weight:bold;
   transform: scale(1.2);
   transition: all .1s ease-in-out;
+}
+
+.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle {
+  color: #fff;
+  background-color: #c16a00;
+  border-color: darkorange;
 }
 
 #comment-area {
@@ -215,9 +244,9 @@ input.form-control {
   border: 10px solid red;
 } */
 
-#add-comments {
+/* #add-comments {
   border:10px solid red;
-}
+} */
 
 .card-body {
   color:#13293D;
@@ -298,6 +327,10 @@ fieldset {
   margin-top:3rem;
 }
 
+#insurance-splash-area {
+  background-color:green;
+}
+
 #comment-box {
   color:black;
   width:500px;
@@ -309,8 +342,9 @@ fieldset {
   width:50px;
 }
 #add-task-button {
-  padding-left:25px;
-  padding-right:25px;
+  margin-left:5rem;
+  padding-left:45px;
+  padding-right:45px;
 }
 
 .list-overflow-container {

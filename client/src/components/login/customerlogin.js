@@ -27,9 +27,9 @@ class CustomerLogin extends Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
-    displayError(errormessage) {
-        return <Alert variant="danger">{errormessage}</Alert>
-    }
+    // displayError = (errormessage)  => (
+    //     <Alert variant="danger">{errormessage}</Alert>
+    // )
 
     handleChange(event) {
         let name = event.target.name;
@@ -41,6 +41,7 @@ class CustomerLogin extends Component {
             username: this.state.customerUsername,
             password: this.state.customerPassword
         }
+  
 
 
 
@@ -100,22 +101,19 @@ class CustomerLogin extends Component {
 
 
         axios.post('/api/auth', customerRequest)
-            .then(function (response) {
+            .then((response) => {
                 // console.log(response.data);
                 const userType = response.data.user.UserTypeId;
                 // console.log(userType);
                 if (userType !== 1) {
-                    console.log('wrong user type');
-                    alert("Wrong User Type! Returning to login...");
-                    function reroutetologin() {
-                        window.location = "/"
-                    }
+                    // console.log('wrong user type');
 
-                    setTimeout(reroutetologin, 3000);
+                    // const errormessage = error.response.data.info.message;
                     this.setState({
                         error: true,
                         errormessage: "Please log in at the appropriate page."
                     });
+                    console.log("our error is now: ", this.state.error);
                     
 
                 } else {
@@ -146,37 +144,17 @@ class CustomerLogin extends Component {
                         }).catch(function(error) {
                           console.log(error);
                         })
-
-
-
-
-
-
-
-
-
-
-                    
-
       
                 }
             })
-            .catch(function (error) {
+            .catch((error) => {
                 if (error.response) {
-                    console.log(error.response.data.info.message);
                     const errormessage = error.response.data.info.message;
-                    this.displayError(errormessage)
-
-                    function reroutetologin() {
-                        window.location = "/"
-                    }
-                    console.log(errormessage);
-
-                    setTimeout(reroutetologin, 3000);
-                    // this.setState({
-                    //     error: true,
-                    //     errormessage: errormessage
-                    // });
+                    this.setState({
+                        error: true,
+                        errormessage: "Incorrect username or password, please log in again."
+                    });
+                    // console.log(errormessage);
                 }
                 // console.log('catch error')
                 // function reroutetologin() {
@@ -201,14 +179,17 @@ class CustomerLogin extends Component {
     }
 
     render() {
-        const errormessage = this.state.errormessage;
+        
         const error = this.state.error;
+        const errormessage = this.state.errormessage;
         return (
             <Container>
                 <div id="customer-login">
-                    {
-                        (error) ? <div>Error: {errormessage}</div> : <div></div>
-                    }
+                    <div id="alert-area">
+                        {
+                            (error) ? <Alert variant="danger">Error: {errormessage}</Alert> : <div></div>
+                        }
+                    </div>
                     <Card.Body>
                         <Tabs defaultActiveKey="Login" transition={false} id="noanim-tab-example">
                             <Tab eventKey="Login" title="Log in">
