@@ -28,7 +28,8 @@ import authRoutes from './routes/auth';
 authRoutes(app);
 import userRegistrationRoutes from './routes/registration';
 userRegistrationRoutes(app);
-app.use('/', passport.authenticate('jwt', { session: false }), routes);
+app.use(routes);
+// '/', passport.authenticate('jwt', { session: false }), 
 
 
 // Serve up static assets (usually on heroku)
