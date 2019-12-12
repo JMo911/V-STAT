@@ -22,6 +22,14 @@ const routes = require('./routes');
 passport.use(LocalStrategy);
 passport.use(JWTStrategy);
 
+
+
+
+// Serve up static assets (usually on heroku)
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
+
 // NEW AUTH
 
 import authRoutes from './routes/auth';
@@ -29,12 +37,6 @@ authRoutes(app);
 import userRegistrationRoutes from './routes/registration';
 userRegistrationRoutes(app);
 app.use('/', passport.authenticate('jwt', { session: false }), routes);
-
-
-// Serve up static assets (usually on heroku)
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
-}
 
 // Send every request to the React app
 // Define any API routes before this runs
