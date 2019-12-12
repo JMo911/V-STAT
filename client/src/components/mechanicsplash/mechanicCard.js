@@ -7,7 +7,7 @@ const MechanicCard = (props) => {
   return (
     <React.Fragment>
     <div className="cardDiv">
-      <Card style={{backgroundColor: "rgba(255,255,255,0.85"}}>
+      <Card id="mechanic-cards">
         <Card.Body>
           <Card.Title >{props.vehicleMake} {props.vehicleModel} {props.vehicleYear}</Card.Title>
           <br/>
