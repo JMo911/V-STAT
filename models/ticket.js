@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
     //     unique: false,
     //     timestamps: false
     //   },
-    //   foreignKey: 'ticketId',
+    //   foreignKey: 'ticketId', 
     //   constraints: false
     // });
     Ticket.hasMany(models.Comment);
