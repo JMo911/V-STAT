@@ -68,6 +68,7 @@ class InsurerSignup extends Component {
                             value={this.state.mechanicPassword} 
                             onChange={this.handleChange}
                             name="mechanicPassword"
+                            type="password"
                             placeholder="Enter Password" />
                         </Col>
                         <Col>
