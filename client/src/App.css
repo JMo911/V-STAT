@@ -27,7 +27,7 @@
   max-width: 35%;
   height: auto;
   background-color: aliceblue;
-  opacity: 0.9;
+  opacity: 0.95;
   padding: 5%;
   border-radius: 1rem;
   border: 10px inset silver;
@@ -82,7 +82,7 @@ a {
 
 body {
   /* background-color:white; */
-  background-image: url("https://i.imgur.com/8MX6gTx.jpg") no-repeat center center fixed; 
+  background-image: url("https://i.imgur.com/iwuy7Rg.jpg") no-repeat center center fixed; 
   background-size:cover;
   /* padding-top:0px; */
   /* height:100% !important; */
@@ -91,15 +91,16 @@ body {
 #root {
   background-color:white;
   background-size: cover;
-  background-image: url("https://i.imgur.com/8MX6gTx.jpg"); 
-
+  background-image: url("https://i.imgur.com/iwuy7Rg.jpg"); 
+  background-size: cover;
+  background-repeat: no-repeat;
   /* background-image: url("https://i.imgur.com/OI0pnN0.jpg") no-repeat center center fixed;  */
 
 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: auto;
+  /* background-size: auto; */
 }
 
 #logo {
@@ -218,16 +219,50 @@ input.form-control {
 
 }
 
+.insurance-ticket-button {
+  justify-content:center;
+  width: 100%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.mechanic-ticket-button {
+  justify-content:center;
+  width: 100%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+#insurance-cardarea { 
+  /* border:5px solid pink; */
+  left: 33%;
+  position: absolute;
+
+} 
+#insurance-logout-button {
+  width:100%;
+}
+
+#mechanic-cardarea {
+  /* border:5px solid pink; */
+  left: 35%;
+    position: absolute;
+
+}
+
 /* Fixing a bunch of height and margin shit. */
 #root {
-  height:100%;
-  width:100%;
+  height:100vh;
+  width:100vw;
   /* background-image: url("https://i.imgur.com/OI0pnN0.jpg") no-repeat center center fixed;  */
 }
-.container {
-  height:100%;
+page.container {
+  height:100vw;
   margin:0;
+  width:100vw;
+  justify-content:center;
 }
+
 .row {
   height:10%;
   justify-content: center;
@@ -287,6 +322,14 @@ input.form-control {
   width: 55%;
 }
 
+#insurance-ticket-card-view {
+  position: relative;
+  margin-top: 5rem;
+  /* border: 5px solid red; */
+  width: 100%;
+}
+
+
 #contact-area {
   position:relative;
   left:25%;
@@ -332,7 +375,9 @@ fieldset {
 }
 
 #insurance-splash-area {
-  background-color:green;
+  /* background-color:green; */
+  margin-left: 40%;
+  margin-top: 10%;
 }
 
 #comment-box {

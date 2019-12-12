@@ -96,8 +96,7 @@ class MechanicSplash extends Component {
     render() {
       return (
         <React.Fragment>
-            <div id="cardarea">
-            {/* {this.state.data[0].Tickets.map(data => ( */}
+            <div id="mechanic-cardarea">
                 {this.state.data.map(data => (
                     <MechanicCard 
                     key={data.id}
@@ -111,8 +110,9 @@ class MechanicSplash extends Component {
                     vehicleMileage={data.vehicleMileage}
                     />
                 ))}
+                <Button variant="danger" onClick={() => this.logOut()}>Log out</Button>
             </div>
-            <Button variant="danger" onClick={() => this.logOut()}>Log out</Button>
+            
         </React.Fragment>
       )
     }

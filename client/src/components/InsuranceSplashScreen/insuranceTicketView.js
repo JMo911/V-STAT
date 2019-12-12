@@ -100,8 +100,7 @@ class InsuranceTicketView extends Component {
     render() {
       return (
         <React.Fragment>
-            <div id="cardarea">
-            {/* {this.state.data[0].Tickets.map(data => ( */}
+            <div id="insurance-cardarea">
                 {this.state.data.map(data => (
                     <InsuranceCard 
                     key={data.id}
@@ -113,18 +112,11 @@ class InsuranceTicketView extends Component {
                     vehicleModel={data.vehicleModel}
                     vehicleYear={data.vehicleYear}
                     vehicleMileage={data.vehicleMileage}
-                    // customerNameFirst={data.customerNameFirst}
-                    // customerNameLast={data.customerNameLast}
-                    // mechanicNameFirst={data.mechanicNameFirst}
-                    // mechanicNameLast={data.mechanicNameLast}
-                    // mechanicShopName={data.mechanicShopName}
-                    // insuranceNameFirst={data.insuranceNameFirst}
-                    // insuranceNameLast={data.insuranceNameLast}
-                    // insuranceCompany={data.insuranceCompany}
                     />
                 ))}
+                <Button variant="danger" id="insurance-logout-button" onClick={() => this.logOut()}>Log out</Button>
             </div>
-            <Button variant="danger" onClick={() => this.logOut()}>Log out</Button>
+            
         </React.Fragment>
       )
     }

@@ -7,7 +7,7 @@ const MechanicCard = (props) => {
   return (
     <React.Fragment>
     <div className="cardDiv">
-      <Card style={{backgroundColor: "rgba(255,255,255,0.2"}}>
+      <Card style={{backgroundColor: "rgba(255,255,255,0.85"}}>
         <Card.Body>
           <Card.Title >{props.vehicleMake} {props.vehicleModel} {props.vehicleYear}</Card.Title>
           <br/>
@@ -45,7 +45,7 @@ const MechanicCard = (props) => {
         </Card.Body>
         {/* <Link to={"/mechanic-splash"} > {this.state.data[0].id}> */}
         <Link to = {`/MasterView/${props.dataKey}`}>
-          <Button variant="primary">View Ticket</Button>
+          <Button variant="primary" className="mechanic-ticket-button">View Ticket</Button>
         </Link>
       </Card>
     </div>

@@ -6,7 +6,7 @@ import {Link} from 'react-router-dom';
 const InsuranceCard = (props) => {
   return (
     <React.Fragment>
-    <div id="cardDiv">
+    <div id="insurance-ticket-card-view">
       <Card style={{backgroundColor: "rgba(255,255,255,0.2"}}>
         <Card.Body>
         <Card.Title>{props.vehicleMake} {props.vehicleModel} {props.vehicleYear}</Card.Title>
@@ -33,7 +33,7 @@ const InsuranceCard = (props) => {
 
         </Card.Body>
         <Link to = {`/MasterView/${props.dataKey}`}>
-          <Button variant="primary">View Ticket</Button>
+          <Button variant="primary" className="insurance-ticket-button">View Ticket</Button>
         </Link>
       </Card>
     </div>
