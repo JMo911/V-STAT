@@ -5,7 +5,9 @@ import {
     Col,
     Form,
     Tab,
-    Tabs
+    Tabs,
+    Container,
+    Alert
 } from "react-bootstrap";
 import { Link } from 'react-router-dom';
 import './styles.css';
@@ -18,7 +20,10 @@ class InsurerLogin extends Component {
         super(props);
         this.state = {
             insuranceUsername: "",
-            insurancePassword: ""
+            insurancePassword: "",
+            error: false,
+            errormessage: '',
+            data:[]
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -35,24 +40,22 @@ class InsurerLogin extends Component {
             password: this.state.insurancePassword
         }
         axios.post('/api/auth', insuranceAgentRequest)
-            .then(function (response) {
-                const userType = response.data.user.UserTypeId;
-                // console.log(userType);
-                if (userType !== 3) {
-                    console.log('wrong user type');
-                    
+        .then((response) => {
+            // console.log(response.data);
+            const userType = response.data.user.UserTypeId;
+            // console.log(userType);
+            if (userType !== 3) {
+                // console.log('wrong user type');
 
-                    function reroutetologin() {
-                        window.location = "/"
-                    }
+                // const errormessage = error.response.data.info.message;
+                this.setState({
+                    error: true,
+                    errormessage: "Please log in at the appropriate page."
+                });
+                console.log("our error is now: ", this.state.error);
+                
 
-                    setTimeout(reroutetologin, 3000);
-                    // this.setState({
-                    //     error: true,
-                    //     errormessage: "Please log in at the appropriate page."
-                    // });
-
-                } else {
+            } else {
                     // console.log("Hello World");
                     const cookie = new Cookie();
                     cookie.set('token', response.data.token)
@@ -61,30 +64,32 @@ class InsurerLogin extends Component {
                     window.location = "/insurance-splash";
                 }
             })
-            .catch(function (error) {
+            .catch((error) => {
                 console.log(error);
                 if (error.response) {
-                    console.log(error.response.data.info.message);
                     const errormessage = error.response.data.info.message;
-                    function reroutetologin() {
-                        window.location = "/"
-                    }
-                    console.log(errormessage);
+                    this.setState({
+                        error: true,
+                        errormessage: "Incorrect username or password, please log in again."
+                    });
+                    // console.log(errormessage);
+                }
 
-                    setTimeout(reroutetologin, 3000);
-                    // this.setState({
-                    //     error: true,
-                    //     errormessage: errormessage
-                    // });
-                } 
-            })
-        ;
+            });
         event.preventDefault();
     }
 
     render() {
+        const error = this.state.error;
+        const errormessage = this.state.errormessage;
         return (
+            <Container>
             <div id="insurance-login">
+                    <div id="alert-area">
+                        {
+                            (error) ? <Alert variant="danger">Error: {errormessage}</Alert> : <div></div>
+                        }
+                    </div>
                 <Card.Body>
                     <Tabs defaultActiveKey="Login" transition={false} id="noanim-tab-example">
                         <Tab eventKey="Login" title="Log in">
@@ -119,6 +124,7 @@ class InsurerLogin extends Component {
                     </Tabs>
                 </Card.Body>
             </div>
+            </Container>
         )
     }
 }

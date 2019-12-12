@@ -3,7 +3,9 @@ import {
     Button,
     Card,
     Col,  
-    Form
+    Form,
+    Container,
+    Alert
     } from "react-bootstrap";
 import './styles.css';
 const axios = require('axios');
@@ -18,7 +20,10 @@ class InsurerSignup extends Component {
             mechanicPassword: "",
             mechanicNameFirst: "",
             mechanicNameLast: "", 
-            mechanicShopName: ""       
+            mechanicShopName: "",     
+            error: false,
+            errormessage: '',
+            data:[]  
         };
     
         this.handleChange = this.handleChange.bind(this);

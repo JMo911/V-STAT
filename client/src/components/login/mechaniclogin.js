@@ -6,13 +6,14 @@ import {
     Form,
     Tab,
     Tabs,
-    
+    Container,
+    Alert
 } from "react-bootstrap";
 import { Link } from 'react-router-dom';
 import './styles.css';
 import MechanicSignup from "../signup/mechanicsignup";
 import Cookie from 'universal-cookie';
-import Alert from "react-bootstrap/Alert";
+// import Alert from "react-bootstrap/Alert";
 const axios = require("axios");
 
 
@@ -22,7 +23,10 @@ class MechanicLogin extends Component {
         super(props);
         this.state = {
             mechanicUsername: "",
-            mechanicPassword: ""
+            mechanicPassword: "",
+            error: false,
+            errormessage: '',
+            data:[]
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -41,26 +45,22 @@ class MechanicLogin extends Component {
         }
         console.log(mechaniceRequest);
         axios.post('/api/auth', mechaniceRequest)
-            .then(function (response) {
-                // console.log(response);
-                const userType = response.data.user.UserTypeId;
-                // console.log(userType);
-                if (userType !== 2) {
-                    console.log('wrong user type');
-                    return (
-                        <Alert variant="danger">
-                            <Alert.Heading>Wrong user type!</Alert.Heading>
-                        </Alert>
-                    )
-                    // this.setState({
-                    //     error: true,
-                    //     errormessage: "Please log in at the appropriate page."
-                    // })
-                    function reroutetologin() {
-                        window.location = "/"
-                    }
-                    setTimeout(reroutetologin, 3000);
-                } else {
+        .then((response) => {
+            // console.log(response.data);
+            const userType = response.data.user.UserTypeId;
+            // console.log(userType);
+            if (userType !== 2) {
+                // console.log('wrong user type');
+
+                // const errormessage = error.response.data.info.message;
+                this.setState({
+                    error: true,
+                    errormessage: "Please log in at the appropriate page."
+                });
+                console.log("our error is now: ", this.state.error);
+                
+
+            } else {
                     // console.log("Hello World");
                     const cookie = new Cookie();
                     cookie.set('token', response.data.token)
@@ -69,21 +69,14 @@ class MechanicLogin extends Component {
                     window.location = "/mechanic-splash";
                 }
             })
-            .catch(function (error) {
-                console.log(error);
+            .catch((error) => {
                 if (error.response) {
-                    // console.log(error.response.data.info.message);
-                    // const errormessage = error.response.data.info.message;
-                    function reroutetologin() {
-                        window.location = "/"
-                    }
+                    const errormessage = error.response.data.info.message;
+                    this.setState({
+                        error: true,
+                        errormessage: "Incorrect username or password, please log in again."
+                    });
                     // console.log(errormessage);
-
-                    setTimeout(reroutetologin, 3000);
-                    // this.setState({
-                    //     error: true,
-                    //     errormessage: errormessage
-                    // });
                 }
             });
         event.preventDefault();
@@ -92,8 +85,17 @@ class MechanicLogin extends Component {
 
 
     render() {
+        
+        const error = this.state.error;
+        const errormessage = this.state.errormessage;
         return (
-            <div id="mechanic-login">
+            <Container>
+                    <div id="alert-area">
+                        {
+                            (error) ? <Alert variant="danger">Error: {errormessage}</Alert> : <div></div>
+                        }
+                    </div>
+                <div id="mechanic-login">
                 <Card.Body>
                     <Tabs defaultActiveKey="Login" transition={false} id="noanim-tab-example">
                         <Tab eventKey="Login" title="Log in">
@@ -132,6 +134,7 @@ class MechanicLogin extends Component {
                     </Link> */}
                 </Card.Body>
             </div>
+            </Container>
         )
     }
 }
